@@ -13,3 +13,11 @@ Veterinario::Veterinario (int id, string nome, string cpf, short int idade,
 Veterinario::~Veterinario(){
 
 };
+
+void Veterinario::set_m_crmv (string crmv){
+	m_crmv = crmv;
+};
+
+string Veterinario::get_m_crmv (){
+	return m_crmv;
+};

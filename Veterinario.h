@@ -15,6 +15,10 @@ class Veterinario: public Funcionario{
 					short int tipo_sanguineo, char fator_rh, 
 					string especialidade, string crmv);
 		~Veterinario();
+
+		void set_m_crmv (string crmv);
+		
+		string get_m_crmv ();
 };
 
 #endif

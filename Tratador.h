@@ -12,11 +12,20 @@ class Tratador: public Funcionario{
 		int m_nivel_de_seguranca;
 
 	public:
+		// Construtores e destrutor
+
 		Tratador();
 		Tratador(int id, string nome, string cpf, short int idade, 
 					short int tipo_sanguineo, char fator_rh, 
 					string especialidade, int nivel_de_seguranca);
 		~Tratador();
+
+		// Métodos Sets
+		void set_m_nivel_de_seguranca(int nivel_de_seguranca);
+		
+		// Métodos Gets
+		int get_m_nivel_de_seguranca();
+
 };
 
 #endif

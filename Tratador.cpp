@@ -13,4 +13,16 @@ Tratador::~Tratador(){
 
 };
 
+// Métodos Sets
+void Tratador::set_m_nivel_de_seguranca(int nivel_de_seguranca){
+	m_nivel_de_seguranca = nivel_de_seguranca;
+};
+
+// Métodos Gets
+int Tratador::get_m_nivel_de_seguranca(){
+	return m_nivel_de_seguranca;
+};
+
+
+
 
