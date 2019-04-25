@@ -9,13 +9,13 @@ using namespace std;
 
 class Tratador: public Funcionario{
 	private:
-		int m_nivel_de_segurtanca;
+		int m_nivel_de_seguranca;
 
 	public:
 		Tratador();
 		Tratador(int id, string nome, string cpf, short int idade, 
 					short int tipo_sanguineo, char fator_rh, 
-					string especialidade, string crmv);
+					string especialidade, int nivel_de_seguranca);
 		~Tratador();
 };
 
