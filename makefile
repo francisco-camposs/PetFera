@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o
 
 # Compilador
 cc=g++
@@ -37,6 +37,9 @@ build/Tratador.o: src/Tratador.cpp
 	
 build/Veterinario.o: src/Veterinario.cpp
 	$(cc) $(CC_FLAGS) src/Veterinario.cpp -c && mv Veterinario.o build
+
+build/Mamifero.o: src/Mamifero.cpp
+	$(cc) $(CC_FLAGS) src/Mamifero.cpp -c && mv Mamifero.o build
 
 ex: $(project_name)
 	./bin/ex

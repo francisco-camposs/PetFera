@@ -3,4 +3,19 @@
 
 #include <Animal.h>
 
+class Mamifero : public Animal {
+	protected:
+		string m_cor_do_pelo;
+
+	public:
+		Mamifero();
+		Mamifero(int id, string classe, string nome_cientifico, char sexo, 
+				double tamanho, string dieta, Veterinario& veterinario, 
+				Tratador& Tratador, string nome_batismo, string cor_do_pelo);
+		~Mamifero();
+
+		void set_m_cor_do_pelo(string cor_do_pelo);
+		string get_m_cor_do_pelo();
+};
+
 #endif
