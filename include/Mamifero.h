@@ -3,6 +3,8 @@
 
 #include <Animal.h>
 
+using namespace std;
+
 class Mamifero : public Animal {
 	protected:
 		string m_cor_do_pelo;

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Animal.h"
+#include "Mamifero.h"
+#include "Anfibio.h"
 
 using namespace std;
 
