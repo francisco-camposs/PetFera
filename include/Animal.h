@@ -4,7 +4,9 @@
 #include <iostream>
 #include <string>
 #include "Veterinario.h"
-#include "Tratador.h"
+#include "Tratador.h" 
+
+using namespace std;
 
 class Animal {
 	protected:
@@ -14,15 +16,15 @@ class Animal {
 		char m_sexo;
 		double m_tamanho;
 		string m_dieta;
-		Veterinario m_veterinario;
-		Tratador m_Tratador;
+		Veterinario* m_veterinario;
+		Tratador* m_Tratador;
 		string m_nome_batismo;
 
 	public:
 		Animal();
 		Animal(int id, string classe, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario& veterinario, 
-				Tratador& Tratador, string nome_batismo);
+				double tamanho, string dieta, Veterinario* veterinario, 
+				Tratador* Tratador, string nome_batismo);
 		~Animal();
 
 
@@ -32,19 +34,19 @@ class Animal {
 		void set_m_sexo(char sexo);
 		void set_m_tamanho(double tamanho);
 		void set_m_dieta(string dieta);
-		void set_m_veterinario(Veterinario veterinario);
-		void set_m_Tratador(Tratador Tratador);
+		void set_m_veterinario(Veterinario *veterinario);
+		void set_m_Tratador(Tratador *tratador);
 		void set_m_nome_batismo(string nome_batismo);
 
-		int get_m_id();
-		string get_m_classe();
-		string get_m_nome_cientifico();
-		char get_m_sexo();
-		double get_m_tamanho();
-		string get_m_dieta();
+		int get_m_id() const;
+		string get_m_classe() const;
+		string get_m_nome_cientifico() const;
+		char get_m_sexo() const;
+		double get_m_tamanho() const;
+		string get_m_dieta() const;
 		Veterinario get_m_veterinario();
 		Tratador get_m_Tratador();
-		string get_m_nome_batismo();
+		string get_m_nome_batismo() const;
 
 };
 

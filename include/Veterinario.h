@@ -5,7 +5,9 @@
 #include <string>
 #include "Funcionario.h"
 
-class Veterinario: public Funcionario{
+using namespace std;
+
+class Veterinario : public Funcionario{
 	private:
 		string m_crmv;
 

@@ -1,9 +1,8 @@
 #ifndef _FUNCIONARIO_H_
-#define _FUNCIONARIO_H_
+#define _FUNCIONARIO_H_ 
 
 #include <iostream>
 #include <string>
-
 
 using namespace std;
 
@@ -22,7 +21,7 @@ class Funcionario {
 		Funcionario();
 		Funcionario(int id, string nome, string cpf, short int idade, 
 					short int tipo_sanguineo, char fator_rh, string especialidade);
-		~Funcionario();
+		~Funcionario(); 
 
 		// Métodos Sets
 		void set_id(int id);
