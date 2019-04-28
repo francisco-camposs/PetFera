@@ -13,8 +13,8 @@ class Anfibio : public Animal {
 	public:
 		Anfibio();
 		Anfibio(int id, string classe, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario& veterinario, 
-				Tratador& Tratador, string nome_batismo, int total_de_mudas,
+				double tamanho, string dieta, Veterinario *veterinario, 
+				Tratador *Tratador, string nome_batismo, int total_de_mudas,
 				int day, int month, int year);
 		~Anfibio();
 
