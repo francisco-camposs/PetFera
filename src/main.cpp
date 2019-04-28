@@ -21,14 +21,14 @@ int main (){
 	cout << "\n\n";
 
 	cout << "Tratador: " << endl;
-	cout << "m_id: " <<  Cachorro.get_m_Tratador().get_id() << endl;
-	cout << "m_nome: "<<  Cachorro.get_m_Tratador().get_nome() << endl;
-	cout << "m_cpf: "<<  Cachorro.get_m_Tratador().get_cpf() << endl;
-	cout << "m_idade: "<< Cachorro.get_m_Tratador().get_idade() << endl;
-	cout << "m_tipo_sanguineo: "<<  Cachorro.get_m_Tratador().get_tipo_sanguineo() << endl;
-	cout << "m_fator_rh: "<<  Cachorro.get_m_Tratador().get_fator_rh() << endl;
-	cout << "m_especialidade: " << Cachorro.get_m_Tratador().get_especialidade() << endl;
-	cout << "get_nivel_de_seguranca: " << Cachorro.get_m_Tratador().get_nivel_de_seguranca() << endl;
+	cout << "m_id: " <<  Cachorro.get_m_tratador().get_id() << endl;
+	cout << "m_nome: "<<  Cachorro.get_m_tratador().get_nome() << endl;
+	cout << "m_cpf: "<<  Cachorro.get_m_tratador().get_cpf() << endl;
+	cout << "m_idade: "<< Cachorro.get_m_tratador().get_idade() << endl;
+	cout << "m_tipo_sanguineo: "<<  Cachorro.get_m_tratador().get_tipo_sanguineo() << endl;
+	cout << "m_fator_rh: "<<  Cachorro.get_m_tratador().get_fator_rh() << endl;
+	cout << "m_especialidade: " << Cachorro.get_m_tratador().get_especialidade() << endl;
+	cout << "get_nivel_de_seguranca: " << Cachorro.get_m_tratador().get_nivel_de_seguranca() << endl;
 	cout << "\n\n";
 
 	cout << "Veterinario: " << endl;

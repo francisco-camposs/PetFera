@@ -8,10 +8,10 @@ Animal::Animal(){
 
 Animal::Animal(int id, string classe, string nome_cientifico, char sexo, 
 		double tamanho, string dieta, Veterinario* veterinario, 
-		Tratador* Tratador, string nome_batismo): m_id(id), m_classe(classe)
+		Tratador* tratador, string nome_batismo): m_id(id), m_classe(classe)
 		, m_nome_cientifico(nome_cientifico), m_sexo(sexo)
 		, m_tamanho(tamanho), m_dieta(dieta), m_veterinario(veterinario)
-		, m_Tratador(Tratador), m_nome_batismo(nome_batismo) {/*
+		, m_tratador(tratador), m_nome_batismo(nome_batismo) {/*
  */};
 
 Animal::~Animal(){
@@ -42,12 +42,12 @@ void Animal::set_m_dieta(string dieta){
 	m_dieta = dieta;
 };
 
-void Animal::set_m_veterinario(Veterinario *veterinario){
+void Animal::set_m_veterinario(Veterinario* veterinario){
 	m_veterinario = veterinario;
 };
 
-void Animal::set_m_Tratador(Tratador *Tratador){
-	m_Tratador = Tratador;
+void Animal::set_m_tratador(Tratador* tratador){
+	m_tratador = tratador;
 };
 
 void Animal::set_m_nome_batismo(string nome_batismo){
@@ -83,8 +83,8 @@ Veterinario Animal::get_m_veterinario(){
 	return *m_veterinario;
 };
 
-Tratador Animal::get_m_Tratador(){
-	return *m_Tratador;
+Tratador Animal::get_m_tratador(){
+	return *m_tratador;
 };
 
 string Animal::get_m_nome_batismo() const{

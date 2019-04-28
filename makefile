@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o
 
 # Compilador
 cc=g++
@@ -47,6 +47,11 @@ build/Anfibio.o: src/Anfibio.cpp
 build/date.o: src/date.cpp
 	$(cc) $(CC_FLAGS) src/date.cpp -c && mv date.o build
 
+build/Reptil.o: src/Reptil.cpp
+	$(cc) $(CC_FLAGS) src/Reptil.cpp -c && mv Reptil.o build
+
+build/Ave.o: src/Ave.cpp
+	$(cc) $(CC_FLAGS) src/Ave.cpp -c && mv Ave.o build
 
 
 
