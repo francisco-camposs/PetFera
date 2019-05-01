@@ -77,6 +77,8 @@ build/AveNativa.o: src/AveNativa.cpp
 build/AveExotica.o: src/AveExotica.cpp
 	$(cc) $(CC_FLAGS) src/AveExotica.cpp -c && mv AveExotica.o build
 
+build/AnimalSilvestre.o: src/AnimalSilvestre.cpp
+	$(cc) $(CC_FLAGS) src/AnimalSilvestre.cpp -c && mv AnimalSilvestre.o build
 
 
 ex: $(project_name)
