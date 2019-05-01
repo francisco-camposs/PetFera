@@ -1,7 +1,7 @@
 #ifndef _MAMIFEROEXOTICO_H
 #define _MAMIFEROEXOTICO_H
 
-#include "mamifero.h"
+#include "Mamifero.h"
 
 using namespace std;
 
