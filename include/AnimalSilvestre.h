@@ -7,14 +7,14 @@ using namespace std;
 
 class AnimalSilvestre {
 	protected:
-  		string m_autorizacao;
+  		string m_autorizacao_ibama;
   	public:
   		AnimalSilvestre();
-  		AnimalSilvestre(string autorizacao);
+  		AnimalSilvestre(string autorizacao_ibama);
   		~AnimalSilvestre();
 
-  		void set_autorizacao(string autorizacao);
-  		string get_autorizacao();
+  		void set_autorizacao_ibama(string autorizacao_ibama);
+  		string get_autorizacao_ibama();
 };
 
 #endif
