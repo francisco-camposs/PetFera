@@ -6,7 +6,7 @@ AnimalSilvestre::AnimalSilvestre() {
 
 };
 
-AnimalSilvestre::AnimalSilvestre(string autorizacao) {
+AnimalSilvestre::AnimalSilvestre(string autorizacao): m_autorizacao(autorizacao) {
 
 };
 
@@ -14,10 +14,10 @@ AnimalSilvestre::~AnimalSilvestre() {
 
 };
 
-void set_autorizacao(string autorizacao) {
+void AnimalSilvestre::set_autorizacao(string autorizacao) {
 	m_autorizacao = autorizacao;
 };
 
-string get_autorizacao() {
+string AnimalSilvestre::get_autorizacao() {
 	return m_autorizacao;
 };
