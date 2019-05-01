@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o
 
 # Compilador
 cc=g++
@@ -80,6 +80,11 @@ build/AveExotica.o: src/AveExotica.cpp
 build/AnimalSilvestre.o: src/AnimalSilvestre.cpp
 	$(cc) $(CC_FLAGS) src/AnimalSilvestre.cpp -c && mv AnimalSilvestre.o build
 
+build/AnimalNativo.o: src/AnimalNativo.cpp
+	$(cc) $(CC_FLAGS) src/AnimalNativo.cpp -c && mv AnimalNativo.o build
+
+build/AnimalExotico.o: src/AnimalExotico.cpp
+	$(cc) $(CC_FLAGS) src/AnimalExotico.cpp -c && mv AnimalExotico.o build
 
 ex: $(project_name)
 	./bin/ex
