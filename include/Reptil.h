@@ -1,7 +1,7 @@
 #ifndef _REPTIL_H
 #define _REPTIL_H
 
-#include "Animal.H"
+#include "Animal.h"
 
 using namespace std;
 
