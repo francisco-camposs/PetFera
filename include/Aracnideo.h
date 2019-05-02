@@ -24,7 +24,7 @@ class Aracnideo : public Animal {
 		void set_ultima_muda(date ultima_muda);
 		string get_tipo_veneno();
 		int get_total_de_mudas();
-		date get_ultima_mudas();
+		date get_ultima_muda();
 };
 
 #endif

@@ -38,6 +38,6 @@ int Aracnideo::get_total_de_mudas() {
 	return m_total_de_mudas;
 };
 
-date Aracnideo::get_ultima_mudas() {
+date Aracnideo::get_ultima_muda() {
 	return m_ultima_muda;
 };
