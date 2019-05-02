@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Peixe.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/PeixeNativo.o build/PeixeExotico.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Peixe.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/Inseto.o build/Aracnideo.o build/PeixeNativo.o build/PeixeExotico.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/InsetoNativo.o build/InsetoExotico.o build/AracnideoExotico.o build/AracnideoNativo.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o
 
 # Compilador
 cc=g++
@@ -56,6 +56,12 @@ build/Reptil.o: src/Reptil.cpp
 build/Ave.o: src/Ave.cpp
 	$(cc) $(CC_FLAGS) src/Ave.cpp -c && mv Ave.o build
 
+build/Inseto.o: src/Inseto.cpp
+	$(cc) $(CC_FLAGS) src/Inseto.cpp -c && mv Inseto.o build
+
+build/Aracnideo.o: src/Aracnideo.cpp
+	$(cc) $(CC_FLAGS) src/Aracnideo.cpp -c && mv Aracnideo.o build
+
 build/PeixeNativo.o: src/PeixeNativo.cpp
 	$(cc) $(CC_FLAGS) src/PeixeNativo.cpp -c && mv PeixeNativo.o build
 
@@ -85,6 +91,18 @@ build/AveNativa.o: src/AveNativa.cpp
 
 build/AveExotica.o: src/AveExotica.cpp
 	$(cc) $(CC_FLAGS) src/AveExotica.cpp -c && mv AveExotica.o build
+
+build/InsetoNativo.o: src/InsetoNativo.cpp
+	$(cc) $(CC_FLAGS) src/InsetoNativo.cpp -c && mv InsetoNativo.o build
+
+build/InsetoExotico.o: src/InsetoExotico.cpp
+	$(cc) $(CC_FLAGS) src/InsetoExotico.cpp -c && mv InsetoExotico.o build
+
+build/AracnideoNativo.o: src/AracnideoNativo.cpp
+	$(cc) $(CC_FLAGS) src/AracnideoNativo.cpp -c && mv AracnideoNativo.o build
+
+build/AracnideoExotico.o: src/AracnideoExotico.cpp
+	$(cc) $(CC_FLAGS) src/AracnideoExotico.cpp -c && mv AracnideoExotico.o build
 
 build/AnimalSilvestre.o: src/AnimalSilvestre.cpp
 	$(cc) $(CC_FLAGS) src/AnimalSilvestre.cpp -c && mv AnimalSilvestre.o build
