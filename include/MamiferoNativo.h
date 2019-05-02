@@ -2,15 +2,17 @@
 #define _MAMIFERONATIVO_H
 
 #include "Mamifero.h"
+#include "AnimalNativo.h"
 
 using namespace std;
 
-class MamiferoNativo : public Mamifero{
+class MamiferoNativo : public Mamifero, AnimalNativo {
 public:
 	MamiferoNativo();
 	MamiferoNativo(int id, string classe, string nome_cientifico, char sexo, 
 				double tamanho, string dieta, Veterinario* veterinario, 
-				Tratador* tratador, string nome_batismo, string cor_do_pelo);
+				Tratador* tratador, string nome_batismo, string cor_do_pelo, 
+				string autorizacao_ibama, string uf_origem, string autorizacao);
 	~MamiferoNativo();
 
 };
