@@ -12,7 +12,7 @@ int main (){
 	Veterinario veterinario(34, "Araujo", "hcghg", 65, 12, '-', "Libra", "LVM");
 
 	// Mamifero Cachorro (5, "Cachorro", "Dog", 'M', 3000, "Carne", &veterinario, &tratador, "Cleber", "Negrão");
-	Aracnideo Tarantula (20, "Arachnida", "Brachypelma smithi", 'F', 60, "Carnivora", &veterinario, &tratador, "Fofinha", 3, "Neurotoxina", 04, 02, 2018);
+	Aracnideo Tarantula(20, "Arachnida", "Brachypelma smithi", 'F', 60, "Carnivora", &veterinario, &tratador, "Fofinha", 3, "Neurotoxina", 04, 02, 2018);
 
 	// cout << "id: " <<  Cachorro.get_m_id() << endl;
 	// cout << "classe: "<<  Cachorro.get_m_classe() << endl;
@@ -79,7 +79,8 @@ int main (){
 
 	cout << "m_nome_batismo: "<<  Tarantula.get_m_nome_batismo() << endl;
 	cout << "tipo_veneno: "<<  Tarantula.get_tipo_veneno() << endl;
-	cout << "total_de_mudas: " << Tarantula.get_total_de_mudas() << endl;
+	cout << "total_de_mudas: " << Tarantula.get_total_de_mudas() << endl << endl;
 
+	Tarantula.write();
 	return 0;
 }
