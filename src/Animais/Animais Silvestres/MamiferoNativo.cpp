@@ -15,3 +15,7 @@ MamiferoNativo::MamiferoNativo(int id, string classe, string nome_cientifico, ch
 MamiferoNativo::~MamiferoNativo(){
 
 }
+
+void MamiferoNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

@@ -17,3 +17,7 @@ InsetoExotico::InsetoExotico(int id, string classe, string nome_cientifico, char
 InsetoExotico::~InsetoExotico() {
 
 };
+
+void InsetoExotico::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

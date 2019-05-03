@@ -15,3 +15,7 @@ MamiferoExotico::MamiferoExotico(int id, string classe, string nome_cientifico, 
 MamiferoExotico::~MamiferoExotico(){
 
 }
+
+void MamiferoExotico::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

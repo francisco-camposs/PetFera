@@ -13,3 +13,7 @@ AnfibioExotico::AnfibioExotico(int id, string classe, string nome_cientifico, ch
 
 }
 AnfibioExotico::~AnfibioExotico(){}
+
+void AnfibioExotico::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

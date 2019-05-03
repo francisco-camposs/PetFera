@@ -17,3 +17,7 @@ AracnideoNativo::AracnideoNativo(int id, string classe, string nome_cientifico, 
 AracnideoNativo::~AracnideoNativo() {
 
 };
+
+void AracnideoNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

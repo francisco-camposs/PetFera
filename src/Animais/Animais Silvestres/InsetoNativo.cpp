@@ -17,3 +17,7 @@ InsetoNativo::InsetoNativo(int id, string classe, string nome_cientifico, char s
 InsetoNativo::~InsetoNativo() {
 
 };
+
+void InsetoNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

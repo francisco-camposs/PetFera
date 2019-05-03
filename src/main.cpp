@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Animal.h"
 #include "Mamifero.h"
 #include "Anfibio.h"
 #include "Aracnideo.h"
+#include "AveNativa.h"
 
 using namespace std;
 
@@ -14,6 +14,7 @@ int main (){
 	// Mamifero Cachorro (5, "Cachorro", "Dog", 'M', 3000, "Carne", &veterinario, &tratador, "Cleber", "Negrão");
 	Aracnideo Tarantula(20, "Arachnida", "Brachypelma smithi", 'F', 60, "Carnivora", &veterinario, &tratador, "Fofinha", 3, "Neurotoxina", 04, 02, 2018);
 
+	AveNativa Arara(22, "Aves", "Anodorhynchus", 'M', 0.6, "Hebívoro", &veterinario, &tratador, "Blue", 2.5, 15, "ibm-340", "Amazonas", "sf234");
 	// cout << "id: " <<  Cachorro.get_m_id() << endl;
 	// cout << "classe: "<<  Cachorro.get_m_classe() << endl;
 	// cout << "nome_cientifico: "<<  Cachorro.get_m_nome_cientifico() << endl;
@@ -80,6 +81,13 @@ int main (){
 	cout << "m_nome_batismo: "<<  Tarantula.get_m_nome_batismo() << endl;
 	cout << "tipo_veneno: "<<  Tarantula.get_tipo_veneno() << endl;
 	cout << "total_de_mudas: " << Tarantula.get_total_de_mudas() << endl << endl;
+
+	Arara.set_m_id(45);
+	Arara.set_autorizacao_ibama("ibm-23034");
+	cout << "m_nome_batismo: "<<  Arara.get_m_nome_batismo() << endl;
+	cout<<"autorizacao do ibama: "<< Arara.get_autorizacao_ibama()<<endl;
+	cout<<"UF de origem: "<< Arara.get_uf_origem() << endl;
+	cout<<"autorizacao: "<< Arara.get_autorizacao() << endl << endl;
 
 	Tarantula.write();
 	return 0;

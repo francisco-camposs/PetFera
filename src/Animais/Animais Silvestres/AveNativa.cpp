@@ -15,3 +15,7 @@ AveNativa::AveNativa(int id, string classe, string nome_cientifico, char sexo,
 AveNativa::~AveNativa(){
 
 }
+
+void AveNativa::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

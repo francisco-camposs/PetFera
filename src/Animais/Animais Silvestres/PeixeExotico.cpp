@@ -15,3 +15,7 @@ PeixeExotico::PeixeExotico(int id, string classe, string nome_cientifico, char s
 PeixeExotico::~PeixeExotico(){
 
 }
+
+void PeixeExotico::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

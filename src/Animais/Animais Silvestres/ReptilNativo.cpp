@@ -15,3 +15,7 @@ ReptilNativo::ReptilNativo(int id, string classe, string nome_cientifico, char s
 ReptilNativo::~ReptilNativo(){
 
 }
+
+void ReptilNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

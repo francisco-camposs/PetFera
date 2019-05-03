@@ -13,3 +13,7 @@ AnfibioNativo::AnfibioNativo(int id, string classe, string nome_cientifico, char
 
 }
 AnfibioNativo::~AnfibioNativo(){}
+
+void AnfibioNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};

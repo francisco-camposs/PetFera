@@ -4,7 +4,7 @@
 #include "Reptil.h"
 #include "AnimalNativo.h"
 
-class ReptilNativo : public Reptil, AnimalNativo {
+class ReptilNativo : public Reptil, public AnimalNativo {
 public:
 	ReptilNativo();
 	ReptilNativo(int id, string classe, string nome_cientifico, char sexo, 
@@ -12,6 +12,8 @@ public:
 				Tratador* tratador, string nome_batismo, bool venenoso,
 				string tipo_veneno, string autorizacao_ibama, string uf_origem, string autorizacao);
 	~ReptilNativo();
+
+	void set_autorizacao_ibama(string autorizacao_ibama);
 };
 
 #endif

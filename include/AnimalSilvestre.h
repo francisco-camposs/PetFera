@@ -1,6 +1,7 @@
 #ifndef _ANIMALSILVESTRE_H_
 #define _ANIMALSILVESTRE_H_
 
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -13,7 +14,7 @@ class AnimalSilvestre {
   		AnimalSilvestre(string autorizacao_ibama);
   		~AnimalSilvestre();
 
-  		void set_autorizacao_ibama(string autorizacao_ibama);
+  		virtual void set_autorizacao_ibama(string autorizacao_ibama) = 0;
   		string get_autorizacao_ibama();
 };
 

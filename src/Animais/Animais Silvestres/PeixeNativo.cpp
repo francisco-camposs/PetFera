@@ -15,3 +15,7 @@ PeixeNativo::PeixeNativo(int id, string classe, string nome_cientifico, char sex
 PeixeNativo::~PeixeNativo(){
 
 }
+
+void PeixeNativo::set_autorizacao_ibama(string autorizacao_ibama){
+	m_autorizacao_ibama = autorizacao_ibama;
+};
