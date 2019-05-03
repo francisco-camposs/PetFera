@@ -35,3 +35,16 @@ void Veterinario::set_crmv (string crmv){
 string Veterinario::get_crmv (){
 	return m_crmv;
 };
+
+void Veterinario::write(){
+	cout<<"Campo;Tipo de dado;Valores"<<endl;
+	cout<<"Identificador do funcionário;Cadeia de caracteres;"<<m_id << endl;
+	cout<<"Função;Cadeia de Caracteres;Veterinário" << endl;
+	cout<<"Nome do funcionário;Cadeia de caracteres;"<<m_nome << endl;
+	cout<<"CPF do funcionário;Cadeia de caracteres;"<<m_cpf << endl;
+	cout<<"Idade do funcionário;Inteiro;"<<m_idade << endl;
+	cout<<"Tipo sanguíneo;Cadeia de caracteres;"<<m_tipo_sanguineo << endl;
+	cout<<"Fator RH;Caractere;"<<m_fator_rh << endl;
+	cout<<"Especialidade;Cadeia de caracteres;"<<m_especialidade << endl;
+	cout<<"Código CRMV;Cadeia de caracteres;"<<m_crmv << endl;
+};

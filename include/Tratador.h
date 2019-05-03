@@ -26,6 +26,7 @@ class Tratador: public Funcionario{
 		
 		// Métodos Gets
 		int get_nivel_de_seguranca();
+		void write();
 
 };
 
