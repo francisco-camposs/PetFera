@@ -17,6 +17,7 @@ class AracnideoNativo : public Aracnideo, public AnimalNativo {
 		~AracnideoNativo();
 
 		void set_autorizacao_ibama(string autorizacao_ibama);
+		void write();
 };
 
 #endif

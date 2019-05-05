@@ -17,6 +17,7 @@ class AracnideoExotico : public Aracnideo, public AnimalExotico {
 		~AracnideoExotico();
 
 		void set_autorizacao_ibama(string autorizacao_ibama);
+		void write();
 };
 
 #endif

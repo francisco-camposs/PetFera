@@ -17,6 +17,7 @@ class InsetoNativo : public Inseto, public AnimalNativo {
 		~InsetoNativo();
 
 		void set_autorizacao_ibama(string autorizacao_ibama);
+		void write();
 };
 
 #endif
