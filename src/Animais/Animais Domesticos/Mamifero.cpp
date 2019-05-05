@@ -31,4 +31,5 @@ void Mamifero::write(){
 	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
+	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
 };

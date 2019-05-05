@@ -11,7 +11,7 @@ int main (){
 	Tratador tratador(12, "Cleber", "Antonio", 23, 10, '-', "a", 6);
 	Veterinario veterinario(34, "Araujo", "hcghg", 65, 12, '-', "Libra", "LVM");
 
-	// Mamifero Cachorro (5, "Cachorro", "Dog", 'M', 3000, "Carne", &veterinario, &tratador, "Cleber", "Negrão");
+	Mamifero Cachorro (5, "Cachorro", "Dog", 'M', 3000, "Carne", &veterinario, &tratador, "Cleber", "Preto");
 	Aracnideo Tarantula(20, "Arachnida", "Brachypelma smithi", 'F', 60, "Carnivora", &veterinario, &tratador, "Fofinha", 3, "Neurotoxina", 04, 02, 2018);
 
 	AveNativa Arara(22, "Aves", "Anodorhynchus", 'M', 0.6, "Hebívoro", &veterinario, &tratador, "Blue", 2.5, 15, "ibm-340", "Amazonas", "sf234");
@@ -90,5 +90,7 @@ int main (){
 	cout<<"autorizacao: "<< Arara.get_autorizacao() << endl << endl;
 
 	Tarantula.write();
+	cout<<endl;
+	Cachorro.write();
 	return 0;
 }

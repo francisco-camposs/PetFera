@@ -38,4 +38,6 @@ void Ave::write(){
 	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
+	cout<<"Tamanho do bico;Double;"<<m_tamanho_do_bico<<endl;
+	cout<<"Envergadura das asas;Double;"<<m_envergadura_das_asas<<endl;
 };

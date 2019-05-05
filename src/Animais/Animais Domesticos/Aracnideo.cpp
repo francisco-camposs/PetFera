@@ -53,4 +53,7 @@ void Aracnideo::write(){
 	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
+	cout<<"Total de mudas;Inteiro;"<<m_total_de_mudas<<endl;
+	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
+	cout<<"Tipo de veneno;Cadeia de caracters;"<<m_tipo_veneno<<endl;
 };

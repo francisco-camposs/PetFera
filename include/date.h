@@ -33,6 +33,7 @@
 			date operator--();
 			date operator--(int);
 			int operator- (date data_two);
+			friend ostream& operator<<(ostream& os, const date& d);
 
 	};
 
@@ -44,6 +45,6 @@
 		bool operator>= (const date&, const date&);
 
 
-		ostream& operator << (ostream& os, const date& d);
+		
 
 #endif

@@ -32,4 +32,5 @@ void Peixe::write(){
 	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
+	cout<<"Tipo de agua;Cadeia de caracteres;"<<m_tipo_agua<<endl;
 };

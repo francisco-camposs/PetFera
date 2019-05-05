@@ -81,3 +81,8 @@ int date::transform_in_days (){
 int date::operator- (date data_two){
 	return transform_in_days() - data_two.transform_in_days();
 }
+
+ostream& operator<<(ostream& os, const date& d){
+	os<<d.day_<<"/"<<d.month_<<"/"<<d.year_;
+	return os;
+}
