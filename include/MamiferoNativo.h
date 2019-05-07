@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class MamiferoNativo : public Mamifero, AnimalNativo {
+class MamiferoNativo : public Mamifero, public AnimalNativo {
 public:
 	MamiferoNativo();
 	MamiferoNativo(int id, string classe, string nome_cientifico, char sexo, 
@@ -15,6 +15,8 @@ public:
 				string autorizacao_ibama, string uf_origem, string autorizacao);
 	~MamiferoNativo();
 
+	void set_autorizacao_ibama(string autorizacao_ibama);
+	void write();
 };
 
 #endif

@@ -47,7 +47,7 @@ class Animal {
 		Veterinario get_m_veterinario();
 		Tratador get_m_tratador();
 		string get_m_nome_batismo() const;
-
+		virtual void write() = 0;
 };
 
 #endif

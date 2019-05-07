@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class AracnideoExotico : public Aracnideo, AnimalExotico {
+class AracnideoExotico : public Aracnideo, public AnimalExotico {
 	public:
 		AracnideoExotico();
 		AracnideoExotico(int id, string classe, string nome_cientifico, char sexo, 
@@ -15,6 +15,9 @@ class AracnideoExotico : public Aracnideo, AnimalExotico {
 				string tipo_veneno, int day, int month, int year, string autorizacao_ibama, 
 				string pais_origem, string autorizacao);
 		~AracnideoExotico();
+
+		void set_autorizacao_ibama(string autorizacao_ibama);
+		void write();
 };
 
 #endif

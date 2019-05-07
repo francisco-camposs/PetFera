@@ -22,8 +22,9 @@ class Veterinario : public Funcionario{
 		~Veterinario();
 
 		void set_crmv (string crmv);
-		
+
 		string get_crmv ();
+		void write();
 };
 
 #endif

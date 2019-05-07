@@ -21,6 +21,7 @@ public:
 	void set_tipo_veneno(string tipo_veneno);
 	bool get_venenoso();
 	string get_tipo_veneno();
+	void write();
 };
 
 #endif

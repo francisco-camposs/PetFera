@@ -40,6 +40,7 @@ class Funcionario {
 		short int get_tipo_sanguineo();
 		char get_fator_rh();
 		string get_especialidade();
+		virtual void write() = 0;
 };
 
 

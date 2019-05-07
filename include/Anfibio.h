@@ -22,6 +22,7 @@ class Anfibio : public Animal {
 		void set_ultima_muda(date ultima_muda);
 		int get_total_de_mudas();
 		date get_ultima_mudas();
+		void write();
 };
 
 #endif
