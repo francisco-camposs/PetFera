@@ -6,10 +6,10 @@ AveExotica::AveExotica(){
 AveExotica::AveExotica(int id, string classe, string nome_cientifico, char sexo,
 		double tamanho, string dieta, Veterinario* veterinario,
 		Tratador* tratador, string nome_batismo, double tamanho_do_bico,
-		double envergadura_das_asas, string autorizacao_ibama, string pais_origem, string autorizacao):
+		double envergadura_das_asas, string autorizacao_ibama, string pais_origem):
 	Ave(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, tamanho_do_bico, envergadura_das_asas), 
-	AnimalExotico(autorizacao_ibama, pais_origem, autorizacao){
+	AnimalExotico(autorizacao_ibama, pais_origem){
 
 }
 AveExotica::~AveExotica(){
@@ -35,5 +35,4 @@ void AveExotica::write(){
 	cout<<"Envergadura das asas;Double;"<<m_envergadura_das_asas<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
-	cout<<"Autorização;Cadeia de caracteres;"<<m_autorizacao<<endl;
 };

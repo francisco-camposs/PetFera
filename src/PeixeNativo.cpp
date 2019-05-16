@@ -6,10 +6,10 @@ PeixeNativo::PeixeNativo(){
 PeixeNativo::PeixeNativo(int id, string classe, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, string tipo_agua, 
-			string autorizacao_ibama, string uf_origem, string autorizacao):
+			string autorizacao_ibama, string uf_origem):
 	Peixe(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, tipo_agua), 
-	AnimalNativo(autorizacao_ibama, uf_origem, autorizacao){
+	AnimalNativo(autorizacao_ibama, uf_origem){
 
 }
 PeixeNativo::~PeixeNativo(){
@@ -34,5 +34,4 @@ void PeixeNativo::write(){
 	cout<<"Tipo de agua;Cadeia de caracteres;"<<m_tipo_agua<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
-	cout<<"Autorização;Cadeia de caracteres;"<<m_autorizacao<<endl;
 };

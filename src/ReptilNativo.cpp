@@ -6,10 +6,10 @@ ReptilNativo::ReptilNativo(){
 ReptilNativo::ReptilNativo(int id, string classe, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, bool venenoso,
-			string tipo_veneno, string autorizacao_ibama, string uf_origem, string autorizacao):
+			string tipo_veneno, string autorizacao_ibama, string uf_origem):
 	Reptil(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, venenoso, tipo_veneno), 
-	AnimalNativo(autorizacao_ibama, uf_origem, autorizacao){
+	AnimalNativo(autorizacao_ibama, uf_origem){
 
 }
 ReptilNativo::~ReptilNativo(){
@@ -35,5 +35,4 @@ void ReptilNativo::write(){
 	cout<<"Tipo de veneno;Cadeia de caracteres;"<<m_tipo_veneno<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
-	cout<<"Autorização;Cadeia de caracteres;"<<m_autorizacao<<endl;
 };

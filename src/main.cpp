@@ -25,7 +25,7 @@ int main (){
 	
 	Aracnideo Tarantula(20, "Arachnida", "Brachypelma smithi", 'F', 60, "Carnivora", &veterinario, &tratador, "Fofinha", 3, "Neurotoxina", 04, 02, 2018);
 
-	AveNativa Arara(22, "Aves", "Anodorhynchus", 'F', 0.6, "Hebívoro", &veterinario, &tratador, "Blue", 2.5, 15, "ibm-340", "Amazonas", "sf234");
+	AveNativa Arara(22, "Aves", "Anodorhynchus", 'F', 0.6, "Hebívoro", &veterinario, &tratador, "Blue", 2.5, 15, "ibm-340", "Amazonas");
 	
 	Anfibio Sapo(23, "Amphibia", "Bufo bufo", 'M', 1, "Insetos", &veterinario, &tratador, "Kermit", 3, 03, 04, 2019);
 

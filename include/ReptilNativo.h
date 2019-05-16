@@ -10,7 +10,7 @@ public:
 	ReptilNativo(int id, string classe, string nome_cientifico, char sexo, 
 				double tamanho, string dieta, Veterinario* veterinario, 
 				Tratador* tratador, string nome_batismo, bool venenoso,
-				string tipo_veneno, string autorizacao_ibama, string uf_origem, string autorizacao);
+				string tipo_veneno, string autorizacao_ibama, string uf_origem);
 	~ReptilNativo();
 
 	void set_autorizacao_ibama(string autorizacao_ibama);

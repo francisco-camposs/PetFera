@@ -13,7 +13,7 @@ class AracnideoNativo : public Aracnideo, public AnimalNativo {
 				double tamanho, string dieta, Veterinario* veterinario, 
 				Tratador* tratador, string nome_batismo, int total_de_mudas, 
 				string tipo_veneno, int day, int month, int year, string autorizacao_ibama, 
-				string uf_origem, string autorizacao);
+				string uf_origem);
 		~AracnideoNativo();
 
 		void set_autorizacao_ibama(string autorizacao_ibama);

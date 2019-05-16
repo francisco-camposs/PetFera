@@ -6,10 +6,10 @@ AnfibioNativo::AnfibioNativo(){
 AnfibioNativo::AnfibioNativo(int id, string classe, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, int total_de_mudas,
-			int day, int month, int year, string autorizacao_ibama, string uf_origem, string autorizacao):
+			int day, int month, int year, string autorizacao_ibama, string uf_origem):
 	Anfibio(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, total_de_mudas, day, month, year),
-	AnimalNativo(autorizacao_ibama, uf_origem, autorizacao){
+	AnimalNativo(autorizacao_ibama, uf_origem){
 
 }
 AnfibioNativo::~AnfibioNativo(){}
@@ -33,5 +33,4 @@ void AnfibioNativo::write(){
 	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
-	cout<<"Autorização;Cadeia de caracteres;"<<m_autorizacao<<endl;
 };
