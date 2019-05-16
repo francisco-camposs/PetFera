@@ -119,3 +119,6 @@ ex: $(project_name)
 #Remove os arquivos .o da pasta
 clean:
 	rm -rf build/*.o
+
+teste:
+	rm -rf build/main.o
