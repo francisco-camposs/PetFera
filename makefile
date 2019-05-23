@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Peixe.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/Inseto.o build/Aracnideo.o build/PeixeNativo.o build/PeixeExotico.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/InsetoNativo.o build/InsetoExotico.o build/AracnideoExotico.o build/AracnideoNativo.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Peixe.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/Inseto.o build/Aracnideo.o build/PeixeNativo.o build/PeixeExotico.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/InsetoNativo.o build/InsetoExotico.o build/AracnideoExotico.o build/AracnideoNativo.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o build/Controle.o
 
 # Compilador
 cc=g++
@@ -112,6 +112,9 @@ build/AnimalNativo.o: src/AnimalNativo.cpp
 
 build/AnimalExotico.o: src/AnimalExotico.cpp
 	$(cc) $(CC_FLAGS) src/AnimalExotico.cpp -c && mv AnimalExotico.o build
+
+build/Controle.o: src/Controle.cpp
+	$(cc) $(CC_FLAGS) src/Controle.cpp -c && mv Controle.o build
 
 ex: $(project_name)
 	./bin/ex
