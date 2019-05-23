@@ -9,7 +9,7 @@ using namespace std;
 class AveNativa : public Ave, public AnimalNativo{
 public:
 	AveNativa();
-	AveNativa(int id, string classe, string nome_cientifico, char sexo,
+	AveNativa(int id, string nome_cientifico, char sexo,
 			double tamanho, string dieta, Veterinario* veterinario,
 			Tratador* tratador, string nome_batismo, double tamanho_do_bico,
 			double envergadura_das_asas, string autorizacao_ibama, string uf_origem);

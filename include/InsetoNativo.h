@@ -9,7 +9,7 @@ using namespace std;
 class InsetoNativo : public Inseto, public AnimalNativo {
 	public:
 		InsetoNativo();
-		InsetoNativo(int id, string classe, string nome_cientifico, char sexo, 
+		InsetoNativo(int id, string nome_cientifico, char sexo, 
 				double tamanho, string dieta, Veterinario* veterinario, 
 				Tratador* tratador, string nome_batismo, int total_de_mudas, 
 				string tipo_metamorfose, int day, int month, int year, string autorizacao_ibama, 
