@@ -12,7 +12,7 @@ public:
 	AnfibioExotico(int id, string nome_cientifico, char sexo, 
 				double tamanho, string dieta, Veterinario* veterinario, 
 				Tratador* tratador, string nome_batismo, int total_de_mudas,
-				int day, int month, int year, string autorizacao_ibama, string pais_origem);
+				int day, int month, int year, string autorizacao_ibama, string pais_origem, string cidade_origem);
 	~AnfibioExotico();
 
 	void set_autorizacao_ibama(string autorizacao_ibama);

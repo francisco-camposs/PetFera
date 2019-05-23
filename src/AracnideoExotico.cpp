@@ -7,10 +7,10 @@ AracnideoExotico::AracnideoExotico() {
 AracnideoExotico::AracnideoExotico(int id, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, int total_de_mudas, string tipo_veneno, 
-			int day, int month, int year, string autorizacao_ibama, string pais_origem):
+			int day, int month, int year, string autorizacao_ibama, string pais_origem, string cidade_origem):
 	Aracnideo(id, "Arachnida", nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, total_de_mudas, tipo_veneno, day, month, year), 
-	AnimalExotico(autorizacao_ibama, pais_origem) {
+	AnimalExotico(autorizacao_ibama, pais_origem, cidade_origem) {
 
 };
 
@@ -38,4 +38,5 @@ void AracnideoExotico::write(){
 	cout<<"Tipo de veneno;Cadeia de caracters;"<<m_tipo_veneno<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
+	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
 };

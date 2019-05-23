@@ -16,7 +16,7 @@ class Tratador: public Funcionario{
 
 		Tratador();
 		Tratador(int id, string nome, string cpf, short int idade, 
-					short int tipo_sanguineo, char fator_rh, 
+					string tipo_sanguineo, char fator_rh, 
 					string especialidade, int nivel_de_seguranca);
 		Tratador(Tratador &Tratador);
 		~Tratador();

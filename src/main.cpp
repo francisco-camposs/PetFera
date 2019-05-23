@@ -18,8 +18,8 @@ using namespace std;
 
 int main (){
 
-	Tratador tratador(12, "Cleber", "Antonio", 23, 10, '-', "a", 6);
-	Veterinario veterinario(34, "Araujo", "hcghg", 65, 12, '-', "Libra", "LVM");
+	Tratador tratador(12, "Cleber", "Antonio", 23, "A", '-', "a", 6);
+	Veterinario veterinario(34, "Araujo", "hcghg", 65, "B", '-', "Libra", "LVM");
 
 	// Mamifero Cachorro (5, "Cachorro", "Dog", 'M', 3000, "Carne", &veterinario, &tratador, "Cleber", "Preto");
 	
@@ -61,7 +61,7 @@ int main (){
 	// Sapo.write();
 
 
-	AveExotica * Picapau = new AveExotica(1,"PauPica", 'M', 231423.34535, "Arvores",&veterinario, &tratador, "Cauã Reimond", 40, 450, "fghfgnjhf", "Brazil");
+	AveExotica * Picapau = new AveExotica(1,"PauPica", 'M', 231423.34535, "Arvores",&veterinario, &tratador, "Cauã Reimond", 40, 450, "fghfgnjhf", "Brazil", "Manaus");
 
 	Picapau->write();
 	Animal * bicho = new AveExotica;

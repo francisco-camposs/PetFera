@@ -6,10 +6,10 @@ MamiferoExotico::MamiferoExotico(){
 MamiferoExotico::MamiferoExotico(int id, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, string cor_do_pelo, 
-			string autorizacao_ibama, string pais_origem):
+			string autorizacao_ibama, string pais_origem, string cidade_origem):
 	Mamifero(id, "Mammalia", nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, cor_do_pelo), 
-	AnimalExotico(autorizacao_ibama, pais_origem){
+	AnimalExotico(autorizacao_ibama, pais_origem, cidade_origem){
 
 }
 MamiferoExotico::~MamiferoExotico(){
@@ -34,4 +34,5 @@ void MamiferoExotico::write(){
 	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
+	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
 };

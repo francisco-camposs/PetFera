@@ -12,7 +12,7 @@ class Funcionario {
 		string m_nome;
 		string m_cpf;
 		short int m_idade;
-		short int m_tipo_sanguineo;
+		string m_tipo_sanguineo;
 		char m_fator_rh;
 		string m_especialidade;
 
@@ -20,7 +20,7 @@ class Funcionario {
 		// Construtores e destrutor
 		Funcionario();
 		Funcionario(int id, string nome, string cpf, short int idade, 
-					short int tipo_sanguineo, char fator_rh, string especialidade);
+					string tipo_sanguineo, char fator_rh, string especialidade);
 		~Funcionario(); 
 
 		// Métodos Sets
@@ -28,7 +28,7 @@ class Funcionario {
 		void set_nome(string nome);
 		void set_cpf(string cpf);
 		void set_idade(short int idade);
-		void set_tipo_sanguineo(short int tipo_sanguineo);
+		void set_tipo_sanguineo(string tipo_sanguineo);
 		void set_fator_rh(char fator_rh);
 		void set_especialidade(string especialidade);
 
@@ -37,7 +37,7 @@ class Funcionario {
 		string get_nome();
 		string get_cpf();
 		short int get_idade();
-		short int get_tipo_sanguineo();
+		string get_tipo_sanguineo();
 		char get_fator_rh();
 		string get_especialidade();
 		virtual void write() = 0;
