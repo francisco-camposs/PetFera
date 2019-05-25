@@ -21,6 +21,71 @@ int Controle::is_number(char * number){
 	return stoi(number);
 };
 
+
+void Controle::criar_mamifero(){
+	shared_ptr<Veterinario> vet(new Veterinario);
+	shared_ptr<Tratador> trat(new Tratador);
+	
+	char * valor = new char;
+	string nome;
+	string nome_cientifico;
+	char * sexo = new char;
+	double tam;
+	string dieta;
+	string cor;
+
+	cout << "Digite o nome cientifico: " << endl;
+	cin.clear();
+	cin.getline(valor,100);
+	nome_cientifico = static_cast<string>(valor); 
+
+	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
+	cin.clear();
+	cin.getline(sexo,20);
+
+	cout << "Sexo: " << *sexo << endl;
+	
+	cout << "Digite o tamanho do mamifero: " << endl;
+	cin.clear();
+	cin.getline(valor, 30);
+	tam = is_number(valor);
+
+
+	cout << "Digite a dieta do mamifero: " << endl;
+	cin.clear();
+	cin.getline(valor,200);
+	dieta = static_cast<string>(valor);
+
+	cout << "Por enquanto serão uns veterinários genéricos." << endl;
+
+	cout << "Digite a O nome de batismo do mamifero: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	nome = static_cast<string>(valor);
+
+	cout << "Digite a cor do pelo do mamifero: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	cor = static_cast<string>(valor);
+	
+	shared_ptr<Animal> mamifero(new Mamifero(animais_m.size(), 
+		"Mammalia", nome_cientifico, *sexo
+		, tam, dieta, vet.get(),
+		trat.get(), nome, cor));
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+
+	animais_m[animais_m.size()] = bicho;
+};
+
+void Controle::criar_mamifero_nativo(){
+
+};
+
+void Controle::criar_mamifero_exotico(){
+
+};
+
+
 		
 void Controle::adicionar_animal(){
 
@@ -64,6 +129,97 @@ void Controle::adicionar_animal(){
 		option_2 = is_number(option_animal);
 	}
 
+	if (option_1 == 1){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 2){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 3){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 4){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 5){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 6){
+		if (option_2 == 1){	
+			criar_mamifero();
+		}
+		if (option_2 == 2){
+			criar_mamifero_nativo();
+		}
+		if (option_2 == 3){
+			criar_mamifero_exotico();
+		}
+	}
+	else if (option_1 == 7){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+	else if (option_1 == 8){
+		if (option_2 == 1){
+
+		}
+		if (option_2 == 2){
+			
+		}
+		if (option_2 == 3){
+			
+		}
+	}
+
+
+
 	// cout << "Só para o compilador parar de mandar aviso: " << option_1 << option_2 <<  endl;
 }
 
@@ -75,7 +231,7 @@ void Controle::alterar_animal(){
 
 }
 void Controle::consultar_animais(){
-
+	animais_m[animais_m.size()-1]->write();
 }
 void Controle::consultar_animais_por_funcionario(){
 
