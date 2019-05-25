@@ -35,6 +35,8 @@ class Controle{
 		Controle(map<int, Animal> a, map<int, Funcionario> f);
 		~Controle();
 		
+		int is_number(char * number);
+		
 		void adicionar_animal();
 		void remover_animal();
 		void alterar_animal();
