@@ -30,9 +30,10 @@ class Controle{
 		map<int, shared_ptr<Animal>> animais_m;
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
 
-		void criar_mamifero();
-		void criar_mamifero_nativo();
-		void criar_mamifero_exotico();
+		void criar_anfibio(int modo_criacao);
+		void criar_ave(int modo_criacao);
+		void criar_mamifero(int modo_criacao);
+		void criar_reptil(int modo_criacao);
 
 	public:
 		Controle();
