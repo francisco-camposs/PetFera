@@ -34,6 +34,7 @@ class Controle{
 		void criar_ave(int modo_criacao);
 		void criar_mamifero(int modo_criacao);
 		void criar_reptil(int modo_criacao);
+		//void criar_funcionario(int modo_criacao);
 
 	public:
 		Controle();

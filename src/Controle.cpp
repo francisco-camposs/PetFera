@@ -627,8 +627,105 @@ void Controle::consultar_animais_por_funcionario(){
 }
 		
 void Controle::adicionar_funcionario(){
+	char * option_funcionario = new char;
+	int option_1;
+	cout << "Digite a opção desejada: " << endl;
+	cout << "\t1 - Adicionar tratador" << endl;
+	cout << "\t2 - Adicionar veterinário" << endl;
 
+	cin.clear();
+	cin.getline(option_funcionario,20);
+	option_1 = is_number(option_funcionario);
+
+	while(option_1 < 1 || option_1 > 2){
+		cout << "Esse número não é valido, tente novamente: " << endl;
+		cin.clear();
+		cin.getline(option_funcionario,20);
+		option_1 = is_number(option_funcionario);
+	}
+
+	char * valor = new char;
+	string nome;
+	string cpf;
+	short int idade;
+	string tipo_sanguineo;
+	char *fator_rh = new char;
+	string especialidade;
+
+	cout<<"Digite o nome: " << endl;
+	cin.clear();
+	cin.getline(valor, 100);
+	nome = static_cast<string>(valor);
+
+
+	cout<<"Digite o cpf:" << endl;
+	cin.clear();
+	cin.getline(valor, 50);
+	cpf = static_cast<string>(valor);
+
+
+	cout<<"Digite a idade: " << endl;
+	cin.clear();
+	cin.getline(valor, 20);
+	idade = is_number(valor);
+
+
+	cout<<"Digite o tipo sanguineo: " << endl;
+	cin.clear();
+	cin.getline(valor, 50);
+	tipo_sanguineo = static_cast<string>(valor);
+
+
+	cout << "Digite o fator RH do Funcionario:" << endl;
+	cin.clear();
+	cin.getline(fator_rh,20);
+
+	while(*fator_rh != '+' && *fator_rh != '-'){
+		cout << "Fator RH inválido, digite novamente: " << endl;
+		cin.clear();
+		cin.getline(fator_rh,20);;
+	}
+	cout << "Fator RH: " << *fator_rh << endl;
+
+
+	cout<<"Digite a especialidade: " << endl;
+	cin.clear();
+	cin.getline(valor, 100);
+	especialidade = static_cast<string>(valor);
+
+
+	if(option_1 == 1){
+		int nivel_de_seguranca;
+
+		cout<<"Digite o nível de segurança do tratador: "<< endl;
+		cin.clear();
+		cin.getline(valor, 50);
+		nivel_de_seguranca = is_number(valor);
+
+		shared_ptr<Funcionario> tratador(new Tratador(funcionarios_m.size()
+				, nome, cpf, idade, tipo_sanguineo, *fator_rh
+				, especialidade, nivel_de_seguranca));
+		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(tratador);
+	
+		funcionarios_m[funcionarios_m.size()] = bicho;
+	}
+	else if(option_1 == 2){
+		string cnmv;
+
+		cout<<"Digite o cnmv do veterinário: " << endl;
+		cin.clear();
+		cin.getline(valor, 100);
+		cnmv = static_cast<string>(valor);
+
+		shared_ptr<Funcionario> veterinario(new Veterinario(funcionarios_m.size()
+				, nome, cpf, idade, tipo_sanguineo, *fator_rh
+				, especialidade, cnmv));
+		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(veterinario);
+	
+		funcionarios_m[funcionarios_m.size()] = bicho;
+	}
 }
+
 void Controle::remover_funcionario(){
 
 }
@@ -636,5 +733,5 @@ void Controle::alterar_funcionario(){
 
 }
 void Controle::consultar_funcionario(){
-
+	funcionarios_m[funcionarios_m.size()-1]->write();
 }
