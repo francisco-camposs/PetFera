@@ -30,6 +30,11 @@ class Controle{
 		map<int, shared_ptr<Animal>> animais_m;
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
 
+
+		void criar_animal(shared_ptr<Animal> &bicho, string classe);
+		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);
+		void criar_animal_exotico(shared_ptr<AnimalExotico> &bicho);
+
 		void criar_anfibio(int modo_criacao);
 		void criar_ave(int modo_criacao);
 		void criar_mamifero(int modo_criacao);

@@ -1,4 +1,4 @@
-#include "Controle.h"
+#include "Controle.h" 
 
 using namespace std;
 
@@ -21,25 +21,28 @@ int Controle::is_number(char * number){
 	return stoi(number);
 };
 
-void Controle::criar_anfibio(int modo_criacao){
+
+void Controle::criar_animal(shared_ptr<Animal> &bicho, string classe){
 	shared_ptr<Veterinario> vet(new Veterinario);
 	shared_ptr<Tratador> trat(new Tratador);
-	
+
 	char * valor = new char;
 	string nome;
 	string nome_cientifico;
 	char * sexo = new char;
 	double tam;
 	string dieta;
-	int total_mudas;
-	int day;
-	int month;
-	int year;
+
+	// void set_m_nome_batismo(string nome_batismo);
+
+	bicho->set_m_id(animais_m.size());
+	bicho->set_m_classe(classe);
 
 	cout << "Digite o nome cientifico: " << endl;
 	cin.clear();
 	cin.getline(valor,100);
-	nome_cientifico = static_cast<string>(valor); 
+	nome_cientifico = static_cast<string>(valor);
+	bicho->set_m_nome_cientifico(nome_cientifico);
 
 
 	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
@@ -52,28 +55,86 @@ void Controle::criar_anfibio(int modo_criacao){
 		cin.getline(sexo,20);;
 	}
 	cout << "Sexo: " << *sexo << endl;
-	
+	bicho->set_m_sexo(*sexo);
 
-	cout << "Digite o tamanho do anfíbio: " << endl;
+
+	cout << "Digite o tamanho do animal: " << endl;
 	cin.clear();
 	cin.getline(valor, 30);
 	tam = is_number(valor);
+	bicho->set_m_tamanho(tam);
 
-
-	cout << "Digite a dieta do anfíbio: " << endl;
+	cout << "Digite a dieta do animal: " << endl;
 	cin.clear();
 	cin.getline(valor,200);
 	dieta = static_cast<string>(valor);
-
+	bicho->set_m_dieta(dieta);
 
 	cout << "Por enquanto serão uns veterinários genéricos." << endl;
+	bicho->set_m_veterinario((vet.get()));
+	bicho->set_m_tratador(trat.get());
 
-
-	cout << "Digite a o nome de batismo do anfíbio: " << endl;
+	cout << "Digite a o nome de batismo do animal: " << endl;
 	cin.clear();
 	cin.getline(valor,50);
 	nome = static_cast<string>(valor);
+	bicho->set_m_nome_batismo(nome);
+};
 
+void Controle::criar_animal_nativo(shared_ptr<AnimalNativo> &bicho){
+	char * valor = new char;
+	string autorizacao_ibama;
+	string uf_origem;
+
+	cout << "Digite a autorização do Ibama: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	autorizacao_ibama = static_cast<string>(valor);
+	bicho->set_autorizacao_ibama(autorizacao_ibama);
+
+	cout << "Digite a UF de origem: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	uf_origem = static_cast<string>(valor);
+	bicho->set_uf_origem(uf_origem);
+};
+
+
+void Controle::criar_animal_exotico(shared_ptr<AnimalExotico> &bicho){
+	char * valor = new char;
+	string autorizacao_ibama;
+	string pais_origem;
+	string cidade_origem;
+
+	cout << "Digite a autorização do Ibama: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	autorizacao_ibama = static_cast<string>(valor);
+	bicho->set_autorizacao_ibama(autorizacao_ibama);
+
+	cout << "Digite o país de origem: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	pais_origem = static_cast<string>(valor);
+	bicho->set_pais_origem(pais_origem);
+
+	cout << "Digite a cidade de origem: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	cidade_origem = static_cast<string>(valor);
+	bicho->set_cidade_origem(cidade_origem);
+};
+
+
+
+
+void Controle::criar_anfibio(int modo_criacao){
+
+	char * valor = new char;
+	int total_mudas;
+	int day;
+	int month;
+	int year;
 
 	cout << "Digite o número total de mudas do anfíbio: " << endl;
 	cin.clear();
@@ -99,7 +160,7 @@ void Controle::criar_anfibio(int modo_criacao){
 	while(!ultima_muda.valid()){
 		cout<< "Data inválida, digite novamente: " << endl;
 		cin.clear();
-		cin>> day >> month >> year;
+		cin >> day >> month >> year;
 		ultima_muda.set_day(day);
 		ultima_muda.set_month(month);
 		ultima_muda.set_year(year);
@@ -107,115 +168,47 @@ void Controle::criar_anfibio(int modo_criacao){
 
 
 	if(modo_criacao == 1){
-		shared_ptr<Animal> anfibio(new Anfibio(animais_m.size(), 
-			"Amphibia", nome_cientifico, *sexo
-			, tam, dieta, vet.get(),
-			trat.get(), nome, total_mudas
-			, day, month, year));
+		shared_ptr<Anfibio> anfibio(new Anfibio);
+		anfibio->set_ultima_muda(ultima_muda);
+		anfibio->set_total_de_mudas(total_mudas);
+
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibio);
 
+		criar_animal(bicho, "Amphibia");
 		animais_m[animais_m.size()] = bicho;
 	}
 
 	else if(modo_criacao == 2){
-		string autorizacao_ibama;
-		string uf_origem;
+		shared_ptr<AnfibioNativo> anfibioNativo(new AnfibioNativo);
+		anfibioNativo->set_ultima_muda(ultima_muda);
+		anfibioNativo->set_total_de_mudas(total_mudas);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
-
-		cout << "Digite a UF de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		uf_origem = static_cast<string>(valor);
-
-		shared_ptr<Animal> anfibioNativo(new AnfibioNativo(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get(),
-			trat.get(), nome, total_mudas, day, month, year 
-			, autorizacao_ibama, uf_origem));
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibioNativo);
+		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(anfibioNativo);
+
+		criar_animal(bicho, "Amphibia");
+		criar_animal_nativo(animal_nativo);
 
 		animais_m[animais_m.size()] = bicho;
 	}
-
 	else if(modo_criacao == 3){
-		string autorizacao_ibama;
-		string pais_origem;
-		string cidade_origem;
+		shared_ptr<AnfibioExotico> anfibioExotico(new AnfibioExotico);
+		anfibioExotico->set_ultima_muda(ultima_muda);
+		anfibioExotico->set_total_de_mudas(total_mudas);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
-
-		cout << "Digite o país de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		pais_origem = static_cast<string>(valor);
-
-		cout << "Digite a cidade de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		cidade_origem = static_cast<string>(valor);
-
-		shared_ptr<Animal> anfibioExotico(new AnfibioExotico(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get(),
-			trat.get(), nome, total_mudas, day, month, year 
-			, autorizacao_ibama, pais_origem, cidade_origem));
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibioExotico);
-
+		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(anfibioExotico);
+		criar_animal(bicho, "Amphibia");
+		criar_animal_exotico(animal_exotico);
 		animais_m[animais_m.size()] = bicho;
 	}
 };
 
 void Controle::criar_ave(int modo_criacao){
-	shared_ptr<Veterinario> vet(new Veterinario);
-	shared_ptr<Tratador> trat(new Tratador);
 	
 	char * valor = new char;
-	string nome;
-	string nome_cientifico;
-	char * sexo = new char;
-	double tam;
-	string dieta;
 	double tamanho_bico;
 	double envergadura_asas;
-
-	cout << "Digite o nome cientifico: " << endl;
-	cin.clear();
-	cin.getline(valor,100);
-	nome_cientifico = static_cast<string>(valor); 
-
-	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
-	cin.clear();
-	cin.getline(sexo,20);
-
-	while(*sexo != 'F' && *sexo != 'M'){
-		cout << "Sexo inválido, digite novamente: " << endl;
-		cin.clear();
-		cin.getline(sexo,20);;
-	}
-	cout << "Sexo: " << *sexo << endl;
-	
-	cout << "Digite o tamanho da ave: " << endl;
-	cin.clear();
-	cin.getline(valor, 30);
-	tam = is_number(valor);
-
-
-	cout << "Digite a dieta da ave: " << endl;
-	cin.clear();
-	cin.getline(valor,200);
-	dieta = static_cast<string>(valor);
-
-	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-
-	cout << "Digite a o nome de batismo da ave: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	nome = static_cast<string>(valor);
 
 	cout << "Digite o tamanho do bico: " << endl;
 	cin.clear();
@@ -229,112 +222,49 @@ void Controle::criar_ave(int modo_criacao){
 
 
 	if(modo_criacao == 1){
-		shared_ptr<Animal> ave(new Ave(animais_m.size(), 
-			"Aves", nome_cientifico, *sexo, tam, dieta, vet.get(),
-			trat.get(), nome, tamanho_bico, envergadura_asas));
+		shared_ptr<Ave> ave(new Ave);
+		ave->set_tamanho_do_bico(tamanho_bico);
+		ave->set_envergadura_das_asas(envergadura_asas);
+
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
 
+		criar_animal(bicho, "Ave");
 		animais_m[animais_m.size()] = bicho;
 	}
 
 	else if(modo_criacao == 2){
-		string autorizacao_ibama;
-		string uf_origem;
+		shared_ptr<AveNativa> ave(new AveNativa);
+		ave->set_tamanho_do_bico(tamanho_bico);
+		ave->set_envergadura_das_asas(envergadura_asas);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
+		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(ave);
 
-		cout << "Digite a UF de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		uf_origem = static_cast<string>(valor);
-
-
-		shared_ptr<Animal> aveNativa(new AveNativa(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, tamanho_bico, envergadura_asas
-			, autorizacao_ibama, uf_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(aveNativa);
+		criar_animal(bicho, "Ave");
+		criar_animal_nativo(animal_nativo);
 
 		animais_m[animais_m.size()] = bicho;
+
 	}
 
 	else if(modo_criacao == 3){
-		string autorizacao_ibama;
-		string pais_origem;
-		string cidade_origem;
+		shared_ptr<AveExotica> ave(new AveExotica);
+		ave->set_tamanho_do_bico(tamanho_bico);
+		ave->set_envergadura_das_asas(envergadura_asas);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
-
-		cout << "Digite o país de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		pais_origem = static_cast<string>(valor);
-
-		cout << "Digite a cidade de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		cidade_origem = static_cast<string>(valor);
-
-		shared_ptr<Animal> aveExotica(new AveExotica(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, tamanho_bico, envergadura_asas, autorizacao_ibama, pais_origem, cidade_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(aveExotica);
-
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
+		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(ave);
+		criar_animal(bicho, "Ave");
+		criar_animal_exotico(animal_exotico);
 		animais_m[animais_m.size()] = bicho;
+
 	}
 };
 
 void Controle::criar_mamifero(int modo_criacao){
-	shared_ptr<Veterinario> vet(new Veterinario);
-	shared_ptr<Tratador> trat(new Tratador);
 	
 	char * valor = new char;
-	string nome;
-	string nome_cientifico;
-	char * sexo = new char;
-	double tam;
-	string dieta;
 	string cor;
-
-	cout << "Digite o nome cientifico: " << endl;
-	cin.clear();
-	cin.getline(valor,100);
-	nome_cientifico = static_cast<string>(valor); 
-
-	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
-	cin.clear();
-	cin.getline(sexo,20);
-
-	while(*sexo != 'F' && *sexo != 'M'){
-		cout << "Sexo inválido, digite novamente: " << endl;
-		cin.clear();
-		cin.getline(sexo,20);;
-	}
-	cout << "Sexo: " << *sexo << endl;
-	
-	cout << "Digite o tamanho do mamifero: " << endl;
-	cin.clear();
-	cin.getline(valor, 30);
-	tam = is_number(valor);
-
-
-	cout << "Digite a dieta do mamifero: " << endl;
-	cin.clear();
-	cin.getline(valor,200);
-	dieta = static_cast<string>(valor);
-
-	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-
-	cout << "Digite a O nome de batismo do mamifero: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	nome = static_cast<string>(valor);
 
 	cout << "Digite a cor do pelo do mamifero: " << endl;
 	cin.clear();
@@ -342,126 +272,60 @@ void Controle::criar_mamifero(int modo_criacao){
 	cor = static_cast<string>(valor);
 
 	if(modo_criacao == 1){
-		shared_ptr<Animal> mamifero(new Mamifero(animais_m.size(), 
-			"Mammalia", nome_cientifico, *sexo
-			, tam, dieta, vet.get(),
-			trat.get(), nome, cor));
+
+		shared_ptr<Mamifero> mamifero(new Mamifero);
+		mamifero->set_m_cor_do_pelo(cor);
+
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
 
-		animais_m[animais_m.size()] = bicho;
+		criar_animal(bicho, "Mammalia");
+		animais_m[animais_m.size()] = bicho;	
 	}
 
 	else if(modo_criacao == 2){
-		string autorizacao_ibama;
-		string uf_origem;
+		shared_ptr<MamiferoNativo> mamifero(new MamiferoNativo);
+		mamifero->set_m_cor_do_pelo(cor);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(mamifero);
 
-		cout << "Digite a UF de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		uf_origem = static_cast<string>(valor);
-
-
-		shared_ptr<Animal> mamiferoNativo(new MamiferoNativo(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, cor, autorizacao_ibama, uf_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamiferoNativo);
+		criar_animal(bicho, "Mammalia");
+		criar_animal_nativo(animal_nativo);
 
 		animais_m[animais_m.size()] = bicho;
 	}
 
 	else if(modo_criacao == 3){
-		string autorizacao_ibama;
-		string pais_origem;
-		string cidade_origem;
+		shared_ptr<MamiferoExotico> mamifero(new MamiferoExotico);
+		mamifero->set_m_cor_do_pelo(cor);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
-
-		cout << "Digite o país de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		pais_origem = static_cast<string>(valor);
-
-		cout << "Digite a cidade de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		cidade_origem = static_cast<string>(valor);
-
-		shared_ptr<Animal> mamiferoExotico(new MamiferoExotico(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, cor, autorizacao_ibama, pais_origem, cidade_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamiferoExotico);
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(mamifero);
+		criar_animal(bicho, "Mammalia");
+		criar_animal_exotico(animal_exotico);
 
 		animais_m[animais_m.size()] = bicho;
 	}
 };
 
 void Controle::criar_reptil(int modo_criacao){
-	shared_ptr<Veterinario> vet(new Veterinario);
-	shared_ptr<Tratador> trat(new Tratador);
 	
 	char * valor = new char;
-	string nome;
-	string nome_cientifico;
-	char * sexo = new char;
-	double tam;
-	string dieta;
 	bool venenoso;
 	string tipo_veneno;
-
-	cout << "Digite o nome cientifico: " << endl;
-	cin.clear();
-	cin.getline(valor,100);
-	nome_cientifico = static_cast<string>(valor); 
-
-	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
-	cin.clear();
-	cin.getline(sexo,20);
-
-	while(*sexo != 'F' && *sexo != 'M'){
-		cout << "Sexo inválido, digite novamente: " << endl;
-		cin.clear();
-		cin.getline(sexo,20);;
-	}
-	cout << "Sexo: " << *sexo << endl;
-	
-	cout << "Digite o tamanho do Réptil: " << endl;
-	cin.clear();
-	cin.getline(valor, 30);
-	tam = is_number(valor);
-
-
-	cout << "Digite a dieta do Réptil: " << endl;
-	cin.clear();
-	cin.getline(valor,200);
-	dieta = static_cast<string>(valor);
-
-	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-
-	cout << "Digite a o nome de batismo do Réptil: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	nome = static_cast<string>(valor);
 
 	cout << "O Réptil é venenoso?" << endl;
 	cout << "\t0 - Não" << endl << "\t1 - Sim" << endl;
 	cin.clear();
 	cin.getline(valor, 30);
 	venenoso = is_number(valor);
+
 	while(is_number(valor) != 0 && is_number(valor) != 1){
 		cout << "Entrada inválida, digite novamente: " << endl;
 		cin.clear();
 		cin.getline(valor, 30);
 		venenoso = is_number(valor);
 	}
-
 
 	if(venenoso){
 		cout << "Digite o tipo de veneno: " << endl;
@@ -474,62 +338,38 @@ void Controle::criar_reptil(int modo_criacao){
 
 
 	if(modo_criacao == 1){
-		shared_ptr<Animal> reptil(new Reptil(animais_m.size(), 
-			"Reptilia", nome_cientifico, *sexo, tam, dieta, vet.get(),
-			trat.get(), nome, venenoso, tipo_veneno));
+		shared_ptr<Reptil> reptil(new Reptil);
+		reptil->set_venenoso(venenoso);
+		reptil->set_tipo_veneno(tipo_veneno);
+
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
 
+		criar_animal(bicho, "Reptilia");
 		animais_m[animais_m.size()] = bicho;
 	}
 
 	else if(modo_criacao == 2){
-		string autorizacao_ibama;
-		string uf_origem;
+		shared_ptr<ReptilNativo> reptil(new ReptilNativo);
+		reptil->set_venenoso(venenoso);
+		reptil->set_tipo_veneno(tipo_veneno);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
+		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(reptil);
 
-		cout << "Digite a UF de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		uf_origem = static_cast<string>(valor);
-
-
-		shared_ptr<Animal> reptilNativo(new ReptilNativo(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, venenoso, tipo_veneno
-			, autorizacao_ibama, uf_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptilNativo);
+		criar_animal(bicho, "Reptilia");
+		criar_animal_nativo(animal_nativo);
 
 		animais_m[animais_m.size()] = bicho;
 	}
-
 	else if(modo_criacao == 3){
-		string autorizacao_ibama;
-		string pais_origem;
-		string cidade_origem;
+		shared_ptr<ReptilExotico> reptil(new ReptilExotico);
+		reptil->set_venenoso(venenoso);
+		reptil->set_tipo_veneno(tipo_veneno);
 
-		cout << "Digite a autorização do Ibama: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		autorizacao_ibama = static_cast<string>(valor);
-
-		cout << "Digite o país de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		pais_origem = static_cast<string>(valor);
-
-		cout << "Digite a cidade de origem: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		cidade_origem = static_cast<string>(valor);
-
-		shared_ptr<Animal> reptilExotico(new ReptilExotico(animais_m.size()
-			, nome_cientifico, *sexo, tam, dieta, vet.get()
-			, trat.get(), nome, venenoso, tipo_veneno, autorizacao_ibama, pais_origem, cidade_origem));
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptilExotico);
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
+		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(reptil);
+		criar_animal(bicho, "Reptilia");
+		criar_animal_exotico(animal_exotico);
 
 		animais_m[animais_m.size()] = bicho;
 	}
@@ -584,15 +424,7 @@ void Controle::adicionar_animal(){
 		criar_ave(option_2);
 	}
 	else if (option_1 == 3){
-		if (option_2 == 1){
 
-		}
-		if (option_2 == 2){
-			
-		}
-		if (option_2 == 3){
-			
-		}
 	}
 	else if (option_1 == 4){
 
