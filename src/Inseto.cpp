@@ -57,3 +57,7 @@ void Inseto::write(){
 	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
 	cout<<"Tipo de metamorfose;Cadeia de caracteres;"<<m_tipo_metamorfose<<endl;
 };
+
+string Inseto::Tipo(){
+	return "Inseto";
+};

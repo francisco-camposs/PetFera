@@ -41,3 +41,7 @@ void Ave::write(){
 	cout<<"Tamanho do bico;Double;"<<m_tamanho_do_bico<<endl;
 	cout<<"Envergadura das asas;Double;"<<m_envergadura_das_asas<<endl;
 };
+
+string Ave::Tipo(){
+	return "Ave";
+};

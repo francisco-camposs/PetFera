@@ -18,6 +18,7 @@ class AracnideoNativo : public Aracnideo, public AnimalNativo {
 
 		void set_autorizacao_ibama(string autorizacao_ibama);
 		void write();
+		string Tipo();
 };
 
 #endif

@@ -34,3 +34,7 @@ void Peixe::write(){
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Tipo de agua;Cadeia de caracteres;"<<m_tipo_agua<<endl;
 };
+
+string Peixe::Tipo(){
+	return "Peixe";
+};

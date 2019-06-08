@@ -39,3 +39,7 @@ void AracnideoNativo::write(){
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
 };
+
+string AracnideoNativo::Tipo(){
+	return "AracnideoNativo";
+};

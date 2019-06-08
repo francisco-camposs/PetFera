@@ -33,3 +33,7 @@ void Mamifero::write(){
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
 };
+
+string Mamifero::Tipo(){
+	return "Mamifero";
+};

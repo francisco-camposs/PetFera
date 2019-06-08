@@ -57,3 +57,7 @@ void Aracnideo::write(){
 	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
 	cout<<"Tipo de veneno;Cadeia de caracters;"<<m_tipo_veneno<<endl;
 };
+
+string Aracnideo::Tipo(){
+	return "Aracnideo";
+};

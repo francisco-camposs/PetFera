@@ -22,6 +22,7 @@ public:
 	bool get_venenoso();
 	string get_tipo_veneno();
 	void write();
+	string Tipo();
 };
 
 #endif

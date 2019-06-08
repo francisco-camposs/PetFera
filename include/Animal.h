@@ -6,7 +6,7 @@
 #include "Veterinario.h"
 #include "Tratador.h" 
 
-using namespace std;
+using namespace std; 
 
 class Animal {
 	protected:
@@ -48,6 +48,7 @@ class Animal {
 		Tratador get_m_tratador();
 		string get_m_nome_batismo() const;
 		virtual void write() = 0;
+		virtual string Tipo() = 0;
 };
 
 #endif

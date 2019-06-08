@@ -1,4 +1,4 @@
-#include "Anfibio.h"
+#include "Anfibio.h" 
 
 Anfibio::Anfibio(){
 
@@ -29,6 +29,10 @@ int Anfibio::get_total_de_mudas(){
 };
 date Anfibio::get_ultima_mudas(){
 	return m_ultima_muda;
+}; 
+
+string Anfibio::Tipo(){
+	return "Anfibio";
 };
 
 void Anfibio::write(){

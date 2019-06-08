@@ -40,3 +40,7 @@ void InsetoExotico::write(){
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
 	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
 };
+
+string InsetoExotico::Tipo(){
+	return "InsetoExotico";
+};

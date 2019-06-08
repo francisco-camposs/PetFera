@@ -22,6 +22,7 @@ public:
 	double get_tamanho_do_bico();
 	double get_envergadura_das_asas();
 	void write();
+	string Tipo();
 };
 
 #endif

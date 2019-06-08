@@ -42,3 +42,7 @@ void Reptil::write(){
 	cout<<"Venenoso;booleano;"<<m_venenoso<<endl;
 	cout<<"Tipo de veneno;Cadeia de caracteres;"<<m_tipo_veneno<<endl;
 };
+
+string Reptil::Tipo(){
+	return "Reptil";
+};

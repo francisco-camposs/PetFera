@@ -26,6 +26,7 @@ class Inseto : public Animal {
 		int get_total_de_mudas();
 		date get_ultima_muda();
 		void write();
+		string Tipo();
 };
 
 #endif
