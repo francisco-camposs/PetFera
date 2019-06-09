@@ -20,8 +20,8 @@ void ReptilExotico::set_autorizacao_ibama(string autorizacao_ibama){
 	m_autorizacao_ibama = autorizacao_ibama;
 };
 
-void ReptilExotico::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string ReptilExotico::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -36,6 +36,24 @@ void ReptilExotico::write(){
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
 	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_venenoso<<";";
+	str<<m_tipo_veneno<<";";
+	str<<m_autorizacao_ibama<<";";
+	str<<m_pais_origem<<";";
+	str<<m_cidade_origem<<endl;
+
+	return str.str();
 };
 
 string ReptilExotico::Tipo(){

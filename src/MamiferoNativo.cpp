@@ -20,8 +20,8 @@ void MamiferoNativo::set_autorizacao_ibama(string autorizacao_ibama){
 	m_autorizacao_ibama = autorizacao_ibama;
 };
 
-void MamiferoNativo::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string MamiferoNativo::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -34,6 +34,20 @@ void MamiferoNativo::write(){
 	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_cor_do_pelo<<endl;
+
+	return str.str();
 };
 
 string MamiferoNativo::Tipo(){

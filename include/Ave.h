@@ -21,7 +21,7 @@ public:
 	void set_envergadura_das_asas(double envergadura_das_asas);
 	double get_tamanho_do_bico();
 	double get_envergadura_das_asas();
-	void write();
+	string write();
 	string Tipo();
 };
 

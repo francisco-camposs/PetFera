@@ -21,8 +21,8 @@ string Peixe::get_tipo_agua(){
 	return m_tipo_agua;
 }
 
-void Peixe::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string Peixe::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -33,6 +33,20 @@ void Peixe::write(){
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Tipo de agua;Cadeia de caracteres;"<<m_tipo_agua<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_tipo_agua<<endl;
+
+	return str.str();
 };
 
 string Peixe::Tipo(){

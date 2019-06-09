@@ -42,8 +42,8 @@ date Inseto::get_ultima_muda() {
 	return m_ultima_muda;
 };
 
-void Inseto::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string Inseto::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -56,6 +56,23 @@ void Inseto::write(){
 	cout<<"Total de mudas;Inteiro;"<<m_total_de_mudas<<endl;
 	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
 	cout<<"Tipo de metamorfose;Cadeia de caracteres;"<<m_tipo_metamorfose<<endl;
+*/
+
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_total_de_mudas<<";";
+	str<<m_ultima_muda<<";";
+	str<<m_tipo_metamorfose<<endl;
+
+	return str.str();
 };
 
 string Inseto::Tipo(){

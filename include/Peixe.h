@@ -17,7 +17,7 @@ public:
 
 	void set_tipo_agua(string tipo_agua);
 	string get_tipo_agua();
-	void write();
+	string write();
 	string Tipo();
 };
 

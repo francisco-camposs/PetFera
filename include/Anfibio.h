@@ -26,7 +26,7 @@ class Anfibio : public Animal {
 
 		string Tipo();
 
-		void write();
+		string write();
 };
 
 #endif

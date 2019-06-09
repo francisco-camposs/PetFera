@@ -35,8 +35,8 @@ string Anfibio::Tipo(){
 	return "Anfibio";
 };
 
-void Anfibio::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string Anfibio::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -48,4 +48,19 @@ void Anfibio::write(){
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Total de mudas;Inteiro;"<<m_total_de_mudas<<endl;
 	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_total_de_mudas<<";";
+	str<<m_ultima_muda<<endl;
+
+	return str.str();
 };

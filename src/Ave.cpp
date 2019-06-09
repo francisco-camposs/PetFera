@@ -27,8 +27,8 @@ double Ave::get_envergadura_das_asas(){
 	return m_envergadura_das_asas;
 }
 
-void Ave::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string Ave::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -40,6 +40,21 @@ void Ave::write(){
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Tamanho do bico;Double;"<<m_tamanho_do_bico<<endl;
 	cout<<"Envergadura das asas;Double;"<<m_envergadura_das_asas<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_tamanho_do_bico<<";";
+	str<<m_envergadura_das_asas<<endl;
+
+	return str.str();
 };
 
 string Ave::Tipo(){

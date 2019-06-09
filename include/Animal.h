@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Veterinario.h"
 #include "Tratador.h" 
 
@@ -47,7 +48,7 @@ class Animal {
 		Veterinario get_m_veterinario();
 		Tratador get_m_tratador();
 		string get_m_nome_batismo() const;
-		virtual void write() = 0;
+		virtual string write() = 0;
 		virtual string Tipo() = 0;
 };
 

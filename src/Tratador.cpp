@@ -34,8 +34,8 @@ int Tratador::get_nivel_de_seguranca(){
 	return m_nivel_de_seguranca;
 };
 
-void Tratador::write(){
-	cout<<"Campo;Tipo de dado;Valores"<<endl;
+string Tratador::write(){
+/*	cout<<"Campo;Tipo de dado;Valores"<<endl;
 	cout<<"Identificador do funcionário;Cadeia de caracteres;"<<m_id << endl;
 	cout<<"Função;Cadeia de Caracteres;Tratador" << endl;
 	cout<<"Nome do funcionário;Cadeia de caracteres;"<<m_nome << endl;
@@ -45,4 +45,17 @@ void Tratador::write(){
 	cout<<"Fator RH;Caractere;"<<m_fator_rh << endl;
 	cout<<"Especialidade;Cadeia de caracteres;"<<m_especialidade << endl;
 	cout<<"Nível de Segurança;Inteiro;"<<m_nivel_de_seguranca << endl;
+*/
+	ostringstream str;
+	str<<"Tratador;";
+	str<<m_id<<";";
+	str<<m_nome<<";";
+	str<<m_cpf<<";";
+	str<<m_idade<<";";
+	str<<m_tipo_sanguineo<<";";
+	str<<m_fator_rh<<";";
+	str<<m_especialidade<<";";
+	str<<m_nivel_de_seguranca<<endl;
+
+	return str.str();
 };

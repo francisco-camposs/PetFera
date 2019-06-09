@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ class Funcionario {
 		string get_tipo_sanguineo();
 		char get_fator_rh();
 		string get_especialidade();
-		virtual void write() = 0;
+		virtual string write() = 0;
 };
 
 

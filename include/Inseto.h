@@ -25,7 +25,7 @@ class Inseto : public Animal {
 		string get_tipo_metamorfose();
 		int get_total_de_mudas();
 		date get_ultima_muda();
-		void write();
+		string write();
 		string Tipo();
 };
 

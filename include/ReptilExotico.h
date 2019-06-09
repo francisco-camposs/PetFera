@@ -14,7 +14,7 @@ public:
 	~ReptilExotico();
 
 	void set_autorizacao_ibama(string autorizacao_ibama);
-	void write();
+	string write();
 	string Tipo();
 };
 

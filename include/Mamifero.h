@@ -18,7 +18,7 @@ class Mamifero : public Animal {
 
 		void set_m_cor_do_pelo(string cor_do_pelo);
 		string get_m_cor_do_pelo();
-		void write();
+		string write();
 		string Tipo();
 };
 

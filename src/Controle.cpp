@@ -279,7 +279,7 @@ void Controle::criar_mamifero(int modo_criacao){
 		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
 
 		criar_animal(bicho, "Mammalia");
-		animais_m[animais_m.size()] = bicho;	
+		animais_m[animais_m.size()] = bicho;
 	}
 
 	else if(modo_criacao == 2){
@@ -419,9 +419,27 @@ void Controle::adicionar_animal(){
 
 	if (option_1 == 1){
 		criar_anfibio(option_2);
+
+		ofstream arq("test/Animais.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<animais_m[animais_m.size()-1]->write();
+		arq.close();
+
 	}
 	else if (option_1 == 2){
 		criar_ave(option_2);
+
+		ofstream arq("test/Animais.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<animais_m[animais_m.size()-1]->write();
+		arq.close();
+
 	}
 	else if (option_1 == 3){
 
@@ -431,6 +449,15 @@ void Controle::adicionar_animal(){
 	}
 	else if (option_1 == 5){
 		criar_mamifero(option_2);
+
+		ofstream arq("test/Animais.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<animais_m[animais_m.size()-1]->write();
+		arq.close();
+
 	}
 
 	else if (option_1 == 6){	
@@ -439,6 +466,15 @@ void Controle::adicionar_animal(){
 
 	else if (option_1 == 7){
 		criar_reptil(option_2);
+
+		ofstream arq("test/Animais.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<animais_m[animais_m.size()-1]->write();
+		arq.close();
+
 	}
 
 	// cout << "Só para o compilador parar de mandar aviso: " << option_1 << option_2 <<  endl;
@@ -540,6 +576,15 @@ void Controle::adicionar_funcionario(){
 		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(tratador);
 	
 		funcionarios_m[funcionarios_m.size()] = bicho;
+
+		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<funcionarios_m[funcionarios_m.size()-1]->write();
+		arq.close();
+
 	}
 	else if(option_1 == 2){
 		string cnmv;
@@ -555,6 +600,14 @@ void Controle::adicionar_funcionario(){
 		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(veterinario);
 	
 		funcionarios_m[funcionarios_m.size()] = bicho;
+
+		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<funcionarios_m[funcionarios_m.size()-1]->write();
+		arq.close();
 	}
 }
 

@@ -22,8 +22,8 @@ void InsetoExotico::set_autorizacao_ibama(string autorizacao_ibama){
 	m_autorizacao_ibama = autorizacao_ibama;
 };
 
-void InsetoExotico::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string InsetoExotico::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -39,6 +39,25 @@ void InsetoExotico::write(){
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
 	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_total_de_mudas<<";";
+	str<<m_ultima_muda<<";";
+	str<<m_tipo_metamorfose<<";";
+	str<<m_autorizacao_ibama<<";";
+	str<<m_pais_origem<<";";
+	str<<m_cidade_origem<<endl;
+
+	return str.str();
 };
 
 string InsetoExotico::Tipo(){

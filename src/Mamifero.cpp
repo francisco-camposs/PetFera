@@ -20,8 +20,8 @@ string Mamifero::get_m_cor_do_pelo(){
 	return m_cor_do_pelo;
 };
 
-void Mamifero::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
+string Mamifero::write(){
+/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
 	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
@@ -32,6 +32,20 @@ void Mamifero::write(){
 	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
+*/
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	str<<m_cor_do_pelo<<endl;
+
+	return str.str();
 };
 
 string Mamifero::Tipo(){
