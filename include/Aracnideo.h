@@ -27,6 +27,9 @@ class Aracnideo : public Animal {
 		date get_ultima_muda();
 		string write();
 		string Tipo();
+
+	private:
+		ostream& print(ostream& os)const;
 };
 
 #endif

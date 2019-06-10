@@ -37,17 +37,6 @@ string Veterinario::get_crmv (){
 };
 
 string Veterinario::write(){
-/*	cout<<"Campo;Tipo de dado;Valores"<<endl;
-	cout<<"Identificador do funcionário;Cadeia de caracteres;"<<m_id << endl;
-	cout<<"Função;Cadeia de Caracteres;Veterinário" << endl;
-	cout<<"Nome do funcionário;Cadeia de caracteres;"<<m_nome << endl;
-	cout<<"CPF do funcionário;Cadeia de caracteres;"<<m_cpf << endl;
-	cout<<"Idade do funcionário;Inteiro;"<<m_idade << endl;
-	cout<<"Tipo sanguíneo;Cadeia de caracteres;"<<m_tipo_sanguineo << endl;
-	cout<<"Fator RH;Caractere;"<<m_fator_rh << endl;
-	cout<<"Especialidade;Cadeia de caracteres;"<<m_especialidade << endl;
-	cout<<"Código CRMV;Cadeia de caracteres;"<<m_crmv << endl;
-*/
 	ostringstream str;
 	str<<"Veterinário;";
 	str<<m_id<<";";
@@ -61,3 +50,17 @@ string Veterinario::write(){
 
 	return str.str();
 };
+
+ostream& Veterinario::print(ostream& os)const{
+	os<<"Campo \tTipo de dado \tValores"<<endl;
+	os<<"Identificador do funcionário \tCadeia de caracteres \t"<<m_id << endl;
+	os<<"Função \tCadeia de Caracteres \tVeterinário" << endl;
+	os<<"Nome do funcionário \tCadeia de caracteres \t"<<m_nome << endl;
+	os<<"CPF do funcionário \tCadeia de caracteres \t"<<m_cpf << endl;
+	os<<"Idade do funcionário \tInteiro \t"<<m_idade << endl;
+	os<<"Tipo sanguíneo \tCadeia de caracteres \t"<<m_tipo_sanguineo << endl;
+	os<<"Fator RH \tCaractere \t"<<m_fator_rh << endl;
+	os<<"Especialidade \tCadeia de caracteres \t"<<m_especialidade << endl;
+	os<<"Código CRMV \tCadeia de caracteres \t"<<m_crmv << endl;
+	return os;
+}

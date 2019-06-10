@@ -42,6 +42,12 @@ class Funcionario {
 		char get_fator_rh();
 		string get_especialidade();
 		virtual string write() = 0;
+		friend ostream& operator<<(ostream& os, const Funcionario& f){
+			return f.print(os);
+		}
+
+	private:
+		virtual ostream& print(ostream&)const = 0;
 };
 
 

@@ -43,21 +43,6 @@ date Inseto::get_ultima_muda() {
 };
 
 string Inseto::write(){
-/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
-	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
-	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
-	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
-	cout<<"Sexo do animal;Caractere;"<<m_sexo<<endl;
-	cout<<"Tamanho média em métros;Decimal;"<<m_tamanho<<endl;
-	cout<<"Dieta redominante;Cadeia de caracteres;"<<m_dieta<<endl;
-	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
-	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
-	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
-	cout<<"Total de mudas;Inteiro;"<<m_total_de_mudas<<endl;
-	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
-	cout<<"Tipo de metamorfose;Cadeia de caracteres;"<<m_tipo_metamorfose<<endl;
-*/
-
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -78,3 +63,21 @@ string Inseto::write(){
 string Inseto::Tipo(){
 	return "Inseto";
 };
+
+ostream& Inseto::print(ostream& os)const{
+	os<<"Campo \tTipo de Dados \tValores"<<endl;
+	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
+	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
+	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
+	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
+	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;
+	os<<"Tipo de metamorfose \tCadeia de caracteres \t"<<m_tipo_metamorfose<<endl;
+
+	return os;
+}

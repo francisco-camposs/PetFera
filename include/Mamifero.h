@@ -20,6 +20,8 @@ class Mamifero : public Animal {
 		string get_m_cor_do_pelo();
 		string write();
 		string Tipo();
+	private:
+		ostream& print(ostream& os)const;
 };
 
 #endif

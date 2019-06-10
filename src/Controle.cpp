@@ -488,7 +488,7 @@ void Controle::alterar_animal(){
 
 }
 void Controle::consultar_animais(){
-	animais_m[animais_m.size()-1]->write();
+	cout<< animais_m[animais_m.size()-1] <<endl;
 }
 void Controle::consultar_animais_por_funcionario(){
 
@@ -618,5 +618,5 @@ void Controle::alterar_funcionario(){
 
 }
 void Controle::consultar_funcionario(){
-	funcionarios_m[funcionarios_m.size()-1]->write();
+	cout << funcionarios_m[funcionarios_m.size()-1] <<endl;
 }
