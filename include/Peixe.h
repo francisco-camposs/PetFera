@@ -19,6 +19,8 @@ public:
 	string get_tipo_agua();
 	string write();
 	string Tipo();
+private:
+	ostream& print(ostream& os)const;
 };
 
 #endif

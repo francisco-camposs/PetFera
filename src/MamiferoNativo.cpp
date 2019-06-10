@@ -21,6 +21,7 @@ void MamiferoNativo::set_autorizacao_ibama(string autorizacao_ibama){
 };
 
 string MamiferoNativo::write(){
+<<<<<<< HEAD
 /*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
 	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
 	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
@@ -36,6 +37,8 @@ string MamiferoNativo::write(){
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
 */
 
+=======
+>>>>>>> 7c2a7695469d4622883ac1f67c6b7143743b8caa
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -75,3 +78,21 @@ string MamiferoNativo::write(){
 string MamiferoNativo::Tipo(){
 	return "MamiferoNativo";
 };
+
+ostream& MamiferoNativo::print(ostream& os)const{
+	os<<"Campo \tTipo de Dados \tValores"<<endl;
+	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
+	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
+	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
+	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Cor do pelo \tCadeia de caracteres \t"<<m_cor_do_pelo<<endl;
+	os<<"Autorização do Ibama \tCadeia de caracteres \t"<<m_autorizacao_ibama<<endl;
+	os<<"UF de origem \tCadeia de caracteres \t"<<m_uf_origem<<endl;
+
+	return os;
+}

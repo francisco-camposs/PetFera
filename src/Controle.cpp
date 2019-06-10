@@ -488,7 +488,7 @@ void Controle::alterar_animal(){
 
 }
 void Controle::consultar_animais(){
-	animais_m[animais_m.size()-1]->write();
+	cout<< *animais_m[animais_m.size()-1] <<endl;
 }
 void Controle::consultar_animais_por_funcionario(){
 
@@ -573,9 +573,9 @@ void Controle::adicionar_funcionario(){
 		shared_ptr<Funcionario> tratador(new Tratador(funcionarios_m.size()
 				, nome, cpf, idade, tipo_sanguineo, *fator_rh
 				, especialidade, nivel_de_seguranca));
-		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(tratador);
-	
-		funcionarios_m[funcionarios_m.size()] = bicho;
+		shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(tratador);
+		
+		funcionarios_m[funcionarios_m.size()] = funcionario;
 
 		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
 		if(arq.bad()){
@@ -597,9 +597,9 @@ void Controle::adicionar_funcionario(){
 		shared_ptr<Funcionario> veterinario(new Veterinario(funcionarios_m.size()
 				, nome, cpf, idade, tipo_sanguineo, *fator_rh
 				, especialidade, cnmv));
-		shared_ptr<Funcionario> bicho = dynamic_pointer_cast<Funcionario>(veterinario);
+		shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(veterinario);
 	
-		funcionarios_m[funcionarios_m.size()] = bicho;
+		funcionarios_m[funcionarios_m.size()] = funcionario;
 
 		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
 		if(arq.bad()){
@@ -618,5 +618,5 @@ void Controle::alterar_funcionario(){
 
 }
 void Controle::consultar_funcionario(){
-	funcionarios_m[funcionarios_m.size()-1]->write();
+	cout << *funcionarios_m[funcionarios_m.size()-1] <<endl;
 }

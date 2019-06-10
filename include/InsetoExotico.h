@@ -19,6 +19,8 @@ class InsetoExotico : public Inseto, public AnimalExotico {
 		void set_autorizacao_ibama(string autorizacao_ibama);
 		string write();
 		string Tipo();
+	private:
+		ostream& print(ostream& os)const;
 };
 
 #endif

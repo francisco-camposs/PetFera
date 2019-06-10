@@ -77,3 +77,23 @@ string ReptilExotico::write(){
 string ReptilExotico::Tipo(){
 	return "ReptilExotico";
 };
+
+ostream& ReptilExotico::print(ostream& os)const{
+	os<<"Campo \tTipo de Dados \tValores"<<endl;
+	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
+	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
+	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
+	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Venenoso \tbooleano \t"<<m_venenoso<<endl;
+	os<<"Tipo de veneno \tCadeia de caracteres \t"<<m_tipo_veneno<<endl;
+	os<<"Autorização do Ibama \tCadeia de caracteres \t"<<m_autorizacao_ibama<<endl;
+	os<<"País de origem \tCadeia de caracteres \t"<<m_pais_origem<<endl;
+	os<<"Cidade de origem \tCadeia de caracteres \t"<<m_cidade_origem<<endl;
+	
+	return os;
+}

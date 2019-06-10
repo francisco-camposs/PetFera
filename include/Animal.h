@@ -50,6 +50,11 @@ class Animal {
 		string get_m_nome_batismo() const;
 		virtual string write() = 0;
 		virtual string Tipo() = 0;
+		friend ostream& operator<<(ostream& os, const Animal& a){
+			return a.print(os);
+		}
+	private:
+		virtual ostream& print(ostream&)const = 0;
 };
 
 #endif

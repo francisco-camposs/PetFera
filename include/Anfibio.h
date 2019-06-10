@@ -25,8 +25,10 @@ class Anfibio : public Animal {
 		date get_ultima_mudas();
 
 		string Tipo();
-
 		string write();
+	private:
+		ostream& print(ostream& os)const;
+
 };
 
 #endif
