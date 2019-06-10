@@ -21,22 +21,6 @@ string Mamifero::get_m_cor_do_pelo(){
 };
 
 string Mamifero::write(){
-<<<<<<< HEAD
-/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
-	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
-	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
-	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
-	cout<<"Sexo do animal;Caractere;"<<m_sexo<<endl;
-	cout<<"Tamanho média em métros;Decimal;"<<m_tamanho<<endl;
-	cout<<"Dieta redominante;Cadeia de caracteres;"<<m_dieta<<endl;
-	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
-	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
-	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
-	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
-*/
-	
-=======
->>>>>>> 7c2a7695469d4622883ac1f67c6b7143743b8caa
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";

@@ -377,6 +377,16 @@ void Controle::criar_reptil(int modo_criacao){
 
 		
 void Controle::adicionar_animal(){
+	
+	if( animais_m.empty() ){
+		ofstream arq("test/Animais.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<"Id;Classe;Nome Científico;Sexo;Tamanho do Animal;Dieta;Veterinário Associado;Tratador Responsável;Nome de Batismo;Autorização do Ibama;País de Origem;Cidade de Origem;UF de Origem;Total de Mudas;Última Muda;Tamanho do Bico;Envergadura das Asas;Cor dos Pelos;Se é Venenoso;Tipo de Veneno"<<endl;
+		arq.close();
+	}
 
 	char * option_animal = new char;
 	int option_1;
@@ -384,11 +394,8 @@ void Controle::adicionar_animal(){
 	cout << "Digite a opção desejada: " << endl;
 	cout << "\t 1 - Anfibio;" << endl;
 	cout << "\t 2 - Ave;" << endl;
-	cout << "\t 3 - Aracnídeo;" << endl;
-	cout << "\t 4 - Inseto;" << endl;
-	cout << "\t 5 - Mamifero;" << endl;
-	cout << "\t 6 - Peixe;" << endl;
-	cout << "\t 7 - Reptil;" << endl;
+	cout << "\t 3 - Mamifero;" << endl;
+	cout << "\t 4 - Reptil;" << endl;
 
 	cin.clear();
 	cin.getline(option_animal,20);
@@ -442,12 +449,6 @@ void Controle::adicionar_animal(){
 
 	}
 	else if (option_1 == 3){
-
-	}
-	else if (option_1 == 4){
-
-	}
-	else if (option_1 == 5){
 		criar_mamifero(option_2);
 
 		ofstream arq("test/Animais.csv", ios::app | ios::binary);
@@ -459,12 +460,7 @@ void Controle::adicionar_animal(){
 		arq.close();
 
 	}
-
-	else if (option_1 == 6){	
-		
-	}
-
-	else if (option_1 == 7){
+	else if (option_1 == 4){
 		criar_reptil(option_2);
 
 		ofstream arq("test/Animais.csv", ios::app | ios::binary);
@@ -495,6 +491,16 @@ void Controle::consultar_animais_por_funcionario(){
 }
 		
 void Controle::adicionar_funcionario(){
+	if( funcionarios_m.empty() ){
+		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
+		if(arq.bad()){
+			cerr<<"Arquivo nao foi aberto"<<endl;
+			exit(1);
+		}
+		arq<<"Função;Id;Nome;CPF;Idade;Tipo Sanguineo;Fator_Rh;Especialidade;Nível de Segurança;Código CRMV"<<endl;
+		arq.close();
+	}
+
 	char * option_funcionario = new char;
 	int option_1;
 	cout << "Digite a opção desejada: " << endl;

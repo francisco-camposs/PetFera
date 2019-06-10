@@ -7,6 +7,7 @@ int main (){
 
 	Controle controle;
 	char * opcao = new char;
+	*opcao = 'a';
 
 	// Menu
 	while(*opcao != '0'){

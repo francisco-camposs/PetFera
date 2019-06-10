@@ -46,7 +46,9 @@ string Tratador::write(){
 	str<<m_tipo_sanguineo<<";";
 	str<<m_fator_rh<<";";
 	str<<m_especialidade<<";";
-	str<<m_nivel_de_seguranca<<endl;
+	str<<m_nivel_de_seguranca<<";";
+	// Código CRMV
+	str<<"NVF"<<endl;
 
 	return str.str();
 };

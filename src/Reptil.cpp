@@ -29,19 +29,6 @@ string Reptil::get_tipo_veneno(){
 }
 
 string Reptil::write(){
-/*	cout<<"Campo;Tipo de Dados;Valores"<<endl;
-	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
-	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
-	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
-	cout<<"Sexo do animal;Caractere;"<<m_sexo<<endl;
-	cout<<"Tamanho média em métros;Decimal;"<<m_tamanho<<endl;
-	cout<<"Dieta redominante;Cadeia de caracteres;"<<m_dieta<<endl;
-	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
-	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
-	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
-	cout<<"Venenoso;booleano;"<<m_venenoso<<endl;
-	cout<<"Tipo de veneno;Cadeia de caracteres;"<<m_tipo_veneno<<endl;
-*/
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";

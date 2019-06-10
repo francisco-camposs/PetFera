@@ -46,6 +46,8 @@ string Veterinario::write(){
 	str<<m_tipo_sanguineo<<";";
 	str<<m_fator_rh<<";";
 	str<<m_especialidade<<";";
+	// Nível de Segurança
+	str<<"NVF;";
 	str<<m_crmv<<endl;
 
 	return str.str();

@@ -1,7 +1,3 @@
-Tratador;0;katia;122332123;22;O;-;aves;2
-Veterinário;1;carlos;123325;24;O;-;anfibio;dfd233
-Tratador;0;Joy;12334;23;A;+;pokemons;3
-Tratador;0;Joy;12334345;23;A;+;pokemon;3
-Tratador;0;sadf;123;23;O;-;ave;2
-Veterinário;0;qwe;12334;23;A;+;reptil;dsf123
-Tratador;0;Keanu;123334;30;A;-;dogs;3
+Função;Id;Nome;CPF;Idade;Tipo Sanguineo;Fator_Rh;Especialidade;Nível de Segurança;Código CRMV
+Tratador;0;Carlos;123434;21;B;-;Anfíbio;3;NVF
+Veterinário;1;Kátia;1233;25;A;+;Ave;NVF;tmsm-12

@@ -10,16 +10,10 @@
 #include "Veterinario.h"
 #include "AnfibioExotico.h"
 #include "AnfibioNativo.h"
-#include "AracnideoExotico.h"
-#include "AracnideoNativo.h"
 #include "AveExotica.h"
 #include "AveNativa.h"
-#include "InsetoExotico.h"
-#include "InsetoNativo.h"
 #include "MamiferoExotico.h"
 #include "MamiferoNativo.h"
-#include "PeixeExotico.h"
-#include "PeixeNativo.h"
 #include "ReptilExotico.h"
 #include "ReptilNativo.h" 
 
@@ -39,7 +33,6 @@ class Controle{
 		void criar_ave(int modo_criacao);
 		void criar_mamifero(int modo_criacao);
 		void criar_reptil(int modo_criacao);
-		//void criar_funcionario(int modo_criacao);
 
 	public:
 		Controle();
