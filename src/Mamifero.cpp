@@ -33,6 +33,7 @@ string Mamifero::write(){
 	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
 	cout<<"Cor do pelo;Cadeia de caracteres;"<<m_cor_do_pelo<<endl;
 */
+	
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -43,7 +44,28 @@ string Mamifero::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	str<<m_cor_do_pelo<<endl;
+	//Autorização do Ibama
+	str<<"NVF;";
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
+	str<<"NVF;";
+	// Última muda
+	str<<"NVF;";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<m_cor_do_pelo<<";";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de veneno
+	str<<"NVF"<<endl;
 
 	return str.str();
 };

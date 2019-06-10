@@ -34,6 +34,7 @@ string AnfibioNativo::write(){
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
 */
+
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -44,10 +45,28 @@ string AnfibioNativo::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	str<<m_total_de_mudas<<";";
-	str<<m_ultima_muda<<";";
+	//Autorização do Ibama
 	str<<m_autorizacao_ibama<<";";
-	str<<m_uf_origem<<endl;
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<m_uf_origem<<";";
+	// Total de Mudas
+	str<<m_total_de_mudas<<";";
+	// Última muda
+	str<<m_ultima_muda<<";";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de veneno
+	str<<"NVF"<<endl;
 
 	return str.str();
 

@@ -41,6 +41,7 @@ string Ave::write(){
 	cout<<"Tamanho do bico;Double;"<<m_tamanho_do_bico<<endl;
 	cout<<"Envergadura das asas;Double;"<<m_envergadura_das_asas<<endl;
 */
+
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -51,8 +52,28 @@ string Ave::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
+	//Autorização do Ibama
+	str<<"NVF;";
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
+	str<<"NVF;";
+	// Última muda
+	str<<"NVF;";
+	// Tamanho do bico
 	str<<m_tamanho_do_bico<<";";
-	str<<m_envergadura_das_asas<<endl;
+	// Envergadura das Asas
+	str<<m_envergadura_das_asas<<";";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de veneno
+	str<<"NVF"<<endl;
 
 	return str.str();
 };

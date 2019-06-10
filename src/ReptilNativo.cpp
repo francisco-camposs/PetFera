@@ -36,6 +36,7 @@ string ReptilNativo::write(){
 	cout<<"Autorização do Ibama;Cadeia de caracteres;"<<m_autorizacao_ibama<<endl;
 	cout<<"UF de origem;Cadeia de caracteres;"<<m_uf_origem<<endl;
 */
+
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -46,10 +47,28 @@ string ReptilNativo::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	str<<m_venenoso<<";";
-	str<<m_tipo_veneno<<";";
+	//Autorização do Ibama
 	str<<m_autorizacao_ibama<<";";
-	str<<m_uf_origem<<endl;
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<m_uf_origem<<";";
+	// Total de Mudas
+	str<<"NVF;";
+	// Última muda
+	str<<"NVF;";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
+	str<<m_venenoso<<";";
+	// Tipo de veneno
+	str<<m_tipo_veneno<<endl;
 
 	return str.str();
 };

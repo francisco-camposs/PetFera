@@ -59,8 +59,27 @@ string Anfibio::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
+	//Autorização do Ibama
+	str<<"NVF;";
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
 	str<<m_total_de_mudas<<";";
-	str<<m_ultima_muda<<endl;
-
+	// Última muda
+	str<<m_ultima_muda<<";";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de veneno
+	str<<"NVF"<<endl;
 	return str.str();
-};
+}; 

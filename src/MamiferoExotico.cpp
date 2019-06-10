@@ -36,6 +36,7 @@ string MamiferoExotico::write(){
 	cout<<"País de origem;Cadeia de caracteres;"<<m_pais_origem<<endl;
 	cout<<"Cidade de origem;Cadeia de caracteres;"<<m_cidade_origem<<endl;
 */
+
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -46,10 +47,28 @@ string MamiferoExotico::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	str<<m_cor_do_pelo<<";";
+	//Autorização do Ibama
 	str<<m_autorizacao_ibama<<";";
+	// País de origem
 	str<<m_pais_origem<<";";
-	str<<m_cidade_origem<<endl;
+	// Cidade de origem
+	str<<m_cidade_origem<<";";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
+	str<<"NVF;";
+	// Última muda
+	str<<"NVF;";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<m_cor_do_pelo<<";";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de veneno
+	str<<"NVF"<<endl;
 
 	return str.str();
 

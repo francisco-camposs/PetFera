@@ -42,6 +42,7 @@ string Reptil::write(){
 	cout<<"Venenoso;booleano;"<<m_venenoso<<endl;
 	cout<<"Tipo de veneno;Cadeia de caracteres;"<<m_tipo_veneno<<endl;
 */
+
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -52,7 +53,27 @@ string Reptil::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
+	//Autorização do Ibama
+	str<<"NVF;";
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
+	str<<"NVF;";
+	// Última muda
+	str<<"NVF;";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
 	str<<m_venenoso<<";";
+	// Tipo de veneno
 	str<<m_tipo_veneno<<endl;
 
 	return str.str();
