@@ -75,9 +75,9 @@ ostream& Ave::print(ostream& os)const{
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta redominante;Cadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
-	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Dieta predominante;Cadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInterio \t"<<0<<endl;
+	os<<"Tratador responsável \tInterio \t"<<0<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Tamanho do bico \tDouble \t"<<m_tamanho_do_bico<<endl;
 	os<<"Envergadura das asas \tDouble \t"<<m_envergadura_das_asas<<endl;
