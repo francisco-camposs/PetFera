@@ -6,53 +6,157 @@ Controle::Controle(){
 	ifstream archive;
 	archive.open("test/Animais.csv");
 
-	string auxiliar;
-
-	int id;
-	string classe;
-	string nome_cientifico;
-	char sexo;
-	double tamanho;
-	string dieta;
-	int veterinario;
-	int tratador;
-	string nome;
-	string autorizacao;
-	string pais_origem;
-	string cidade_origem;
-	string uf_origem;
-	int total_mudas;
-	date ultima_muda;
-	double tamanho_bico;
-	double envergadura_asas;
-	string cor_do_pelo;
-	bool venenoso;
-	string tipo_de_veneno;
-
+	string* auxiliar;
 
 	if(!(archive.is_open())){
 		return;
 	}
 
 	string line;
+	Tratamento tratamento;
 
-	archive.ignore('\n');
+	while(getline(archive, line)){
+		cout << "Line: "<< line << endl;
+		auxiliar = tratamento.tratamento_animal(line);
+		// Animais domésticos
+		if (auxiliar[9] == "NVF"){
+		ler_animal_domestico(auxiliar);
+		}
+		// Animais Nativos
+		else if (auxiliar[10] == "NVF"){
+		ler_animal_nativo(auxiliar);
 
-	while(getline( archive, line)){
-		for (int i = 0; i < 20; i++){
-			int contador = 0;
-			while (line[contador] != ','){
-				auxiliar.push_back(line[contador]);
-				contador++;
-			}
-			contador = 0;
-
-			if(i = 0){
-				id = stoi(auxiliar);
-			}
+		}
+		// Animais Exoticos
+		else if(auxiliar[12] != "NVF"){
+		ler_animal_exotico(auxiliar);
 		}
 	}
 }
+
+void Controle::ler_animal_domestico(string * data){
+
+	shared_ptr<Veterinario> vet = dynamic_pointer_cast<Veterinario>(funcionarios_m[stoi(data[6])]);
+	shared_ptr<Tratador> trat = dynamic_pointer_cast<Tratador>(funcionarios_m[stoi(data[7])]);
+
+	char sexo = data[3][0];
+	if (data[2] == "Mammalia"){
+		shared_ptr<Mamifero> mamifero(new Mamifero(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], data[17]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Amphibia"){
+		// shared_ptr<Anfibio> anfibio(new Anfibio(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+		// 	data[5], vet.get(),trat.get(), data[8], ));
+
+		// shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		// animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Aves"){
+		shared_ptr<Ave> ave(new Ave(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], (double)stoi(data[15]), (double)stoi(data[15])));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+
+	if (data[2] == "Reptilia"){
+		bool venenoso = false;
+		if (data[18] == "true"){
+			venenoso = true;
+		}
+		shared_ptr<Reptil> reptil(new Reptil(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], venenoso, data[19]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+};
+
+void Controle::ler_animal_exotico(string *data){
+	shared_ptr<Veterinario> vet = dynamic_pointer_cast<Veterinario>(funcionarios_m[stoi(data[6])]);
+	shared_ptr<Tratador> trat = dynamic_pointer_cast<Tratador>(funcionarios_m[stoi(data[7])]);
+
+	char sexo = data[3][0];
+	if (data[2] == "Mammalia"){
+		shared_ptr<MamiferoExotico> mamifero(new MamiferoExotico(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], data[9], data[10], data[11] , data[17]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Amphibia"){
+		// shared_ptr<Anfibio> anfibio(new Anfibio(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+		// 	data[5], vet.get(),trat.get(), data[8], ));
+
+		// shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		// animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Aves"){
+		shared_ptr<AveExotica> ave(new AveExotica(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8],(double)stoi(data[15]), (double)stoi(data[15]),
+			data[9], data[10], data[11]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+
+	if (data[2] == "Reptilia"){
+		bool venenoso = false;
+		if (data[18] == "true"){
+			venenoso = true;
+		}
+		shared_ptr<ReptilExotico> reptil(new ReptilExotico(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8],venenoso, data[19], data[9], data[10], data[11]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+};
+
+void Controle::ler_animal_nativo(string *data){
+
+	shared_ptr<Veterinario> vet = dynamic_pointer_cast<Veterinario>(funcionarios_m[stoi(data[6])]);
+	shared_ptr<Tratador> trat = dynamic_pointer_cast<Tratador>(funcionarios_m[stoi(data[7])]);
+
+	char sexo = data[3][0];
+	if (data[2] == "Mammalia"){
+		shared_ptr<MamiferoNativo> mamifero(new MamiferoNativo(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], data[17], data[9], data[12]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Amphibia"){
+		// shared_ptr<Anfibio> anfibio(new Anfibio(stoi(data[0]),data[1], data[2], sexo, (double)stoi(data[4]), 
+		// 	data[5], vet.get(),trat.get(), data[8], ));
+
+		// shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(mamifero);
+		// animais_m[bicho->get_m_id()] = bicho;
+	}
+	if (data[2] == "Aves"){
+		shared_ptr<AveNativa> ave(new AveNativa(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], (double)stoi(data[15]), (double)stoi(data[15]), data[9], data[12]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+
+	if (data[2] == "Reptilia"){
+		bool venenoso = false;
+		if (data[18] == "true"){
+			venenoso = true;
+		}
+		shared_ptr<ReptilNativo> reptil(new ReptilNativo(stoi(data[0]),data[1], sexo, (double)stoi(data[4]), 
+			data[5], vet.get(),trat.get(), data[8], venenoso, data[19], data[9], data[12]));
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(reptil);
+		animais_m[bicho->get_m_id()] = bicho;
+	}
+};
+
 
 Controle::Controle(map<int, Animal> a, map<int, Funcionario> f){}
 Controle::~Controle(){}
@@ -61,7 +165,7 @@ Controle::~Controle(){}
 int Controle::is_number(char * number){
 	int i = 0;
 	while(number[i] != '\0'){
-		if ((number[i] < 48 || number[i] > 57) || number[i] != 46){
+		if ((number[i] < 48 || number[i] > 57)){
 			i = 0;
 			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();

@@ -7,7 +7,7 @@ Mamifero::Mamifero(){};
 Mamifero::Mamifero(int id, string classe, string nome_cientifico, char sexo, 
 		double tamanho, string dieta, Veterinario* veterinario, 
 		Tratador* tratador, string nome_batismo, string cor_do_pelo): Animal(id
-		, classe, nome_cientifico, sexo, tamanho, dieta, veterinario
+		, "Mammalia", nome_cientifico, sexo, tamanho, dieta, veterinario
 		, tratador, nome_batismo), m_cor_do_pelo(cor_do_pelo) {/*  */};
 
 Mamifero::~Mamifero(){};

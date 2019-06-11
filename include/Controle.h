@@ -16,6 +16,7 @@
 #include "MamiferoNativo.h"
 #include "ReptilExotico.h"
 #include "ReptilNativo.h" 
+#include "Tratamento.h"
 
 using namespace std;
 
@@ -28,6 +29,10 @@ class Controle{
 		void criar_animal(shared_ptr<Animal> &bicho, string classe);
 		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);
 		void criar_animal_exotico(shared_ptr<AnimalExotico> &bicho);
+
+		void ler_animal_domestico(string * data);
+		void ler_animal_exotico(string *data);
+		void ler_animal_nativo(string *data);
 
 		void criar_anfibio(int modo_criacao);
 		void criar_ave(int modo_criacao);

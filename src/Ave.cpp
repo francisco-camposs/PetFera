@@ -7,7 +7,7 @@ Ave::Ave(int id, string classe, string nome_cientifico, char sexo,
 		double tamanho, string dieta, Veterinario* veterinario,
 		Tratador* tratador, string nome_batismo, double tamanho_do_bico,
 		double envergadura_das_asas):
-	Animal(id, classe, nome_cientifico, sexo, tamanho, dieta, veterinario, tratador, nome_batismo),
+	Animal(id, "Aves", nome_cientifico, sexo, tamanho, dieta, veterinario, tratador, nome_batismo),
 	m_tamanho_do_bico(tamanho_do_bico), m_envergadura_das_asas(envergadura_das_asas){
 }
 Ave::~Ave(){

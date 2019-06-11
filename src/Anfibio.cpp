@@ -6,7 +6,7 @@ Anfibio::Anfibio(){
 Anfibio::Anfibio(int id, string classe, string nome_cientifico, char sexo, 
 		double tamanho, string dieta, Veterinario* veterinario, 
 		Tratador* tratador, string nome_batismo, int total_de_mudas,
-		int day, int month, int year): Animal(id, classe, nome_cientifico, 
+		int day, int month, int year): Animal(id, "Amphibia", nome_cientifico, 
 		sexo, tamanho, dieta, veterinario, tratador, nome_batismo),  
 		m_total_de_mudas(total_de_mudas){
 	m_ultima_muda.set_day(day);

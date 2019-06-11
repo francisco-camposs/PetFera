@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o build/Controle.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o build/Controle.o build/Tratamento.o
 
 # Compilador
 cc=g++
@@ -88,6 +88,10 @@ build/AnimalExotico.o: src/AnimalExotico.cpp
 
 build/Controle.o: src/Controle.cpp
 	$(cc) $(CC_FLAGS) src/Controle.cpp -c && mv Controle.o build
+
+build/Tratamento.o: src/Tratamento.cpp
+	$(cc) $(CC_FLAGS) src/Tratamento.cpp -c && mv Tratamento.o build
+
 
 ex: $(project_name)
 	./bin/ex
