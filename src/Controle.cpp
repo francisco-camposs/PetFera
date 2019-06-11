@@ -2,7 +2,58 @@
 
 using namespace std;
 
-Controle::Controle(){}
+Controle::Controle(){
+	ifstream archive;
+	archive.open("test/Animais.csv");
+
+	string auxiliar;
+
+	int id;
+	string classe;
+	string nome_cientifico;
+	char sexo;
+	double tamanho;
+	string dieta;
+	int veterinario;
+	int tratador;
+	string nome;
+	string autorizacao;
+	string pais_origem;
+	string cidade_origem;
+	string uf_origem;
+	int total_mudas;
+	date ultima_muda;
+	double tamanho_bico;
+	double envergadura_asas;
+	string cor_do_pelo;
+	bool venenoso;
+	string tipo_de_veneno;
+
+
+	if(!(archive.is_open())){
+		return;
+	}
+
+	string line;
+
+	archive.ignore('\n');
+
+	while(getline( archive, line)){
+		for (int i = 0; i < 20; i++){
+			int contador = 0;
+			while (line[contador] != ','){
+				auxiliar.push_back(line[contador]);
+				contador++;
+			}
+			contador = 0;
+
+			if(i = 0){
+				id = stoi(auxiliar);
+			}
+		}
+	}
+}
+
 Controle::Controle(map<int, Animal> a, map<int, Funcionario> f){}
 Controle::~Controle(){}
 
@@ -10,7 +61,7 @@ Controle::~Controle(){}
 int Controle::is_number(char * number){
 	int i = 0;
 	while(number[i] != '\0'){
-		if (number[i] < 48 || number[i] > 57){
+		if ((number[i] < 48 || number[i] > 57) || number[i] != 46){
 			i = 0;
 			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();
