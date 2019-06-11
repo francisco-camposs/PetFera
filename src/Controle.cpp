@@ -157,7 +157,6 @@ void Controle::ler_animal_nativo(string *data){
 	}
 };
 
-
 Controle::Controle(map<int, Animal> a, map<int, Funcionario> f){}
 Controle::~Controle(){}
 
@@ -166,6 +165,7 @@ int Controle::is_number(char * number){
 	int i = 0;
 	while(number[i] != '\0'){
 		if ((number[i] < 48 || number[i] > 57)){
+
 			i = 0;
 			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();
@@ -627,8 +627,6 @@ void Controle::adicionar_animal(){
 		arq.close();
 
 	}
-
-	// cout << "Só para o compilador parar de mandar aviso: " << option_1 << option_2 <<  endl;
 }
 
 
@@ -638,9 +636,44 @@ void Controle::remover_animal(){
 void Controle::alterar_animal(){
 
 }
+
 void Controle::consultar_animais(){
-	cout<< *animais_m[animais_m.size()-1] <<endl;
+	char* valor = new char;
+	int option;
+	int id;
+	cout << "Digite a opção desejada: " << endl;
+	cout << "\t 1 - Consultar todos os animais;" << endl;
+	cout << "\t 2 - Consultar animal por id;" << endl;
+
+	cin.clear();
+	cin.getline(valor,20);
+	option = is_number(valor);
+
+	while(option < 1 || option > 2){
+		cout << "Esse opção não é valida, tente novamente: " << endl;
+		cin.clear();
+		cin.getline(valor,20);
+		option = is_number(valor);
+	}
+
+	if(option == 1){
+		for(auto it = animais_m.begin(); it != animais_m.end(); it++)
+			cout<< *it->second << endl << endl;
+	}
+	else if(option == 2){
+		cout << "Digite o id do animal: " << endl;
+		cin.clear();
+		cin.getline(valor, 50);
+		id = is_number(valor);
+
+		auto it = animais_m.find(id);
+		if(it == animais_m.end())
+			cout<<"Animal não encontrado"<<endl << endl; 
+		else
+			cout << *it->second << endl << endl;
+	}
 }
+
 void Controle::consultar_animais_por_funcionario(){
 
 }
@@ -778,6 +811,40 @@ void Controle::remover_funcionario(){
 void Controle::alterar_funcionario(){
 
 }
+
 void Controle::consultar_funcionario(){
-	cout << *funcionarios_m[funcionarios_m.size()-1] <<endl;
+	char* valor = new char;
+	int option;
+	int id;
+	cout << "Digite a opção desejada: " << endl;
+	cout << "\t 1 - Consultar todos os funcionários;" << endl;
+	cout << "\t 2 - Consultar funcionário por id;" << endl;
+
+	cin.clear();
+	cin.getline(valor,20);
+	option = is_number(valor);
+
+	while(option < 1 || option > 2){
+		cout << "Esse opção não é valida, tente novamente: " << endl;
+		cin.clear();
+		cin.getline(valor,20);
+		option = is_number(valor);
+	}
+
+	if(option == 1){
+		for(auto it = funcionarios_m.begin(); it != funcionarios_m.end(); it++)
+			cout<< *it->second << endl << endl;
+	}
+	else if(option == 2){
+		cout << "Digite o id do funcionario: " << endl;
+		cin.clear();
+		cin.getline(valor, 50);
+		id = is_number(valor);
+
+		auto it = funcionarios_m.find(id);
+		if(it == funcionarios_m.end())
+			cout<<"Funcionário não encontrado"<<endl << endl;
+		else
+			cout << *it->second << endl << endl;
+	}
 }

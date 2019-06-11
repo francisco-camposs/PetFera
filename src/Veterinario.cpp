@@ -54,15 +54,15 @@ string Veterinario::write(){
 };
 
 ostream& Veterinario::print(ostream& os)const{
-	os<<"Campo \tTipo de dado \tValores"<<endl;
+	os<<"Campo \t\t\t\t\tTipo de dado \tValores"<<endl;
 	os<<"Identificador do funcionário \tCadeia de caracteres \t"<<m_id << endl;
-	os<<"Função \tCadeia de Caracteres \tVeterinário" << endl;
-	os<<"Nome do funcionário \tCadeia de caracteres \t"<<m_nome << endl;
-	os<<"CPF do funcionário \tCadeia de caracteres \t"<<m_cpf << endl;
-	os<<"Idade do funcionário \tInteiro \t"<<m_idade << endl;
-	os<<"Tipo sanguíneo \tCadeia de caracteres \t"<<m_tipo_sanguineo << endl;
-	os<<"Fator RH \tCaractere \t"<<m_fator_rh << endl;
-	os<<"Especialidade \tCadeia de caracteres \t"<<m_especialidade << endl;
-	os<<"Código CRMV \tCadeia de caracteres \t"<<m_crmv << endl;
+	os<<"Função \t\t\tCadeia de Caracteres \tVeterinário" << endl;
+	os<<"Nome do funcionário \t\tCadeia de caracteres \t"<<m_nome << endl;
+	os<<"CPF do funcionário \t\tCadeia de caracteres \t"<<m_cpf << endl;
+	os<<"Idade do funcionário \t\tInteiro \t\t"<<m_idade << endl;
+	os<<"Tipo sanguíneo \t\tCadeia de caracteres \t"<<m_tipo_sanguineo << endl;
+	os<<"Fator RH \t\t\tCaractere \t\t"<<m_fator_rh << endl;
+	os<<"Especialidade \t\t\tCadeia de caracteres \t"<<m_especialidade << endl;
+	os<<"Código CRMV \t\t\tCadeia de caracteres \t"<<m_crmv << endl;
 	return os;
 }
