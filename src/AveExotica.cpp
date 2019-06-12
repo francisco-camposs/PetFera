@@ -37,22 +37,10 @@ string AveExotica::write(){
 	str<<m_pais_origem<<";";
 	// Cidade de origem
 	str<<m_cidade_origem<<";";
-	// UF de origem
-	str<<"NVF;";
-	// Total de Mudas
-	str<<"NVF;";
-	// Última muda
-	str<<"NVF;";
 	// Tamanho do bico
 	str<<m_tamanho_do_bico<<";";
 	// Envergadura das Asas
-	str<<m_envergadura_das_asas<<";";
-	// Cor dos pelos
-	str<<"NVF;";
-	// Se é venenoso
-	str<<"NVF;";
-	// Tipo de veneno
-	str<<"NVF"<<endl;
+	str<<m_envergadura_das_asas<<endl;
 
 	return str.str();
 };
@@ -68,7 +56,7 @@ ostream& AveExotica::print(ostream& os)const{
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta redominante;Cadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Dieta Predominante;Cadeia de caracteres \t"<<m_dieta<<endl;
 	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
 	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;

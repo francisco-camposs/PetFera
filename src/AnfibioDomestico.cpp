@@ -1,24 +1,19 @@
-#include "AnfibioExotico.h"
+#include "AnfibioDomestico.h"
 
-AnfibioExotico::AnfibioExotico(){
+AnfibioDomestico::AnfibioDomestico(){
 
 }
-AnfibioExotico::AnfibioExotico(int id, string nome_cientifico, char sexo, 
+AnfibioDomestico::AnfibioDomestico(int id, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
 			Tratador* tratador, string nome_batismo, int total_de_mudas,
-			int day, int month, int year, string autorizacao_ibama, string pais_origem, string cidade_origem):
+			int day, int month, int year):
 	Anfibio(id, "Amphibia", nome_cientifico, sexo, tamanho, dieta, veterinario,
-	tratador, nome_batismo, total_de_mudas, day, month, year), 
-	AnimalExotico(autorizacao_ibama, pais_origem, cidade_origem){
+	tratador, nome_batismo, total_de_mudas, day, month, year){
 
 }
-AnfibioExotico::~AnfibioExotico(){}
+AnfibioDomestico::~AnfibioDomestico(){}
 
-void AnfibioExotico::set_autorizacao_ibama(string autorizacao_ibama){
-	m_autorizacao_ibama = autorizacao_ibama;
-};
-
-string AnfibioExotico::write(){
+string AnfibioDomestico::write(){
 	ostringstream str;
 	str<<m_id<<";";
 	str<<m_classe<<";";
@@ -29,12 +24,6 @@ string AnfibioExotico::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	//Autorização do Ibama
-	str<<m_autorizacao_ibama<<";";
-	// País de origem
-	str<<m_pais_origem<<";";
-	// Cidade de origem
-	str<<m_cidade_origem<<";";
 	// Total de Mudas
 	str<<m_total_de_mudas<<";";
 	// Última muda
@@ -42,11 +31,11 @@ string AnfibioExotico::write(){
 	return str.str();
 }
 
-string AnfibioExotico::Tipo(){
-	return "AnfibioExotico";
+string AnfibioDomestico::Tipo(){
+	return "AnfibioDomestico";
 };
 
-ostream& AnfibioExotico::print(ostream& os)const{
+ostream& AnfibioDomestico::print(ostream& os)const{
 	os<<"Campo \tTipo de Dados \tValores"<<endl;
 	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
 	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
@@ -59,8 +48,5 @@ ostream& AnfibioExotico::print(ostream& os)const{
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
 	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;
-	os<<"Autorização do Ibama \tCadeia de caracteres \t"<<m_autorizacao_ibama<<endl;
-	os<<"País de origem \tCadeia de caracteres \t"<<m_pais_origem<<endl;
-	os<<"Cidade de origem \tCadeia de caracteres \t"<<m_cidade_origem<<endl;
 	return os;
 }

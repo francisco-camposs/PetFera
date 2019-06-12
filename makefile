@@ -2,7 +2,7 @@
 project_name = bin/ex
 
 # Arquivos .o
-o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilNativo.o build/ReptilExotico.o build/AveNativa.o build/AveExotica.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o build/Controle.o build/Tratamento.o
+o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o build/Reptil.o build/Ave.o build/AnfibioDomestico.o build/AnfibioNativo.o build/AnfibioExotico.o build/MamiferoDomestico.o build/MamiferoNativo.o build/MamiferoExotico.o build/ReptilDomestico.o build/ReptilNativo.o build/ReptilExotico.o build/AveDomestica.o build/AveNativa.o build/AveExotica.o build/AnimalDomestico.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o build/Controle.o build/Tratamento.o
 
 # Compilador
 cc=g++
@@ -53,11 +53,17 @@ build/Reptil.o: src/Reptil.cpp
 build/Ave.o: src/Ave.cpp
 	$(cc) $(CC_FLAGS) src/Ave.cpp -c && mv Ave.o build
 
+build/AnfibioDomestico.o: src/AnfibioDomestico.cpp
+	$(cc) $(CC_FLAGS) src/AnfibioDomestico.cpp -c && mv AnfibioDomestico.o build
+
 build/AnfibioNativo.o: src/AnfibioNativo.cpp
 	$(cc) $(CC_FLAGS) src/AnfibioNativo.cpp -c && mv AnfibioNativo.o build
 
 build/AnfibioExotico.o: src/AnfibioExotico.cpp
 	$(cc) $(CC_FLAGS) src/AnfibioExotico.cpp -c && mv AnfibioExotico.o build
+
+build/MamiferoDomestico.o: src/MamiferoDomestico.cpp
+	$(cc) $(CC_FLAGS) src/MamiferoDomestico.cpp -c && mv MamiferoDomestico.o build
 
 build/MamiferoNativo.o: src/MamiferoNativo.cpp
 	$(cc) $(CC_FLAGS) src/MamiferoNativo.cpp -c && mv MamiferoNativo.o build
@@ -65,17 +71,26 @@ build/MamiferoNativo.o: src/MamiferoNativo.cpp
 build/MamiferoExotico.o: src/MamiferoExotico.cpp
 	$(cc) $(CC_FLAGS) src/MamiferoExotico.cpp -c && mv MamiferoExotico.o build
 
+build/ReptilDomestico.o: src/ReptilDomestico.cpp
+	$(cc) $(CC_FLAGS) src/ReptilDomestico.cpp -c && mv ReptilDomestico.o build
+
 build/ReptilNativo.o: src/ReptilNativo.cpp
 	$(cc) $(CC_FLAGS) src/ReptilNativo.cpp -c && mv ReptilNativo.o build
 
 build/ReptilExotico.o: src/ReptilExotico.cpp
 	$(cc) $(CC_FLAGS) src/ReptilExotico.cpp -c && mv ReptilExotico.o build
 
+build/AveDomestica.o: src/AveDomestica.cpp
+	$(cc) $(CC_FLAGS) src/AveDomestica.cpp -c && mv AveDomestica.o build
+
 build/AveNativa.o: src/AveNativa.cpp
 	$(cc) $(CC_FLAGS) src/AveNativa.cpp -c && mv AveNativa.o build
 
 build/AveExotica.o: src/AveExotica.cpp
 	$(cc) $(CC_FLAGS) src/AveExotica.cpp -c && mv AveExotica.o build
+
+build/AnimalDomestico.o: src/AnimalDomestico.cpp
+	$(cc) $(CC_FLAGS) src/AnimalDomestico.cpp -c && mv AnimalDomestico.o build
 
 build/AnimalSilvestre.o: src/AnimalSilvestre.cpp
 	$(cc) $(CC_FLAGS) src/AnimalSilvestre.cpp -c && mv AnimalSilvestre.o build

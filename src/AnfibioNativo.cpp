@@ -31,26 +31,12 @@ string AnfibioNativo::write(){
 	str<<m_nome_batismo<<";";
 	//Autorização do Ibama
 	str<<m_autorizacao_ibama<<";";
-	// País de origem
-	str<<"NVF;";
-	// Cidade de origem
-	str<<"NVF;";
 	// UF de origem
 	str<<m_uf_origem<<";";
 	// Total de Mudas
 	str<<m_total_de_mudas<<";";
 	// Última muda
-	str<<m_ultima_muda<<";";
-	// Tamanho do bico
-	str<<"NVF;";
-	// Envergadura das Asas
-	str<<"NVF;";
-	// Cor dos pelos
-	str<<"NVF;";
-	// Se é venenoso
-	str<<"NVF;";
-	// Tipo de veneno
-	str<<"NVF"<<endl;
+	str<<m_ultima_muda<<endl;
 
 	return str.str();
 
@@ -67,7 +53,7 @@ ostream& AnfibioNativo::print(ostream& os)const{
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros\tDecimal\t"<<m_tamanho<<endl;
-	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Dieta Predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
 	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
 	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;

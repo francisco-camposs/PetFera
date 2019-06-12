@@ -37,22 +37,8 @@ string MamiferoExotico::write(){
 	str<<m_pais_origem<<";";
 	// Cidade de origem
 	str<<m_cidade_origem<<";";
-	// UF de origem
-	str<<"NVF;";
-	// Total de Mudas
-	str<<"NVF;";
-	// Última muda
-	str<<"NVF;";
-	// Tamanho do bico
-	str<<"NVF;";
-	// Envergadura das Asas
-	str<<"NVF;";
 	// Cor dos pelos
-	str<<m_cor_do_pelo<<";";
-	// Se é venenoso
-	str<<"NVF;";
-	// Tipo de veneno
-	str<<"NVF"<<endl;
+	str<<m_cor_do_pelo<<endl;
 
 	return str.str();
 
@@ -69,7 +55,7 @@ ostream& MamiferoExotico::print(ostream& os)const{
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Dieta Predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
 	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
 	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
