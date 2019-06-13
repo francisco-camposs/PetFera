@@ -15,19 +15,20 @@ AnfibioDomestico::~AnfibioDomestico(){}
 
 string AnfibioDomestico::write(){
 	ostringstream str;
-	str<<m_id<<";";
-	str<<m_classe<<";";
-	str<<m_nome_cientifico<<";";
-	str<<m_sexo<<";";
-	str<<m_tamanho<<";";
-	str<<m_dieta<<";";
-	str<<m_veterinario->get_id()<<";";
-	str<<m_tratador->get_id()<<";";
-	str<<m_nome_batismo<<";";
+	str<<"AnfibioDomestico;";//0
+	str<<m_id<<";"; //1
+	str<<m_classe<<";";//2
+	str<<m_nome_cientifico<<";";//3
+	str<<m_sexo<<";";//4
+	str<<m_tamanho<<";";//5
+	str<<m_dieta<<";";//6
+	str<<m_veterinario->get_id()<<";";//7
+	str<<m_tratador->get_id()<<";";//8
+	str<<m_nome_batismo<<";";//9
 	// Total de Mudas
-	str<<m_total_de_mudas<<";";
+	str<<m_total_de_mudas<<";";//10
 	// Última muda
-	str<<m_ultima_muda<<endl;
+	str<<m_ultima_muda<<endl;//11
 	return str.str();
 }
 
@@ -43,8 +44,8 @@ ostream& AnfibioDomestico::print(ostream& os)const{
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros\tDecimal\t"<<m_tamanho<<endl;
 	os<<"Dieta Predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
-	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
+	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
 	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;

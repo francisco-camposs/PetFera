@@ -22,6 +22,7 @@ void ReptilNativo::set_autorizacao_ibama(string autorizacao_ibama){
 
 string ReptilNativo::write(){
 	ostringstream str;
+	str<<"ReptilNativo;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

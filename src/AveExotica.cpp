@@ -22,6 +22,7 @@ void AveExotica::set_autorizacao_ibama(string autorizacao_ibama){
 
 string AveExotica::write(){
 	ostringstream str;
+	str<<"AveExotica;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

@@ -22,6 +22,7 @@ void AveNativa::set_autorizacao_ibama(string autorizacao_ibama){
 
 string AveNativa::write(){
 	ostringstream str;
+	str<<"AveNativa;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

@@ -16,6 +16,7 @@ MamiferoDomestico::~MamiferoDomestico(){
 
 string MamiferoDomestico::write(){
 	ostringstream str;
+	str<<"MamiferoDomestico;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

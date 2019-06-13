@@ -20,6 +20,7 @@ void AnfibioExotico::set_autorizacao_ibama(string autorizacao_ibama){
 
 string AnfibioExotico::write(){
 	ostringstream str;
+	str<<"AnfibioExotico;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class MamiferoDomestico : public Mamifero, public AnimalDomestico {
+class MamiferoDomestico : public Mamifero, public AnimalDomestico{
 public:
 	MamiferoDomestico();
 	MamiferoDomestico(int id, string nome_cientifico, char sexo, 

@@ -22,6 +22,7 @@ void MamiferoNativo::set_autorizacao_ibama(string autorizacao_ibama){
 
 string MamiferoNativo::write(){
 	ostringstream str;
+	str<<"MamiferoNativo;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

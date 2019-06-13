@@ -17,6 +17,7 @@ AveDomestica::~AveDomestica(){
 
 string AveDomestica::write(){
 	ostringstream str;
+	str<<"Ave;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

@@ -1,3 +1,3 @@
 Id;Classe;Nome Científico;Sexo;Tamanho do Animal;Dieta;Veterinário Associado;Tratador Responsável;Nome de Batismo;Autorização do Ibama;País de Origem;Cidade de Origem;UF de Origem;Total de Mudas;Última Muda;Tamanho do Bico;Envergadura das Asas;Cor dos Pelos;Se é Venenoso;Tipo de Veneno
-0;Amphibia;Bufus lufus;M;234;Moscas;-1612006312;-1301794008;Fofinho;NVF;NVF;NVF;NVF;2;12/12/2019;NVF;NVF;NVF;NVF;NVF
-1;Ave;Mae das luas;F;435;Insetos;1284119640;28026896;Mae do sol;NVF;NVF;NVF;NVF;NVF;NVF;123;8765;NVF;NVF;NVF
+AnfibioDomestico;0;Amphibia;Bufos Bufos;M;1;Moscas;1702345816;-1509031896;Namor;2;12/12/2019
+AveNativa;0;Ave;Ramphastos sulfuratus;F;1232;Insetos e frutas.;-2103309256;1993590056;Bicudo;0001002;AM;30;100

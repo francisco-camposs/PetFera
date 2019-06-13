@@ -18,6 +18,7 @@ ReptilDomestico::~ReptilDomestico(){
 string ReptilDomestico::write(){
 
 	ostringstream str;
+	str<<"ReptilDomestico;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";

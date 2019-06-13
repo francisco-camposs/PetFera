@@ -23,6 +23,7 @@ void ReptilExotico::set_autorizacao_ibama(string autorizacao_ibama){
 string ReptilExotico::write(){
 
 	ostringstream str;
+	str<<"ReptilExotico;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";
