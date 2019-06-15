@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "TratamentoInput.h"
 
 using namespace std;
 
@@ -42,6 +43,10 @@ class Funcionario {
 		char get_fator_rh();
 		string get_especialidade();
 		virtual string write() = 0;
+
+		virtual void inicializar_funcionario(int id) = 0;
+		void inicializar(int id);
+
 		friend ostream& operator<<(ostream& os, const Funcionario& f){
 			return f.print(os);
 		}

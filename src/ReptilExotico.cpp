@@ -70,3 +70,7 @@ ostream& ReptilExotico::print(ostream& os)const{
 	
 	return os;
 }
+
+void ReptilExotico::inicializar_animal(int id){
+	
+};

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "TratamentoInput.h"
 
 using namespace std;
 

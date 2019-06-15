@@ -52,3 +52,7 @@ ostream& MamiferoDomestico::print(ostream& os)const{
 
 	return os;
 }
+
+void MamiferoDomestico::inicializar_animal(int id){
+	
+};

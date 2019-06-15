@@ -25,6 +25,8 @@ class Veterinario : public Funcionario{
 
 		string get_crmv ();
 		string write();
+		
+		void inicializar_funcionario(int id);
 	private:
 		ostream& print(ostream& os)const;
 };

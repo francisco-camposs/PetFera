@@ -17,6 +17,7 @@ class AnimalNativo : public AnimalSilvestre {
 		void set_uf_origem(string uf_origem);
 		virtual void set_autorizacao_ibama(string autorizacao_ibama) = 0;
 		string get_uf_origem();
+		void inicializar_nativo();
 };
 
 #endif

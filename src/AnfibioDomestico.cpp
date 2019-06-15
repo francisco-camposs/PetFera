@@ -30,7 +30,7 @@ string AnfibioDomestico::write(){
 	// Última muda
 	str<<m_ultima_muda<<endl;//11
 	return str.str();
-}
+};
 
 string AnfibioDomestico::Tipo(){
 	return "AnfibioDomestico";
@@ -50,4 +50,8 @@ ostream& AnfibioDomestico::print(ostream& os)const{
 	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
 	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;
 	return os;
-}
+};
+
+void AnfibioDomestico::inicializar_animal(int id){
+	inicializar_anfibio(id);
+};

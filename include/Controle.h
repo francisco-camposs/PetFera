@@ -15,7 +15,7 @@ class Controle{
 	private:
 		map<int, shared_ptr<Animal>> animais_m;
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
-
+		Tratamento tratamento;
 
 		void criar_animal(shared_ptr<Animal> &bicho, string classe);
 		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);

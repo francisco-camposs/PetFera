@@ -69,3 +69,7 @@ ostream& AveExotica::print(ostream& os)const{
 
 	return os;
 }
+
+void AveExotica::inicializar_animal(int id){
+	
+};

@@ -65,3 +65,8 @@ ostream& AnfibioNativo::print(ostream& os)const{
 
 	return os;
 }
+
+void AnfibioNativo::inicializar_animal(int id){
+	inicializar_anfibio(id);
+	inicializar_nativo();
+};

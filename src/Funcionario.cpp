@@ -73,3 +73,48 @@ string Funcionario::get_especialidade(){
 	return m_especialidade;
 };
 
+void Funcionario::inicializar(int id){
+	TratamentoInput input;
+	string nome;
+	string cpf;
+	short int idade;
+	string tipo_sanguineo;
+	string especialidade;
+	char *fator_rh = new char;
+
+	this->set_id(id);
+
+	cout<<"Digite o nome: " << endl;
+	nome = input.inputString();
+	this->set_nome(nome);
+
+	cout<<"Digite o cpf:" << endl;
+	cpf = input.inputString();
+	this->set_cpf(cpf);
+
+	cout<<"Digite a idade: " << endl;
+	idade = input.inputInt();
+	this->set_idade(idade);
+
+	cout<<"Digite o tipo sanguineo: " << endl;
+	tipo_sanguineo = input.inputString();
+	this->set_tipo_sanguineo(tipo_sanguineo);
+
+	cout << "Digite o fator RH do Funcionario:" << endl;
+	fator_rh = input.inputChar();
+
+	while(*fator_rh != '+' && *fator_rh != '-'){
+		cout << "Fator RH inválido, digite novamente: " << endl;
+		fator_rh = input.inputChar();
+	}
+
+	cout << "Fator RH: " << *fator_rh << endl;
+	this->set_fator_rh(*fator_rh);
+
+
+	cout<<"Digite a especialidade: " << endl;
+	especialidade = input.inputString();
+	this->set_especialidade(especialidade);
+
+	delete[] fator_rh;
+};

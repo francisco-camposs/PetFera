@@ -65,3 +65,8 @@ ostream& AnfibioExotico::print(ostream& os)const{
 	os<<"Cidade de origem \tCadeia de caracteres \t"<<m_cidade_origem<<endl;
 	return os;
 }
+
+void AnfibioExotico::inicializar_animal(int id){
+	inicializar_anfibio(id);
+	inicializar_exotico();
+};

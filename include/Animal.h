@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <memory>
+#include "TratamentoInput.h"
 #include "Veterinario.h"
 #include "Tratador.h" 
 
@@ -20,6 +22,7 @@ class Animal {
 		Veterinario* m_veterinario;
 		Tratador* m_tratador;
 		string m_nome_batismo;
+		TratamentoInput input;
 
 	public:
 		Animal();
@@ -43,16 +46,21 @@ class Animal {
 		string get_m_classe() const;
 		string get_m_nome_cientifico() const;
 		char get_m_sexo() const;
-		double get_m_tamanho() const;
+		double get_m_tamanho() const; 
 		string get_m_dieta() const;
 		Veterinario get_m_veterinario();
 		Tratador get_m_tratador();
 		string get_m_nome_batismo() const;
+
 		virtual string write() = 0;
 		virtual string Tipo() = 0;
+		virtual void inicializar_animal(int id) = 0;
+		void inicializar(string classe, int id);
+
 		friend ostream& operator<<(ostream& os, const Animal& a){
 			return a.print(os);
 		}
+
 	private:
 		virtual ostream& print(ostream&)const = 0;
 };

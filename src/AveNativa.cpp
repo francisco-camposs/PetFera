@@ -66,3 +66,7 @@ ostream& AveNativa::print(ostream& os)const{
 
 	return os;
 }
+
+void AveNativa::inicializar_animal(int id){
+	
+};

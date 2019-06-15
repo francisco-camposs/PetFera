@@ -30,3 +30,22 @@ string AnimalExotico::get_pais_origem() {
 string AnimalExotico::get_cidade_origem() {
 	return m_cidade_origem;
 };
+
+void AnimalExotico::inicializar_exotico(){
+	TratamentoInput input;
+	string autorizacao_ibama;
+	string pais_origem;
+	string cidade_origem;
+
+	cout << "Digite a autorização do Ibama: " << endl;
+	autorizacao_ibama = input.inputString();
+	this->set_autorizacao_ibama(autorizacao_ibama);
+
+	cout << "Digite o país de origem: " << endl;
+	pais_origem = input.inputString();
+	this->m_pais_origem = (pais_origem);
+
+	cout << "Digite a cidade de origem: " << endl;
+	cidade_origem = input.inputString();
+	this->set_cidade_origem(cidade_origem);
+};

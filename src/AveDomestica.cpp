@@ -55,3 +55,7 @@ ostream& AveDomestica::print(ostream& os)const{
 
 	return os;
 }
+
+void AveDomestica::inicializar_animal(int id){
+	
+};

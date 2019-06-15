@@ -26,6 +26,8 @@ class Anfibio : public Animal {
 
 		string Tipo();
 		string write();
+
+		void inicializar_anfibio(int id);
 	private:
 		ostream& print(ostream& os)const;
 

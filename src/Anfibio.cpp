@@ -87,3 +87,34 @@ ostream& Anfibio::print(ostream& os)const{
 	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;
 	return os;
 }
+
+void Anfibio::inicializar_anfibio(int id){
+	this->inicializar("Amphibia", id);
+
+	int total_mudas;
+	int day;
+	int month;
+	int year;
+
+	cout << "Digite o número total de mudas do anfíbio: " << endl;
+	total_mudas = input.inputInt();
+
+	cout<< "Digite a data da última muda (dd/mm/aa): " << endl;
+	day = input.inputInt();
+	month = input.inputInt();
+	year = input.inputInt();
+
+	date ultima_muda = date(day, month, year);
+
+	while(!ultima_muda.valid()){
+		cout<< "Data inválida, digite novamente: " << endl;
+		cin.clear();
+		cin >> day >> month >> year;
+		ultima_muda.set_day(day);
+		ultima_muda.set_month(month);
+		ultima_muda.set_year(year);
+	}
+
+	this->set_ultima_muda(ultima_muda);
+	this->set_total_de_mudas(total_mudas);
+};

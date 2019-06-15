@@ -1,3 +1,6 @@
+#ifndef _TRATAMENTO_H_
+#define _TRATAMENTO_H_
+
 #include <string>
 #include <iostream>
 #include <memory>
@@ -38,3 +41,5 @@ class Tratamento{
 
 
 };
+
+#endif

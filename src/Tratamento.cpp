@@ -73,7 +73,6 @@ shared_ptr<Animal> Tratamento::Tratamento_AnfibioDomestico(string line){
 	for (int i =0; i < 12; i++){
 		while(contador < (int)line.size() and (line[contador] != ';')){
 			auxiliar[i].push_back(line[contador]);
-			cout << contador << endl;
 			contador++;
 		}
 		contador++;
@@ -82,15 +81,15 @@ shared_ptr<Animal> Tratamento::Tratamento_AnfibioDomestico(string line){
 	string * data = Tratamento_Data(auxiliar[11]);
 
 	char sexo = char(auxiliar[4][0]);
-	cout << "Sexo: " << sexo << endl;
 
-	shared_ptr<AnfibioDomestico> anfibio(new AnfibioDomestico(stoi(auxiliar[1]), auxiliar[3], sexo
-		, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, auxiliar[9],stoi(auxiliar[10]), 
-		stoi(data[0]), stoi(data[1]), stoi(data[2])));
+	shared_ptr<AnfibioDomestico> anfibio(new AnfibioDomestico(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9],stoi(auxiliar[10]), stoi(data[0]), stoi(data[1]), 
+		stoi(data[2])));
 
 	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibio);
-	cout << *bicho << endl;
 
 	delete[] data;
-	return NULL;
+	return bicho;
 };
+

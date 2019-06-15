@@ -66,3 +66,13 @@ ostream& Veterinario::print(ostream& os)const{
 	os<<"Código CRMV \t\t\tCadeia de caracteres \t"<<m_crmv << endl;
 	return os;
 }
+
+void Veterinario::inicializar_funcionario(int id){
+	inicializar(id);
+	TratamentoInput input;
+	string crmv;
+
+	cout<<"Digite o crmv do veterinário: " << endl;
+	crmv = input.inputString();
+	this->m_crmv = crmv;
+};

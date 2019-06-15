@@ -20,6 +20,7 @@ class AnimalExotico : public AnimalSilvestre {
 		virtual void set_autorizacao_ibama(string autorizacao_ibama) = 0;
 		string get_pais_origem();
 		string get_cidade_origem();
+		void inicializar_exotico();
 };
 
 #endif

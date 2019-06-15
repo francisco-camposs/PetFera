@@ -17,6 +17,7 @@ public:
 
 	string write();
 	string Tipo();
+	void inicializar_animal(int id);
 private:
 	ostream& print(ostream& os)const;
 };

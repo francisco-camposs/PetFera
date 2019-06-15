@@ -63,3 +63,7 @@ ostream& MamiferoNativo::print(ostream& os)const{
 
 	return os;
 }
+
+void MamiferoNativo::inicializar_animal(int id){
+	
+};

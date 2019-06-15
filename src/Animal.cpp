@@ -90,3 +90,48 @@ Tratador Animal::get_m_tratador(){
 string Animal::get_m_nome_batismo() const{
 	return m_nome_batismo;
 };
+
+void Animal::inicializar(string classe, int id){
+	shared_ptr<Veterinario> vet(new Veterinario);
+	shared_ptr<Tratador> trat(new Tratador);
+
+	char * valor = new char;
+	string nome;
+	string nome_cientifico;
+	char * sexo = new char;
+	double tam;
+	string dieta;
+
+	this->set_m_id(id);
+
+	cout << "Digite o nome cientifico: " << endl;
+	nome_cientifico = input.inputString();
+	this->set_m_nome_cientifico(nome_cientifico);
+
+	this->set_m_classe(classe);
+
+	cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
+	sexo = input.inputChar();
+	while(*sexo != 'F' && *sexo != 'M'){
+		cout << "Sexo inválido, digite novamente: " << endl;
+		sexo = input.inputChar();
+	}
+	cout << "Sexo: " << *sexo << endl;
+	this->set_m_sexo(*sexo);
+
+	cout << "Digite o tamanho do animal: " << endl;
+	tam = input.inputDouble();
+	this->set_m_tamanho(tam);
+
+	cout << "Digite a dieta do animal: " << endl;
+	dieta = input.inputString();
+	this->set_m_dieta(dieta);
+
+	cout << "Por enquanto serão uns veterinários genéricos." << endl;
+	this->set_m_veterinario((vet.get()));
+	this->set_m_tratador(trat.get());
+
+	cout << "Digite a o nome de batismo do animal: " << endl;
+	nome = input.inputString();
+	this->set_m_nome_batismo(nome);
+};

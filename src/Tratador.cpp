@@ -66,3 +66,13 @@ ostream& Tratador::print(ostream& os)const{
 	os<<"Nível de Segurança \t\tInteiro \t\t"<<m_nivel_de_seguranca << endl;
 	return os;
 }
+
+void Tratador::inicializar_funcionario(int id){
+	inicializar(id);
+	TratamentoInput input;
+	int nivel_de_seguranca;
+
+	cout<<"Digite o nível de segurança do tratador: "<< endl;
+	nivel_de_seguranca = input.inputInt();
+	this->set_nivel_de_seguranca(nivel_de_seguranca);
+};

@@ -16,6 +16,7 @@ public:
 	void set_autorizacao_ibama(string autorizacao_ibama);
 	string write();
 	string Tipo();
+	void inicializar_animal(int id);
 private:
 	ostream& print(ostream& os)const;
 };

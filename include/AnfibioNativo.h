@@ -16,6 +16,7 @@ public:
 	~AnfibioNativo();
 	
 	void set_autorizacao_ibama(string autorizacao_ibama);
+	void inicializar_animal(int id);
 	string write();
 	string Tipo();
 private:

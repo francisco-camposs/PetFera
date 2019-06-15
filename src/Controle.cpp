@@ -4,27 +4,18 @@ using namespace std;
 
 Controle::Controle(){
 	ifstream archive;
-	archive.open("test/Animais.csv");
-
-	string * auxiliar;
+	archive.open("data/Animais.csv");
 
 	if(!(archive.is_open())){
 		return;
 	}
 
 	string line;
-	Tratamento tratamento;
-
 	getline(archive, line);
-
 	shared_ptr<Animal> bicho;
-
 	while(getline(archive, line)){
-		cout << line << endl;
 		bicho = tratamento.Tratamento_Construtor(line);
-		cout << "Mais uma vez." << endl;
 	}
-	cout << "Saiu!" << endl;
 
 	archive.close();
 };
@@ -125,7 +116,6 @@ void Controle::criar_animal_nativo(shared_ptr<AnimalNativo> &bicho){
 	bicho->set_uf_origem(uf_origem);
 };
 
-
 void Controle::criar_animal_exotico(shared_ptr<AnimalExotico> &bicho){
 	char * valor = new char;
 	string autorizacao_ibama;
@@ -149,82 +139,6 @@ void Controle::criar_animal_exotico(shared_ptr<AnimalExotico> &bicho){
 	cin.getline(valor,50);
 	cidade_origem = static_cast<string>(valor);
 	bicho->set_cidade_origem(cidade_origem);
-};
-
-void Controle::criar_anfibio(int modo_criacao){
-
-	char * valor = new char;
-	int total_mudas;
-	int day;
-	int month;
-	int year;
-
-	cout << "Digite o número total de mudas do anfíbio: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	total_mudas = is_number(valor);
-
-
-	cout<< "Digite a data da última muda (dd/mm/aa): " << endl;
-	cin.clear();
-	cin.getline(valor, 30);
-	day = is_number(valor);
-
-	cin.clear();
-	cin.getline(valor, 30);
-	month = is_number(valor);
-
-	cin.clear();
-	cin.getline(valor, 30);
-	year = is_number(valor);
-
-	date ultima_muda = date(day, month, year);
-
-	while(!ultima_muda.valid()){
-		cout<< "Data inválida, digite novamente: " << endl;
-		cin.clear();
-		cin >> day >> month >> year;
-		ultima_muda.set_day(day);
-		ultima_muda.set_month(month);
-		ultima_muda.set_year(year);
-	}
-
-
-	if(modo_criacao == 1){
-		shared_ptr<AnfibioDomestico> anfibio(new AnfibioDomestico);
-		anfibio->set_ultima_muda(ultima_muda);
-		anfibio->set_total_de_mudas(total_mudas);
-
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibio);
-
-		criar_animal(bicho, "Amphibia");
-		animais_m[animais_m.size()] = bicho;
-	}
-
-	else if(modo_criacao == 2){
-		shared_ptr<AnfibioNativo> anfibioNativo(new AnfibioNativo);
-		anfibioNativo->set_ultima_muda(ultima_muda);
-		anfibioNativo->set_total_de_mudas(total_mudas);
-
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibioNativo);
-		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(anfibioNativo);
-
-		criar_animal(bicho, "Amphibia");
-		criar_animal_nativo(animal_nativo);
-
-		animais_m[animais_m.size()] = bicho;
-	}
-	else if(modo_criacao == 3){
-		shared_ptr<AnfibioExotico> anfibioExotico(new AnfibioExotico);
-		anfibioExotico->set_ultima_muda(ultima_muda);
-		anfibioExotico->set_total_de_mudas(total_mudas);
-
-		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(anfibioExotico);
-		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(anfibioExotico);
-		criar_animal(bicho, "Amphibia");
-		criar_animal_exotico(animal_exotico);
-		animais_m[animais_m.size()] = bicho;
-	}
 };
 
 void Controle::criar_ave(int modo_criacao){
@@ -399,9 +313,10 @@ void Controle::criar_reptil(int modo_criacao){
 };
 		
 void Controle::adicionar_animal(){
+	TratamentoInput input;
 	
 	// if( animais_m.empty() ){
-	// 	ofstream arq("test/Animais.csv", ios::app | ios::binary);
+	// 	ofstream arq("data/Animais.csv", ios::app | ios::binary);
 	// 	if(arq.bad()){
 	// 		cerr<<"Arquivo nao foi aberto"<<endl;
 	// 		exit(1);
@@ -409,8 +324,6 @@ void Controle::adicionar_animal(){
 	// 	arq<<"Id;Classe;Nome Científico;Sexo;Tamanho do Animal;Dieta;Veterinário Associado;Tratador Responsável;Nome de Batismo;Autorização do Ibama;País de Origem;Cidade de Origem;UF de Origem;Total de Mudas;Última Muda;Tamanho do Bico;Envergadura das Asas;Cor dos Pelos;Se é Venenoso;Tipo de Veneno"<<endl;
 	// 	arq.close();
 	// }
-
-	char * option_animal = new char;
 	int option_1;
 	int option_2;
 	cout << "Digite a opção desejada: " << endl;
@@ -419,15 +332,11 @@ void Controle::adicionar_animal(){
 	cout << "\t 3 - Mamifero;" << endl;
 	cout << "\t 4 - Reptil;" << endl;
 
-	cin.clear();
-	cin.getline(option_animal,20);
-	option_1 = is_number(option_animal);
+	option_1 = input.inputInt();
 
 	while(option_1 < 1 || option_1 > 8){
 		cout << "Esse número não é valido, tente novamente: " << endl;
-		cin.clear();
-		cin.getline(option_animal,20);
-		option_1 = is_number(option_animal);
+		option_1 = input.inputInt();
 	}
 
 	cout << "Digite o tipo correspondente: " << endl;
@@ -435,65 +344,47 @@ void Controle::adicionar_animal(){
 	cout << "\t 2 - Silvestre Nativo;" << endl;
 	cout << "\t 3 - Silvestre Exotico;" << endl; 
 
-	cin.clear();
-	cin.getline(option_animal, 20);
-	option_2 = is_number(option_animal);
+	option_2 = input.inputInt();
 
 	while(option_2 < 1 || option_2 > 3){
 		cout << "Esse número não é valido, tente novamente: " << endl;
-		cin.clear();
-		cin.getline(option_animal,20);
-		option_2 = is_number(option_animal);
+		option_2 = input.inputInt();
 	}
 
 	if (option_1 == 1){
-		criar_anfibio(option_2);
-
-		ofstream arq("test/Animais.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new AnfibioDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
 		}
-		arq<<animais_m[animais_m.size()-1]->write();
-		arq.close();
-
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new AnfibioExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new AnfibioNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
 	}
 	else if (option_1 == 2){
 		criar_ave(option_2);
-
-		ofstream arq("test/Animais.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<animais_m[animais_m.size()-1]->write();
-		arq.close();
-
 	}
 	else if (option_1 == 3){
 		criar_mamifero(option_2);
-
-		ofstream arq("test/Animais.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<animais_m[animais_m.size()-1]->write();
-		arq.close();
-
 	}
 	else if (option_1 == 4){
 		criar_reptil(option_2);
-
-		ofstream arq("test/Animais.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<animais_m[animais_m.size()-1]->write();
-		arq.close();
-
 	}
+
+	ofstream arq("data/Animais.csv", ios::app | ios::binary);
+	if(arq.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+	arq<<animais_m[animais_m.size()-1]->write();
+	arq.close();
 }
 
 void Controle::remover_animal(){
@@ -545,8 +436,8 @@ void Controle::consultar_animais_por_funcionario(){
 }
 		
 void Controle::adicionar_funcionario(){
-	if( funcionarios_m.empty() ){
-		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
+	if( funcionarios_m.empty()){
+		ofstream arq("data/Funcionarios.csv", ios::app | ios::binary);
 		if(arq.bad()){
 			cerr<<"Arquivo nao foi aberto"<<endl;
 			exit(1);
@@ -555,120 +446,38 @@ void Controle::adicionar_funcionario(){
 		arq.close();
 	}
 
-	char * option_funcionario = new char;
 	int option_1;
+	TratamentoInput input;
+
 	cout << "Digite a opção desejada: " << endl;
 	cout << "\t1 - Adicionar tratador" << endl;
 	cout << "\t2 - Adicionar veterinário" << endl;
 
-	cin.clear();
-	cin.getline(option_funcionario,20);
-	option_1 = is_number(option_funcionario);
+	option_1 = input.inputInt();
 
 	while(option_1 < 1 || option_1 > 2){
 		cout << "Esse número não é valido, tente novamente: " << endl;
-		cin.clear();
-		cin.getline(option_funcionario,20);
-		option_1 = is_number(option_funcionario);
+		option_1 = input.inputInt();
 	}
-
-	char * valor = new char;
-	string nome;
-	string cpf;
-	short int idade;
-	string tipo_sanguineo;
-	char *fator_rh = new char;
-	string especialidade;
-
-	cout<<"Digite o nome: " << endl;
-	cin.clear();
-	cin.getline(valor, 100);
-	nome = static_cast<string>(valor);
-
-
-	cout<<"Digite o cpf:" << endl;
-	cin.clear();
-	cin.getline(valor, 50);
-	cpf = static_cast<string>(valor);
-
-
-	cout<<"Digite a idade: " << endl;
-	cin.clear();
-	cin.getline(valor, 20);
-	idade = is_number(valor);
-
-
-	cout<<"Digite o tipo sanguineo: " << endl;
-	cin.clear();
-	cin.getline(valor, 50);
-	tipo_sanguineo = static_cast<string>(valor);
-
-
-	cout << "Digite o fator RH do Funcionario:" << endl;
-	cin.clear();
-	cin.getline(fator_rh,20);
-
-	while(*fator_rh != '+' && *fator_rh != '-'){
-		cout << "Fator RH inválido, digite novamente: " << endl;
-		cin.clear();
-		cin.getline(fator_rh,20);;
-	}
-	cout << "Fator RH: " << *fator_rh << endl;
-
-
-	cout<<"Digite a especialidade: " << endl;
-	cin.clear();
-	cin.getline(valor, 100);
-	especialidade = static_cast<string>(valor);
-
 
 	if(option_1 == 1){
-		int nivel_de_seguranca;
-
-		cout<<"Digite o nível de segurança do tratador: "<< endl;
-		cin.clear();
-		cin.getline(valor, 50);
-		nivel_de_seguranca = is_number(valor);
-
-		shared_ptr<Funcionario> tratador(new Tratador(funcionarios_m.size()
-				, nome, cpf, idade, tipo_sanguineo, *fator_rh
-				, especialidade, nivel_de_seguranca));
-		shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(tratador);
-		
+		shared_ptr<Funcionario> funcionario(new Tratador);
+		funcionario->inicializar_funcionario(funcionarios_m.size());
 		funcionarios_m[funcionarios_m.size()] = funcionario;
-
-		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<funcionarios_m[funcionarios_m.size()-1]->write();
-		arq.close();
-
 	}
 	else if(option_1 == 2){
-		string cnmv;
-
-		cout<<"Digite o cnmv do veterinário: " << endl;
-		cin.clear();
-		cin.getline(valor, 100);
-		cnmv = static_cast<string>(valor);
-
-		shared_ptr<Funcionario> veterinario(new Veterinario(funcionarios_m.size()
-				, nome, cpf, idade, tipo_sanguineo, *fator_rh
-				, especialidade, cnmv));
-		shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(veterinario);
-	
+		shared_ptr<Funcionario> funcionario(new Veterinario);
+		funcionario->inicializar_funcionario(funcionarios_m.size());
 		funcionarios_m[funcionarios_m.size()] = funcionario;
-
-		ofstream arq("test/Funcionarios.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<funcionarios_m[funcionarios_m.size()-1]->write();
-		arq.close();
 	}
+
+	ofstream arq("data/Funcionarios.csv", ios::app | ios::binary);
+	if(arq.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+	arq<<funcionarios_m[funcionarios_m.size()-1]->write();
+	arq.close();
 }
 
 void Controle::remover_funcionario(){
@@ -713,4 +522,6 @@ void Controle::consultar_funcionario(){
 		else
 			cout << *it->second << endl << endl;
 	}
+
+	delete[] valor;
 }

@@ -67,3 +67,7 @@ ostream& MamiferoExotico::print(ostream& os)const{
 
 	return os;
 }
+
+void MamiferoExotico::inicializar_animal(int id){
+	
+};

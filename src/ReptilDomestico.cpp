@@ -56,3 +56,7 @@ ostream& ReptilDomestico::print(ostream& os)const{
 	
 	return os;
 }
+
+void ReptilDomestico::inicializar_animal(int id){
+	
+};

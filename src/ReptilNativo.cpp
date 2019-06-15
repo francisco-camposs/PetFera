@@ -66,3 +66,7 @@ ostream& ReptilNativo::print(ostream& os)const{
 
 	return os;
 }
+
+void ReptilNativo::inicializar_animal(int id){
+	
+};
