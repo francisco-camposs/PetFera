@@ -35,8 +35,6 @@ int Tratador::get_nivel_de_seguranca(){
 };
 
 string Tratador::write(){
-/*	
-*/
 	ostringstream str;
 	str<<"Tratador;";
 	str<<m_id<<";";
@@ -46,9 +44,7 @@ string Tratador::write(){
 	str<<m_tipo_sanguineo<<";";
 	str<<m_fator_rh<<";";
 	str<<m_especialidade<<";";
-	str<<m_nivel_de_seguranca<<";";
-	// Código CRMV
-	str<<"NVF"<<endl;
+	str<<m_nivel_de_seguranca<<endl;
 
 	return str.str();
 };

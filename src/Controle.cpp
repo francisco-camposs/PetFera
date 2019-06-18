@@ -4,19 +4,38 @@ using namespace std;
 
 Controle::Controle(){
 	ifstream archive;
-	archive.open("data/Animais.csv");
+	string line;
 
+	//Leitura dos Funcionários
+	archive.open("data/Funcionarios.csv");
 	if(!(archive.is_open())){
+		cerr<<"O arquivo não foi aberto f!!!"<<endl;
 		return;
 	}
+	getline(archive, line);
+	shared_ptr<Funcionario> funcionario;
 
-	string line;
+	while(getline(archive, line)){
+		funcionario = tratamento.Tratamento_Construtor_Funcionario(line);
+		//if(funcionario != NULL)
+			//funcionarios_m[*funcionario.get_id()] = funcionario;
+	}
+	archive.close();
+
+	//Leitura dos Animais
+	archive.open("data/Animais.csv");
+	if(!(archive.is_open())){
+		cerr<<"O arquivo não foi aberto!!!"<<endl;
+		return;
+	}
 	getline(archive, line);
 	shared_ptr<Animal> bicho;
-	while(getline(archive, line)){
-		bicho = tratamento.Tratamento_Construtor(line);
-	}
 
+	while(getline(archive, line)){
+		bicho = tratamento.Tratamento_Construtor_Animal(line);
+		//if(bicho != NULL)
+			//animais_m[bicho.get_m_id()] = bicho;
+	}
 	archive.close();
 };
 

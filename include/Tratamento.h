@@ -16,6 +16,8 @@
 #include "ReptilDomestico.h"
 #include "ReptilExotico.h"
 #include "ReptilNativo.h"
+#include "Tratador.h"
+#include "Veterinario.h"
 
 using namespace std;
 
@@ -23,7 +25,7 @@ class Tratamento{
 	private:
 
 	public:
-		shared_ptr<Animal> Tratamento_Construtor(string line);
+		shared_ptr<Animal> Tratamento_Construtor_Animal(string line);
 		shared_ptr<Animal> Tratamento_AnfibioDomestico(string line);
 		shared_ptr<Animal> Tratamento_AnfibioExotico(string line);
 		shared_ptr<Animal> Tratamento_AnfibioNativo(string line);
@@ -36,6 +38,10 @@ class Tratamento{
 		shared_ptr<Animal> Tratamento_ReptilDomestico(string line);
 		shared_ptr<Animal> Tratamento_ReptilExotico(string line);
 		shared_ptr<Animal> Tratamento_ReptilNativo(string line);
+
+		shared_ptr<Funcionario> Tratamento_Construtor_Funcionario(string line);
+		shared_ptr<Funcionario> Tratamento_Tratador(string line);
+		shared_ptr<Funcionario> Tratamento_Veterinario(string line);
 
 		string * Tratamento_Data(string line);
 

@@ -18,7 +18,7 @@ string * Tratamento::Tratamento_Data(string line){
 	return data;
 };
 
-shared_ptr<Animal> Tratamento::Tratamento_Construtor(string line){
+shared_ptr<Animal> Tratamento::Tratamento_Construtor_Animal(string line){
 	string auxiliar;
 
 	int contador = 0;
@@ -92,4 +92,79 @@ shared_ptr<Animal> Tratamento::Tratamento_AnfibioDomestico(string line){
 	delete[] data;
 	return bicho;
 };
+/*
+shared_ptr<Animal> Tratamento_AnfibioExotico(string line){};
+shared_ptr<Animal> Tratamento_AnfibioNativo(string line){};
+shared_ptr<Animal> Tratamento_AveDomestica(string line){};
+shared_ptr<Animal> Tratamento_AveExotica(string line){};
+shared_ptr<Animal> Tratamento_AveNativa(string line){};
+shared_ptr<Animal> Tratamento_MamiferoDomestico(string line){};
+shared_ptr<Animal> Tratamento_MamiferoExotico(string line){};
+shared_ptr<Animal> Tratamento_MamiferoNativo(string line){};
+shared_ptr<Animal> Tratamento_ReptilDomestico(string line){};
+shared_ptr<Animal> Tratamento_ReptilExotico(string line){};
+shared_ptr<Animal> Tratamento_ReptilNativo(string line){};
+*/
 
+
+shared_ptr<Funcionario> Tratamento::Tratamento_Construtor_Funcionario(string line){
+	string auxiliar;
+
+	int contador = 0;
+	while(line[contador] != '\n' and line[contador] != ';'){
+		auxiliar.push_back(line.at(contador));
+		contador++;
+	}
+
+	if (auxiliar == "Tratador"){
+		return Tratamento_Tratador(line);
+	}
+	if (auxiliar == "Veterinario"){
+		return Tratamento_Veterinario(line);
+	}
+	return NULL;
+};
+
+shared_ptr<Funcionario> Tratamento::Tratamento_Tratador(string line){
+	string atributos[9];
+	int contador = 0;
+
+	for(int i = 0; i < 9; i++){
+		while(line[contador] != '\n' and line[contador] != ';'){
+			atributos[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	char fator_rh = static_cast<char>(atributos[6][0]);
+
+	shared_ptr<Tratador> tratador(new Tratador(stoi(atributos[1])
+		, atributos[2],atributos[3], stoi(atributos[4]), atributos[5]
+		, fator_rh, atributos[7], stoi(atributos[8])));
+
+	shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(tratador);
+	return funcionario;
+};
+
+shared_ptr<Funcionario> Tratamento::Tratamento_Veterinario(string line){
+	string atributos[9];
+	int contador = 0;
+
+	for(int i = 0; i < 9; i++){
+		while(line[contador] != '\n' and line[contador] != ';'){
+			atributos[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	char fator_rh = static_cast<char>(atributos[6][0]);
+
+	shared_ptr<Veterinario> veterinario(new Veterinario(stoi(atributos[1])
+		, atributos[2],atributos[3], stoi(atributos[4]), atributos[5]
+		, fator_rh, atributos[7], atributos[8]));
+
+	shared_ptr<Funcionario> funcionario = dynamic_pointer_cast<Funcionario>(veterinario);
+	return funcionario;
+};

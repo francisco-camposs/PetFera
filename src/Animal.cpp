@@ -95,7 +95,6 @@ void Animal::inicializar(string classe, int id){
 	shared_ptr<Veterinario> vet(new Veterinario);
 	shared_ptr<Tratador> trat(new Tratador);
 
-	char * valor = new char;
 	string nome;
 	string nome_cientifico;
 	char * sexo = new char;

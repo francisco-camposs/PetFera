@@ -5,8 +5,6 @@
 #include <fstream>
 #include <map>
 
-#include "Funcionario.h"
-#include "Veterinario.h" 
 #include "Tratamento.h"
 
 using namespace std;
