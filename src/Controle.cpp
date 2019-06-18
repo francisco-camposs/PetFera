@@ -12,7 +12,7 @@ Controle::Controle(){
 		cerr<<"O arquivo não foi aberto f!!!"<<endl;
 		return;
 	}
-	getline(archive, line);
+	//getline(archive, line);
 	shared_ptr<Funcionario> funcionario;
 
 	while(getline(archive, line)){
@@ -28,7 +28,7 @@ Controle::Controle(){
 		cerr<<"O arquivo não foi aberto!!!"<<endl;
 		return;
 	}
-	getline(archive, line);
+	//getline(archive, line);
 	shared_ptr<Animal> bicho;
 
 	while(getline(archive, line)){
@@ -455,7 +455,7 @@ void Controle::consultar_animais_por_funcionario(){
 }
 		
 void Controle::adicionar_funcionario(){
-	if( funcionarios_m.empty()){
+	/*if( funcionarios_m.empty()){
 		ofstream arq("data/Funcionarios.csv", ios::app | ios::binary);
 		if(arq.bad()){
 			cerr<<"Arquivo nao foi aberto"<<endl;
@@ -463,7 +463,7 @@ void Controle::adicionar_funcionario(){
 		}
 		arq<<"Função;Id;Nome;CPF;Idade;Tipo Sanguineo;Fator_Rh;Especialidade;Nível de Segurança;Código CRMV"<<endl;
 		arq.close();
-	}
+	}*/
 
 	int option_1;
 	TratamentoInput input;

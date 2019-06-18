@@ -130,7 +130,7 @@ shared_ptr<Funcionario> Tratamento::Tratamento_Tratador(string line){
 	int contador = 0;
 
 	for(int i = 0; i < 9; i++){
-		while(line[contador] != '\n' and line[contador] != ';'){
+		while(contador < line.size() and line[contador] != ';'){
 			atributos[i].push_back(line[contador]);
 			contador++;
 		}
@@ -152,7 +152,7 @@ shared_ptr<Funcionario> Tratamento::Tratamento_Veterinario(string line){
 	int contador = 0;
 
 	for(int i = 0; i < 9; i++){
-		while(line[contador] != '\n' and line[contador] != ';'){
+		while(contador < line.size() and line[contador] != ';'){
 			atributos[i].push_back(line[contador]);
 			contador++;
 		}
