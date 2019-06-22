@@ -19,13 +19,13 @@ class Controle{
 		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);
 		void criar_animal_exotico(shared_ptr<AnimalExotico> &bicho);
 
-		void criar_anfibio(int modo_criacao);
-		// void criar_ave(int modo_criacao);
+/*		void criar_anfibio(int modo_criacao);
+		void criar_ave(int modo_criacao);
 		void criar_mamifero(int modo_criacao);
 		void criar_reptil(int modo_criacao);
-		// void criar_peixe(int modo_criacao);
-		// void criar_inseto(int modo_criacao);
-		void criar_aracnideo(int modo_criacao);
+		void criar_peixe(int modo_criacao);
+		void criar_inseto(int modo_criacao);
+		void criar_aracnideo(int modo_criacao); */
 
 	public:
 		Controle();

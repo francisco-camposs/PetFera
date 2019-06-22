@@ -27,6 +27,8 @@ class Inseto : public Animal {
 	date get_ultima_muda();
 	string write();
 	string Tipo();
+
+	void inicializar_inseto(int id);
   private:
 	ostream& print(ostream& os)const;
 };

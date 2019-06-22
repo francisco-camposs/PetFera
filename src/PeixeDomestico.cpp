@@ -1,28 +1,22 @@
-#include "PeixeNativo.h"
+#include "PeixeDomestico.h"
 
-PeixeNativo::PeixeNativo(){
+PeixeDomestico::PeixeDomestico(){
 
 }
-PeixeNativo::PeixeNativo(int id, string nome_cientifico, char sexo, 
+PeixeDomestico::PeixeDomestico(int id, string nome_cientifico, char sexo, 
 			double tamanho, string dieta, Veterinario* veterinario, 
-			Tratador* tratador, string nome_batismo, string tipo_agua, 
-			string autorizacao_ibama, string uf_origem):
+			Tratador* tratador, string nome_batismo, string tipo_agua):
 	Peixe(id, "Gnathostomata", nome_cientifico, sexo, tamanho, dieta, veterinario,
-		tratador, nome_batismo, tipo_agua), 
-	AnimalNativo(autorizacao_ibama, uf_origem){
+		tratador, nome_batismo, tipo_agua){
 
 }
-PeixeNativo::~PeixeNativo(){
+PeixeDomestico::~PeixeDomestico(){
 
 }
 
-void PeixeNativo::set_autorizacao_ibama(string autorizacao_ibama){
-	m_autorizacao_ibama = autorizacao_ibama;
-};
-
-string PeixeNativo::write(){
+string PeixeDomestico::write(){
 	ostringstream str;
-	str<<"PeixeNativo;";
+	str<<"PeixeDomestico;";
 	str<<m_id<<";";
 	str<<m_classe<<";";
 	str<<m_nome_cientifico<<";";
@@ -32,10 +26,6 @@ string PeixeNativo::write(){
 	str<<m_veterinario->get_id()<<";";
 	str<<m_tratador->get_id()<<";";
 	str<<m_nome_batismo<<";";
-	//Autorização do Ibama
-	str<<m_autorizacao_ibama<<";";
-	// UF de origem
-	str<<m_uf_origem<<";";
 	// Tipo de agua
 	str<<m_tipo_agua<<endl;
 
@@ -43,11 +33,11 @@ string PeixeNativo::write(){
 
 };
 
-string PeixeNativo::Tipo(){
-	return "PeixeNativo";
+string PeixeDomestico::Tipo(){
+	return "PeixeDomestico";
 };
 
-ostream& PeixeNativo::print(ostream& os)const{
+ostream& PeixeDomestico::print(ostream& os)const{
 	os<<"Campo \tTipo de Dados \tValores"<<endl;
 	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
 	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
@@ -58,14 +48,11 @@ ostream& PeixeNativo::print(ostream& os)const{
 	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
 	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
-	os<<"Tipo de agua \tCadeia de caracteres \t"<<m_tipo_agua<<endl;
-	os<<"Autorização do Ibama \tCadeia de caracteres \t"<<m_autorizacao_ibama<<endl;
-	os<<"UF de origem \tCadeia de caracteres \t"<<m_uf_origem<<endl;
+	os<<"Cor do pelo \tCadeia de caracteres \t"<<m_tipo_agua<<endl;
 
 	return os;
 }
 
-void PeixeNativo::inicializar_animal(int id){
+void PeixeDomestico::inicializar_animal(int id){
 	inicializar_peixe(id);
-	inicializar_nativo();
 };

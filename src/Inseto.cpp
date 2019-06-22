@@ -6,7 +6,7 @@ Inseto::Inseto() {
 Inseto::Inseto(int id, string classe, string nome_cientifico, char sexo, 
 		double tamanho, string dieta, Veterinario* veterinario, 
 		Tratador* tratador, string nome_batismo, int total_de_mudas, string tipo_metamorfose, 
-		int day, int month, int year): Animal(id, classe, nome_cientifico, sexo, 
+		int day, int month, int year): Animal(id, "Insecta", nome_cientifico, sexo, 
 		tamanho, dieta, veterinario, tratador, nome_batismo),  m_total_de_mudas(total_de_mudas), 
 		m_tipo_metamorfose(tipo_metamorfose) {
 	m_ultima_muda.set_day(day);
@@ -42,18 +42,99 @@ date Inseto::get_ultima_muda() {
 	return m_ultima_muda;
 };
 
-void Inseto::write(){
-	cout<<"Campo;Tipo de Dados;Valores"<<endl;
-	cout<<"Identificador Do animal;Inteiro;"<<m_id<<endl;
-	cout<<"Classe do animal;Cadeia de caracteres;"<<m_classe<<endl;
-	cout<<"Nome científico do animal;Cadeia de caracteres;"<<m_nome_cientifico<<endl;
-	cout<<"Sexo do animal;Caractere;"<<m_sexo<<endl;
-	cout<<"Tamanho média em métros;Decimal;"<<m_tamanho<<endl;
-	cout<<"Dieta redominante;Cadeia de caracteres;"<<m_dieta<<endl;
-	cout<<"Veterinário associado;Interio;"<<m_veterinario->get_id()<<endl;
-	cout<<"Tratador responsável;Interio;"<<m_tratador->get_id()<<endl;
-	cout<<"Nome de batismo;Cadeia de caracteres;"<<m_nome_batismo<<endl;
-	cout<<"Total de mudas;Inteiro;"<<m_total_de_mudas<<endl;
-	cout<<"Data da última muda;classe date;"<<m_ultima_muda<<endl;
-	cout<<"Tipo de metamorfose;Cadeia de caracteres;"<<m_tipo_metamorfose<<endl;
+string Inseto::Tipo(){
+	return "Inseto";
+};
+
+string Inseto::write(){
+
+	ostringstream str;
+	str<<m_id<<";";
+	str<<m_classe<<";";
+	str<<m_nome_cientifico<<";";
+	str<<m_sexo<<";";
+	str<<m_tamanho<<";";
+	str<<m_dieta<<";";
+	str<<m_veterinario->get_id()<<";";
+	str<<m_tratador->get_id()<<";";
+	str<<m_nome_batismo<<";";
+	//Autorização do Ibama
+	str<<"NVF;";
+	// País de origem
+	str<<"NVF;";
+	// Cidade de origem
+	str<<"NVF;";
+	// UF de origem
+	str<<"NVF;";
+	// Total de Mudas
+	str<<m_total_de_mudas<<";";
+	// Última muda
+	str<<m_ultima_muda<<";";
+	// Tamanho do bico
+	str<<"NVF;";
+	// Envergadura das Asas
+	str<<"NVF;";
+	// Cor dos pelos
+	str<<"NVF;";
+	// Se é venenoso
+	str<<"NVF;";
+	// Tipo de metamorfose
+	str<<m_tipo_metamorfose<<endl;
+	return str.str();
+};
+
+ostream& Inseto::print(ostream& os)const{
+	os<<"Campo \tTipo de Dados \tValores"<<endl;
+	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
+	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
+	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros\tDecimal\t"<<m_tamanho<<endl;
+	os<<"Dieta predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInterio \t"<<0<<endl;
+	os<<"Tratador responsável \tInterio \t"<<0<<endl;
+	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
+	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;
+	os<<"Tipo de metamorfose \tCadeia de caracteres \t"<<m_tipo_metamorfose<<endl;
+	return os;
+}
+
+void Inseto::inicializar_inseto(int id){
+	this->inicializar("Insecta", id);
+
+	int total_mudas;
+	int day;
+	int month;
+	int year;
+
+	cout << "Digite o número total de mudas do inseto: " << endl;
+	total_mudas = input.inputInt();
+
+	cout<< "Digite a data da última muda (dd/mm/aa): " << endl;
+	day = input.inputInt();
+	month = input.inputInt();
+	year = input.inputInt();
+
+	date ultima_muda = date(day, month, year);
+
+	while(!ultima_muda.valid()){
+		cout<< "Data inválida, digite novamente: " << endl;
+		cin.clear();
+		cin >> day >> month >> year;
+		ultima_muda.set_day(day);
+		ultima_muda.set_month(month);
+		ultima_muda.set_year(year);
+	}
+
+	char * valor = new char;
+
+	cout << "Digite o tipo de metamorfose do inseto: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	m_tipo_metamorfose = static_cast<string>(valor);
+
+	this->set_ultima_muda(ultima_muda);
+	this->set_total_de_mudas(total_mudas);
+	this->set_tipo_metamorfose(m_tipo_metamorfose);
 };

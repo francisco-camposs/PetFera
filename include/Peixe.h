@@ -8,6 +8,7 @@ using namespace std;
 class Peixe : public Animal{
   protected:
 	string m_tipo_agua;
+
   public:
 	Peixe();
 	Peixe(int id, string classe, string nome_cientifico, char sexo, 
@@ -19,7 +20,8 @@ class Peixe : public Animal{
 	string get_tipo_agua();
 	string write();
 	string Tipo();
-	void inicializar_animal(int id);
+
+	void inicializar_peixe(int id);
   private:
 	ostream& print(ostream& os)const;
 };

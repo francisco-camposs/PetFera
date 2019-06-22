@@ -489,7 +489,6 @@ void Controle::adicionar_animal(){
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
-	/*
 	else if (option_1 == 5){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new PeixeDomestico);
@@ -523,7 +522,7 @@ void Controle::adicionar_animal(){
 			bicho->inicializar_animal(animais_m.size());
 			animais_m[animais_m.size()] = bicho;
 		}
-	} */
+	}
 	else if (option_1 == 7){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new AracnideoDomestico);

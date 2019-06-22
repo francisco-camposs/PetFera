@@ -54,6 +54,15 @@ shared_ptr<Animal> Tratamento::Tratamento_Construtor_Animal(string line){
 	if (auxiliar == "AveExotica"){
 		return Tratamento_AveExotica(line);
 	}
+	if (auxiliar == "InsetoDomestico"){
+		return Tratamento_InsetoDomestico(line);
+	}
+	if (auxiliar == "InsetoExotico"){
+		return Tratamento_InsetoExotico(line);
+	}
+	if (auxiliar == "InsetoNativo"){
+		return Tratamento_InsetoNativo(line);
+	}
 	if (auxiliar == "MamiferoDomestico"){
 		return Tratamento_MamiferoDomestico(line);
 	}
@@ -71,6 +80,15 @@ shared_ptr<Animal> Tratamento::Tratamento_Construtor_Animal(string line){
 	}
 	if (auxiliar == "ReptilNativo"){
 		return Tratamento_ReptilNativo(line);
+	}
+	if (auxiliar == "PeixeDomestico"){
+		return Tratamento_PeixeDomestico(line);
+	}
+	if (auxiliar == "PeixeExotico"){
+		return Tratamento_PeixeExotico(line);
+	}
+	if (auxiliar == "PeixeNativo"){
+		return Tratamento_PeixeNativo(line);
 	}
 	return NULL;
 };
@@ -224,6 +242,87 @@ shared_ptr<Animal> Tratamento::Tratamento_AveNativa(string line){
 
 	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(ave);
 
+	return bicho;
+};
+
+shared_ptr<Animal> Tratamento::Tratamento_InsetoDomestico(string line){
+	string auxiliar[13];
+	int contador = 0;
+
+	for (int i =0; i < 13; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	string * data = Tratamento_Data(auxiliar[12]);
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<InsetoDomestico> inseto(new InsetoDomestico(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], stoi(auxiliar[10]), auxiliar[11], stoi(data[0]), stoi(data[1]), 
+		stoi(data[2])));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(inseto);
+
+	delete[] data;
+	return bicho;
+};
+
+shared_ptr<Animal> Tratamento::Tratamento_InsetoExotico(string line){
+	string auxiliar[16];
+	int contador = 0;
+
+	for (int i =0; i < 16; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	string * data = Tratamento_Data(auxiliar[12]);
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<InsetoExotico> inseto(new InsetoExotico(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], stoi(auxiliar[10]), auxiliar[11], stoi(data[0]), stoi(data[1]), 
+		stoi(data[2]), auxiliar[13], auxiliar[14], auxiliar[15]));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(inseto);
+
+	delete[] data;
+	return bicho;
+};
+
+shared_ptr<Animal> Tratamento::Tratamento_InsetoNativo(string line){
+	string auxiliar[15];
+	int contador = 0;
+
+	for (int i =0; i < 15; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	string * data = Tratamento_Data(auxiliar[12]);
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<InsetoNativo> inseto(new InsetoNativo(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], stoi(auxiliar[10]), auxiliar[11], stoi(data[0]), stoi(data[1]), 
+		stoi(data[2]), auxiliar[13], auxiliar[14]));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(inseto);
+
+	delete[] data;
 	return bicho;
 };
 
@@ -447,6 +546,76 @@ shared_ptr<Animal> Tratamento::Tratamento_AracnideoNativo(string line){
 	delete[] data;
 	return bicho;
 };
+
+shared_ptr<Animal> Tratamento::Tratamento_PeixeDomestico(string line){
+	string auxiliar[11];
+	int contador = 0;
+
+	for (int i =0; i < 11; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<PeixeDomestico> peixe(new PeixeDomestico(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], auxiliar[10]));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(peixe);
+
+	return bicho;
+};
+
+shared_ptr<Animal> Tratamento::Tratamento_PeixeExotico(string line){
+	string auxiliar[14];
+	int contador = 0;
+
+	for (int i =0; i < 14; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<PeixeExotico> peixe(new PeixeExotico(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], auxiliar[10], auxiliar[11], auxiliar[12], auxiliar[13]));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(peixe);
+
+	return bicho;
+};
+
+shared_ptr<Animal> Tratamento::Tratamento_PeixeNativo(string line){
+	string auxiliar[13];
+	int contador = 0;
+
+	for (int i =0; i < 13; i++){
+		while(contador < (int)line.size() and (line[contador] != ';')){
+			auxiliar[i].push_back(line[contador]);
+			contador++;
+		}
+		contador++;
+	}
+
+	char sexo = char(auxiliar[4][0]);
+
+	shared_ptr<PeixeNativo> peixe(new PeixeNativo(stoi(auxiliar[1]), 
+		auxiliar[3], sexo, stoi(auxiliar[5]), auxiliar[6], NULL, NULL, 
+		auxiliar[9], auxiliar[10], auxiliar[11], auxiliar[12]));
+
+	shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(peixe);
+
+	return bicho;
+};
+
 
 
 shared_ptr<Funcionario> Tratamento::Tratamento_Construtor_Funcionario(string line){
