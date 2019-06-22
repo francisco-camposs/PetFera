@@ -23,6 +23,8 @@ public:
 	string get_tipo_veneno();
 	string write();
 	string Tipo();
+
+	void inicializar_reptil(int id);
 private:
 	ostream& print(ostream& os)const;
 };

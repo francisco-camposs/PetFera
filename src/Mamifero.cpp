@@ -76,3 +76,16 @@ ostream& Mamifero::print(ostream& os)const{
 
 	return os;
 }
+
+void Mamifero::inicializar_mamifero(int id){
+	this->inicializar("Mammalia", id);
+
+	char * valor = new char;
+
+	cout << "Digite a cor do pêlo do mamífero: " << endl;
+	cin.clear();
+	cin.getline(valor,20);
+	m_cor_do_pelo = static_cast<string>(valor);
+
+	this->set_m_cor_do_pelo(m_cor_do_pelo);
+};

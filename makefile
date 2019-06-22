@@ -3,9 +3,10 @@ project_name = bin/ex
 
 # Arquivos .o
 o_archives = build/main.o build/Funcionario.o build/Animal.o build/Tratador.o\
-			 build/Veterinario.o build/Mamifero.o build/Anfibio.o build/date.o\
+			 build/Veterinario.o build/Mamifero.o build/Anfibio.o build/Aracnideo.o build/date.o\
 			 build/Reptil.o build/Ave.o build/AnfibioDomestico.o build/AnfibioNativo.o\
-			 build/AnfibioExotico.o build/MamiferoDomestico.o build/MamiferoNativo.o\
+			 build/AnfibioExotico.o build/AracnideoDomestico.o build/AracnideoNativo.o\
+			 build/AracnideoExotico.o build/MamiferoDomestico.o build/MamiferoNativo.o\
 			 build/MamiferoExotico.o build/ReptilDomestico.o build/ReptilNativo.o \
 			 build/ReptilExotico.o build/AveDomestica.o build/AveNativa.o build/AveExotica.o \
 			 build/AnimalDomestico.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o \
@@ -51,6 +52,9 @@ build/Mamifero.o: src/Mamifero.cpp
 build/Anfibio.o: src/Anfibio.cpp
 	$(cc) $(CC_FLAGS) src/Anfibio.cpp -c && mv Anfibio.o build
 
+build/Aracnideo.o: src/Aracnideo.cpp
+	$(cc) $(CC_FLAGS) src/Aracnideo.cpp -c && mv Aracnideo.o build
+
 build/date.o: src/date.cpp
 	$(cc) $(CC_FLAGS) src/date.cpp -c && mv date.o build
 
@@ -68,6 +72,15 @@ build/AnfibioNativo.o: src/AnfibioNativo.cpp
 
 build/AnfibioExotico.o: src/AnfibioExotico.cpp
 	$(cc) $(CC_FLAGS) src/AnfibioExotico.cpp -c && mv AnfibioExotico.o build
+
+build/AracnideoDomestico.o: src/AracnideoDomestico.cpp
+	$(cc) $(CC_FLAGS) src/AracnideoDomestico.cpp -c && mv AracnideoDomestico.o build
+
+build/AracnideoNativo.o: src/AracnideoNativo.cpp
+	$(cc) $(CC_FLAGS) src/AracnideoNativo.cpp -c && mv AracnideoNativo.o build
+
+build/AracnideoExotico.o: src/AracnideoExotico.cpp
+	$(cc) $(CC_FLAGS) src/AracnideoExotico.cpp -c && mv AracnideoExotico.o build
 
 build/MamiferoDomestico.o: src/MamiferoDomestico.cpp
 	$(cc) $(CC_FLAGS) src/MamiferoDomestico.cpp -c && mv MamiferoDomestico.o build

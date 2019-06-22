@@ -7,6 +7,9 @@
 #include "AnfibioDomestico.h"
 #include "AnfibioExotico.h"
 #include "AnfibioNativo.h"
+#include "AracnideoDomestico.h"
+#include "AracnideoExotico.h"
+#include "AracnideoNativo.h"
 #include "AveDomestica.h"
 #include "AveExotica.h"
 #include "AveNativa.h"
@@ -29,6 +32,9 @@ class Tratamento{
 		shared_ptr<Animal> Tratamento_AnfibioDomestico(string line);
 		shared_ptr<Animal> Tratamento_AnfibioExotico(string line);
 		shared_ptr<Animal> Tratamento_AnfibioNativo(string line);
+		shared_ptr<Animal> Tratamento_AracnideoDomestico(string line);
+		shared_ptr<Animal> Tratamento_AracnideoExotico(string line);
+		shared_ptr<Animal> Tratamento_AracnideoNativo(string line);
 		shared_ptr<Animal> Tratamento_AveDomestica(string line);
 		shared_ptr<Animal> Tratamento_AveExotica(string line);
 		shared_ptr<Animal> Tratamento_AveNativa(string line);

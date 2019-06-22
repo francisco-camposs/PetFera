@@ -77,11 +77,28 @@ ostream& Reptil::print(ostream& os)const{
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
 	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
-	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
+	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Venenoso \tbooleano \t"<<m_venenoso<<endl;
 	os<<"Tipo de veneno \tCadeia de caracteres \t"<<m_tipo_veneno<<endl;
 	
 	return os;
 }
+
+void Reptil::inicializar_reptil(int id){
+	this->inicializar("Reptilia", id);
+
+	char * valor = new char;
+
+	cout << "Digite se o réptil é venenoso: " << endl;
+	m_venenoso = input.inputInt();
+
+	cout << "Digite o tipo de veneno do réptil: " << endl;
+	cin.clear();
+	cin.getline(valor,50);
+	m_tipo_veneno = static_cast<string>(valor);
+
+	this->set_venenoso(m_venenoso);
+	this->set_tipo_veneno(m_tipo_veneno);
+};

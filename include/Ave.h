@@ -23,6 +23,8 @@ public:
 	double get_envergadura_das_asas();
 	string write();
 	string Tipo();
+
+	void inicializar_ave(int id);
 private:
 	ostream& print(ostream& os)const;
 };

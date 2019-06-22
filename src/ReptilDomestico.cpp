@@ -48,8 +48,8 @@ ostream& ReptilDomestico::print(ostream& os)const{
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
 	os<<"Dieta Predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<m_veterinario->get_id()<<endl;
-	os<<"Tratador responsável \tInterio \t"<<m_tratador->get_id()<<endl;
+	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
+	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Venenoso \tbooleano \t"<<m_venenoso<<endl;
 	os<<"Tipo de veneno \tCadeia de caracteres \t"<<m_tipo_veneno<<endl;
@@ -58,5 +58,5 @@ ostream& ReptilDomestico::print(ostream& os)const{
 }
 
 void ReptilDomestico::inicializar_animal(int id){
-	
+	inicializar_reptil(id);
 };

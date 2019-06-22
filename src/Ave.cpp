@@ -84,3 +84,16 @@ ostream& Ave::print(ostream& os)const{
 
 	return os;
 }
+
+void Ave::inicializar_ave(int id){
+	this->inicializar("Aves", id);
+
+	cout << "Digite o tamanho do bico da ave: " << endl;
+	m_tamanho_do_bico = input.inputInt();
+
+	cout << "Digite o tamanho da envergadura das asas: " << endl;
+	m_envergadura_das_asas = input.inputInt();
+
+	this->set_tamanho_do_bico(m_tamanho_do_bico);
+	this->set_envergadura_das_asas(m_envergadura_das_asas);
+};

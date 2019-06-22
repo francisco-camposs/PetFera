@@ -160,6 +160,7 @@ void Controle::criar_animal_exotico(shared_ptr<AnimalExotico> &bicho){
 	bicho->set_cidade_origem(cidade_origem);
 };
 
+/*
 void Controle::criar_ave(int modo_criacao){
 	
 	char * valor = new char;
@@ -330,7 +331,54 @@ void Controle::criar_reptil(int modo_criacao){
 		animais_m[animais_m.size()] = bicho;
 	}
 };
-		
+
+void Controle::criar_aracnideo(int modo_criacao){
+	
+	char * valor = new char;
+	string tipo_veneno;
+
+	cout << "Digite o tipo de veneno: " << endl;
+	cin.clear();
+	cin.getline(valor, 50);
+	tipo_veneno = static_cast<string>(valor);
+
+	if(modo_criacao == 1){
+		shared_ptr<AracnideoDomestico> aracnideo(new AracnideoDomestico);
+		aracnideo->set_tipo_veneno(tipo_veneno);
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(aracnideo);
+
+		criar_animal(bicho, "Arachnida");
+		animais_m[animais_m.size()] = bicho;
+	}
+
+	else if(modo_criacao == 2){
+		shared_ptr<AracnideoNativo> aracnideo(new AracnideoNativo);
+		aracnideo->set_tipo_veneno(tipo_veneno);
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(aracnideo);
+		shared_ptr<AnimalNativo> animal_nativo = dynamic_pointer_cast<AnimalNativo>(aracnideo);
+
+		criar_animal(bicho, "Arachnida");
+		criar_animal_nativo(animal_nativo);
+
+		animais_m[animais_m.size()] = bicho;
+	}
+
+	else if(modo_criacao == 3){
+		shared_ptr<AracnideoExotico> aracnideo(new AracnideoExotico);
+		aracnideo->set_tipo_veneno(tipo_veneno);
+
+		shared_ptr<Animal> bicho = dynamic_pointer_cast<Animal>(aracnideo);
+		shared_ptr<AnimalExotico> animal_exotico = dynamic_pointer_cast<AnimalExotico>(aracnideo);
+		criar_animal(bicho, "Arachnida");
+		criar_animal_exotico(animal_exotico);
+
+		animais_m[animais_m.size()] = bicho;
+	}
+};
+*/
+
 void Controle::adicionar_animal(){
 	TratamentoInput input;
 	
@@ -350,6 +398,9 @@ void Controle::adicionar_animal(){
 	cout << "\t 2 - Ave;" << endl;
 	cout << "\t 3 - Mamifero;" << endl;
 	cout << "\t 4 - Reptil;" << endl;
+	cout << "\t 5 - Peixe;" << endl;
+	cout << "\t 6 - Inseto;" << endl;
+	cout << "\t 7 - Aracnideo;" << endl;
 
 	option_1 = input.inputInt();
 
@@ -388,13 +439,107 @@ void Controle::adicionar_animal(){
 		}
 	}
 	else if (option_1 == 2){
-		criar_ave(option_2);
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new AveDomestica);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new AveExotica);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new AveNativa);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
 	}
 	else if (option_1 == 3){
-		criar_mamifero(option_2);
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new MamiferoDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new MamiferoExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new MamiferoNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
 	}
 	else if (option_1 == 4){
-		criar_reptil(option_2);
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new ReptilDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new ReptilExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new ReptilNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+	}
+	/*
+	else if (option_1 == 5){
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new PeixeDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new PeixeExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new PeixeNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+	}
+	else if (option_1 == 6){
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new InsetoDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new InsetoExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new InsetoNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+	} */
+	else if (option_1 == 7){
+		if(option_2 == 1){
+			shared_ptr<Animal> bicho(new AracnideoDomestico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 2){
+			shared_ptr<Animal> bicho(new AracnideoExotico);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
+		if(option_2 == 3){
+			shared_ptr<Animal> bicho(new AracnideoNativo);
+			bicho->inicializar_animal(animais_m.size());
+			animais_m[animais_m.size()] = bicho;
+		}
 	}
 
 	ofstream arq("data/Animais.csv", ios::app | ios::binary);
