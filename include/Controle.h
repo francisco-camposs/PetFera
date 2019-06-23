@@ -13,6 +13,7 @@ class Controle{
 	private:
 		map<int, shared_ptr<Animal>> animais_m;
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
+		int id;
 		Tratamento tratamento;
 
 		void definir_responsavel(shared_ptr<Animal> &bicho, string funcao);
@@ -45,6 +46,8 @@ class Controle{
 		void remover_funcionario();
 		void alterar_funcionario();
 		void consultar_funcionario();
+		bool funcionario_valido();
+		int definir_id();
 };
 
 #endif

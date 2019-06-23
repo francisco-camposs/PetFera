@@ -7,7 +7,7 @@ double TratamentoInput::is_number(char * number){
 			i = 0;
 			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();
-			cin.getline(number,20);
+			cin.getline(number,300);
 		}
 		i++;
 	}
@@ -17,7 +17,7 @@ double TratamentoInput::is_number(char * number){
 char * TratamentoInput::inputChar(){
 	char * auxiliar = new char;
 	cin.clear();
-	cin.getline(auxiliar, '\n');
+	cin.getline(auxiliar, 300);
 	return auxiliar;
 };
 
@@ -25,7 +25,7 @@ char * TratamentoInput::inputChar(){
 string TratamentoInput::inputString(){
 	char * auxiliar = new char;
 	cin.clear();
-	cin.getline(auxiliar, '\n');
+	cin.getline(auxiliar, 300);
 	string definitive = static_cast<string>(auxiliar);
 	delete[] auxiliar;
 	return definitive;
@@ -34,7 +34,7 @@ string TratamentoInput::inputString(){
 int TratamentoInput::inputInt(){
 	char * auxiliar = new char;
 	cin.clear();
-	cin.getline(auxiliar, '\n');
+	cin.getline(auxiliar, 300);
 	int result =  is_number(auxiliar);
 	delete[] auxiliar;
 	return result;
@@ -43,7 +43,7 @@ int TratamentoInput::inputInt(){
 double TratamentoInput::inputDouble(){
 	char * auxiliar = new char;
 	cin.clear();
-	cin.getline(auxiliar, '\n');
+	cin.getline(auxiliar, 300);
 	int result =  is_number(auxiliar);
 	delete[] auxiliar;
 	return result;

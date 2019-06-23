@@ -655,7 +655,7 @@ shared_ptr<Funcionario> Tratamento::Tratamento_Construtor_Funcionario(string lin
 	string auxiliar;
 
 	int contador = 0;
-	while(line[contador] != '\n' and line[contador] != ';'){
+	while(contador < (int)line.size() and line[contador] != '\n' and line[contador] != ';'){
 		auxiliar.push_back(line.at(contador));
 		contador++;
 	}
