@@ -19,16 +19,16 @@ class Animal {
 		char m_sexo;
 		double m_tamanho;
 		string m_dieta;
-		Veterinario* m_veterinario;
-		Tratador* m_tratador;
+		shared_ptr<Veterinario> m_veterinario;
+		shared_ptr<Tratador> m_tratador;
 		string m_nome_batismo;
 		TratamentoInput input;
 
 	public:
 		Animal();
 		Animal(int id, string classe, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario* veterinario, 
-				Tratador* tratador, string nome_batismo);
+				double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+				shared_ptr<Tratador> tratador, string nome_batismo);
 		~Animal();
 
 
@@ -38,8 +38,8 @@ class Animal {
 		void set_m_sexo(char sexo);
 		void set_m_tamanho(double tamanho);
 		void set_m_dieta(string dieta);
-		void set_m_veterinario(Veterinario *veterinario);
-		void set_m_tratador(Tratador *tratador);
+		void set_m_veterinario(shared_ptr<Veterinario> veterinario);
+		void set_m_tratador(shared_ptr<Tratador> tratador);
 		void set_m_nome_batismo(string nome_batismo);
 
 		int get_m_id() const;

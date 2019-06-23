@@ -12,8 +12,8 @@ protected:
 public:
 	Ave();
 	Ave(int id, string classe, string nome_cientifico, char sexo,
-			double tamanho, string dieta, Veterinario* veterinario,
-			Tratador* tratador, string nome_batismo, double tamanho_do_bico,
+			double tamanho, string dieta, shared_ptr<Veterinario> veterinario,
+			shared_ptr<Tratador> tratador, string nome_batismo, double tamanho_do_bico,
 			double envergadura_das_asas);
 	~Ave();
 

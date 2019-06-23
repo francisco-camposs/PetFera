@@ -12,8 +12,8 @@ protected:
 public:
 	Reptil();
 	Reptil(int id, string classe, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario* veterinario, 
-				Tratador* tratador, string nome_batismo, bool venenoso,
+				double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+				shared_ptr<Tratador> tratador, string nome_batismo, bool venenoso,
 				string tipo_veneno);
 	~Reptil();
 

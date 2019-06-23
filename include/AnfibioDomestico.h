@@ -10,8 +10,8 @@ class AnfibioDomestico : public Anfibio, public AnimalDomestico {
 public:
 	AnfibioDomestico();
 	AnfibioDomestico(int id, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario* veterinario, 
-				Tratador* tratador, string nome_batismo, int total_de_mudas,
+				double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+				shared_ptr<Tratador> tratador, string nome_batismo, int total_de_mudas,
 				int day, int month, int year);
 	~AnfibioDomestico();
 

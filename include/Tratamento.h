@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include <map>
 #include "AnfibioDomestico.h"
 #include "AnfibioExotico.h"
 #include "AnfibioNativo.h"
@@ -34,28 +35,28 @@ class Tratamento{
 	private:
 
 	public:
-		shared_ptr<Animal> Tratamento_Construtor_Animal(string line);
-		shared_ptr<Animal> Tratamento_AnfibioDomestico(string line);
-		shared_ptr<Animal> Tratamento_AnfibioExotico(string line);
-		shared_ptr<Animal> Tratamento_AnfibioNativo(string line);
-		shared_ptr<Animal> Tratamento_AracnideoDomestico(string line);
-		shared_ptr<Animal> Tratamento_AracnideoExotico(string line);
-		shared_ptr<Animal> Tratamento_AracnideoNativo(string line);
-		shared_ptr<Animal> Tratamento_AveDomestica(string line);
-		shared_ptr<Animal> Tratamento_AveExotica(string line);
-		shared_ptr<Animal> Tratamento_AveNativa(string line);
-		shared_ptr<Animal> Tratamento_InsetoDomestico(string line);
-		shared_ptr<Animal> Tratamento_InsetoExotico(string line);
-		shared_ptr<Animal> Tratamento_InsetoNativo(string line);
-		shared_ptr<Animal> Tratamento_MamiferoDomestico(string line);
-		shared_ptr<Animal> Tratamento_MamiferoExotico(string line);
-		shared_ptr<Animal> Tratamento_MamiferoNativo(string line);
-		shared_ptr<Animal> Tratamento_ReptilDomestico(string line);
-		shared_ptr<Animal> Tratamento_ReptilExotico(string line);
-		shared_ptr<Animal> Tratamento_ReptilNativo(string line);
-		shared_ptr<Animal> Tratamento_PeixeDomestico(string line);
-		shared_ptr<Animal> Tratamento_PeixeExotico(string line);
-		shared_ptr<Animal> Tratamento_PeixeNativo(string line);
+		shared_ptr<Animal> Tratamento_Construtor_Animal(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AnfibioDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AnfibioExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AnfibioNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AracnideoDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AracnideoExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AracnideoNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AveDomestica(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AveExotica(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_AveNativa(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_InsetoDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_InsetoExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_InsetoNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_MamiferoDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_MamiferoExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_MamiferoNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_ReptilDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_ReptilExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_ReptilNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_PeixeDomestico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_PeixeExotico(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
+		shared_ptr<Animal> Tratamento_PeixeNativo(string line, map<int , shared_ptr<Funcionario>> &funcionarios);
 
 		shared_ptr<Funcionario> Tratamento_Construtor_Funcionario(string line);
 		shared_ptr<Funcionario> Tratamento_Tratador(string line);

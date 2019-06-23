@@ -51,6 +51,10 @@ string Veterinario::write(){
 	return str.str();
 };
 
+string Veterinario::Tipo(){
+	return "Veterinario";
+}
+
 ostream& Veterinario::print(ostream& os)const{
 	os<<"Campo \t\t\t\t\tTipo de dado \tValores"<<endl;
 	os<<"Identificador do funcionário \tCadeia de caracteres \t"<<m_id << endl;

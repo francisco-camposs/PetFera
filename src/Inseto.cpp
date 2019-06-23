@@ -4,8 +4,8 @@ Inseto::Inseto() {
 
 };
 Inseto::Inseto(int id, string classe, string nome_cientifico, char sexo, 
-		double tamanho, string dieta, Veterinario* veterinario, 
-		Tratador* tratador, string nome_batismo, int total_de_mudas, string tipo_metamorfose, 
+		double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+		shared_ptr<Tratador> tratador, string nome_batismo, int total_de_mudas, string tipo_metamorfose, 
 		int day, int month, int year): Animal(id, "Insecta", nome_cientifico, sexo, 
 		tamanho, dieta, veterinario, tratador, nome_batismo),  m_total_de_mudas(total_de_mudas), 
 		m_tipo_metamorfose(tipo_metamorfose) {
@@ -91,8 +91,8 @@ ostream& Inseto::print(ostream& os)const{
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros\tDecimal\t"<<m_tamanho<<endl;
 	os<<"Dieta predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<0<<endl;
-	os<<"Tratador responsável \tInterio \t"<<0<<endl;
+	os<<"Veterinário associado \tInteiro \t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \tInteiro \t"<<m_tratador->get_id()<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
 	os<<"Total de mudas \tInteiro \t"<<m_total_de_mudas<<endl;
 	os<<"Data da última muda \tclasse date \t"<<m_ultima_muda<<endl;

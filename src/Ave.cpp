@@ -4,8 +4,8 @@ Ave::Ave(){
 
 }
 Ave::Ave(int id, string classe, string nome_cientifico, char sexo,
-		double tamanho, string dieta, Veterinario* veterinario,
-		Tratador* tratador, string nome_batismo, double tamanho_do_bico,
+		double tamanho, string dieta, shared_ptr<Veterinario> veterinario,
+		shared_ptr<Tratador> tratador, string nome_batismo, double tamanho_do_bico,
 		double envergadura_das_asas):
 	Animal(id, "Aves", nome_cientifico, sexo, tamanho, dieta, veterinario, tratador, nome_batismo),
 	m_tamanho_do_bico(tamanho_do_bico), m_envergadura_das_asas(envergadura_das_asas){
@@ -69,18 +69,18 @@ string Ave::Tipo(){
 };
 
 ostream& Ave::print(ostream& os)const{
-	os<<"Campo \tTipo de Dados \tValores"<<endl;
-	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
-	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Campo \t\t\t\tTipo de Dados \t\tValores"<<endl;
+	os<<"Identificador Do animal   \tInteiro \t\t"<<m_id<<endl;
+	os<<"Classe do animal \t\tCadeia de caracteres \t"<<m_classe<<endl;
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
-	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
-	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta predominante;Cadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<0<<endl;
-	os<<"Tratador responsável \tInterio \t"<<0<<endl;
-	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
-	os<<"Tamanho do bico \tDouble \t"<<m_tamanho_do_bico<<endl;
-	os<<"Envergadura das asas \tDouble \t"<<m_envergadura_das_asas<<endl;
+	os<<"Sexo do animal \t\t\tCaractere \t\t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros \tDecimal \t\t"<<m_tamanho<<endl;
+	os<<"Dieta predominante \t\tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \t\tInteiro \t\t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \t\tInteiro \t\t"<<m_tratador->get_id()<<endl;
+	os<<"Nome de batismo \t\tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Tamanho do bico \t\tDouble \t\t\t"<<m_tamanho_do_bico<<endl;
+	os<<"Envergadura das asas \t\tDouble \t\t\t"<<m_envergadura_das_asas<<endl;	
 
 	return os;
 }

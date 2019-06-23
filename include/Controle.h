@@ -15,6 +15,7 @@ class Controle{
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
 		Tratamento tratamento;
 
+		void definir_responsavel(shared_ptr<Animal> &bicho, string funcao);
 		void criar_animal(shared_ptr<Animal> &bicho, string classe);
 		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);
 		void criar_animal_exotico(shared_ptr<AnimalExotico> &bicho);

@@ -10,8 +10,8 @@ class PeixeDomestico : public Peixe, public AnimalDomestico{
 public:
 	PeixeDomestico();
 	PeixeDomestico(int id, string nome_cientifico, char sexo, 
-				double tamanho, string dieta, Veterinario* veterinario, 
-				Tratador* tratador, string nome_batismo, string tipo_agua);
+				double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+				shared_ptr<Tratador> tratador, string nome_batismo, string tipo_agua);
 	~PeixeDomestico();
 
 	string write();

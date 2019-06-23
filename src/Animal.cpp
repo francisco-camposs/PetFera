@@ -7,8 +7,8 @@ Animal::Animal(){
 };
 
 Animal::Animal(int id, string classe, string nome_cientifico, char sexo, 
-		double tamanho, string dieta, Veterinario* veterinario, 
-		Tratador* tratador, string nome_batismo): m_id(id), m_classe(classe)
+		double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+		shared_ptr<Tratador> tratador, string nome_batismo): m_id(id), m_classe(classe)
 		, m_nome_cientifico(nome_cientifico), m_sexo(sexo)
 		, m_tamanho(tamanho), m_dieta(dieta), m_veterinario(veterinario)
 		, m_tratador(tratador), m_nome_batismo(nome_batismo) {/*
@@ -42,11 +42,11 @@ void Animal::set_m_dieta(string dieta){
 	m_dieta = dieta;
 };
 
-void Animal::set_m_veterinario(Veterinario* veterinario){
+void Animal::set_m_veterinario(shared_ptr<Veterinario> veterinario){
 	m_veterinario = veterinario;
 };
 
-void Animal::set_m_tratador(Tratador* tratador){
+void Animal::set_m_tratador(shared_ptr<Tratador> tratador){
 	m_tratador = tratador;
 };
 
@@ -92,9 +92,6 @@ string Animal::get_m_nome_batismo() const{
 };
 
 void Animal::inicializar(string classe, int id){
-	shared_ptr<Veterinario> vet(new Veterinario);
-	shared_ptr<Tratador> trat(new Tratador);
-
 	string nome;
 	string nome_cientifico;
 	char * sexo = new char;
@@ -127,8 +124,8 @@ void Animal::inicializar(string classe, int id){
 	this->set_m_dieta(dieta);
 
 	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-	this->set_m_veterinario((vet.get()));
-	this->set_m_tratador(trat.get());
+	this->set_m_veterinario(NULL);
+	this->set_m_tratador(NULL);
 
 	cout << "Digite a o nome de batismo do animal: " << endl;
 	nome = input.inputString();

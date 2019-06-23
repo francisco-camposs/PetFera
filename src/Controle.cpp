@@ -1,4 +1,4 @@
-#include "Controle.h" 
+#include "Controle.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ Controle::Controle(){
 	//Leitura dos Funcionários
 	archive.open("data/Funcionarios.csv");
 	if(!(archive.is_open())){
-		cerr<<"O arquivo não foi aberto f!!!"<<endl;
+		cerr<<"O arquivo de funcionários não foi aberto!!!"<<endl;
 		return;
 	}
 	//getline(archive, line);
@@ -17,24 +17,24 @@ Controle::Controle(){
 
 	while(getline(archive, line)){
 		funcionario = tratamento.Tratamento_Construtor_Funcionario(line);
-		//if(funcionario != NULL)
-			//funcionarios_m[*funcionario.get_id()] = funcionario;
+		if(funcionario != NULL)
+			funcionarios_m[funcionario->get_id()] = funcionario;
 	}
 	archive.close();
 
 	//Leitura dos Animais
 	archive.open("data/Animais.csv");
 	if(!(archive.is_open())){
-		cerr<<"O arquivo não foi aberto!!!"<<endl;
+		cerr<<"O arquivo de animais não foi aberto!!!"<<endl;
 		return;
 	}
 	//getline(archive, line);
 	shared_ptr<Animal> bicho;
 
 	while(getline(archive, line)){
-		bicho = tratamento.Tratamento_Construtor_Animal(line);
-		//if(bicho != NULL)
-			//animais_m[bicho.get_m_id()] = bicho;
+		bicho = tratamento.Tratamento_Construtor_Animal(line, funcionarios_m);
+		if(bicho != NULL)
+			animais_m[bicho->get_m_id()] = bicho;
 	}
 	archive.close();
 };
@@ -43,6 +43,34 @@ Controle::Controle(map<int, Animal>, map<int, Funcionario>){}
 Controle::~Controle(){}
 
 // Métodos privados para validar tipos
+void Controle::definir_responsavel(shared_ptr<Animal> &bicho, string funcao){
+	cout << "Digite o id do "<<funcao<<": " << endl;
+	char *valor = new char;
+	cin.clear();
+	cin.getline(valor, 50);
+	int id = is_number(valor);
+
+	auto it = funcionarios_m.find(id);
+	while(it == funcionarios_m.end() or it->second->Tipo().compare(funcao) ){
+		cout<< funcao <<"não encontrado!"<<endl;
+		cout<<"Digite o id novamente: ";
+		cin.clear();
+		cin.getline(valor, 50);
+		id = is_number(valor);
+		it = funcionarios_m.find(id);
+	}
+
+	if( !funcao.compare("Veterinario") ){
+		shared_ptr<Veterinario> f = dynamic_pointer_cast<Veterinario>(it->second);
+		bicho->set_m_veterinario(f);
+	}
+	else if( !funcao.compare("Tratador") ){
+		shared_ptr<Tratador> f = dynamic_pointer_cast<Tratador>(it->second);
+		bicho->set_m_tratador(f);
+	}
+	delete valor;
+};
+
 int Controle::is_number(char * number){
 	int i = 0;
 	while(number[i] != '\0'){
@@ -107,8 +135,8 @@ void Controle::criar_animal(shared_ptr<Animal> &bicho, string classe){
 	bicho->set_m_dieta(dieta);
 
 	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-	bicho->set_m_veterinario((vet.get()));
-	bicho->set_m_tratador(trat.get());
+	//bicho->set_m_veterinario((vet.get()));
+	//bicho->set_m_tratador(trat.get());
 
 	cout << "Digite a o nome de batismo do animal: " << endl;
 	cin.clear();
@@ -411,8 +439,8 @@ void Controle::adicionar_animal(){
 
 	cout << "Digite o tipo correspondente: " << endl;
 	cout << "\t 1 - Domestico;" << endl;
-	cout << "\t 2 - Silvestre Nativo;" << endl;
-	cout << "\t 3 - Silvestre Exotico;" << endl; 
+	cout << "\t 2 - Silvestre Exotico;" << endl;
+	cout << "\t 3 - Silvestre Nativo;" << endl; 
 
 	option_2 = input.inputInt();
 
@@ -425,16 +453,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new AnfibioDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new AnfibioExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new AnfibioNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -442,16 +476,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new AveDomestica);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new AveExotica);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new AveNativa);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -459,16 +499,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new MamiferoDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new MamiferoExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new MamiferoNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -476,16 +522,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new ReptilDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new ReptilExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new ReptilNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -493,16 +545,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new PeixeDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new PeixeExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new PeixeNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -510,16 +568,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new InsetoDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new InsetoExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new InsetoNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}
@@ -527,16 +591,22 @@ void Controle::adicionar_animal(){
 		if(option_2 == 1){
 			shared_ptr<Animal> bicho(new AracnideoDomestico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 2){
 			shared_ptr<Animal> bicho(new AracnideoExotico);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 		if(option_2 == 3){
 			shared_ptr<Animal> bicho(new AracnideoNativo);
 			bicho->inicializar_animal(animais_m.size());
+			definir_responsavel(bicho, "Veterinario");
+			definir_responsavel(bicho, "Tratador");
 			animais_m[animais_m.size()] = bicho;
 		}
 	}

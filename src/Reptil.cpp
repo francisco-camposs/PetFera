@@ -4,8 +4,8 @@ Reptil::Reptil(){
 
 }
 Reptil::Reptil(int id, string classe, string nome_cientifico, char sexo, 
-			double tamanho, string dieta, Veterinario* veterinario, 
-			Tratador* tratador, string nome_batismo, bool venenoso,
+			double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+			shared_ptr<Tratador> tratador, string nome_batismo, bool venenoso,
 			string tipo_veneno):
 	Animal(id, "Reptilia", nome_cientifico, sexo, tamanho, dieta, veterinario, tratador, nome_batismo),
 	m_venenoso(venenoso), m_tipo_veneno(tipo_veneno){
@@ -70,19 +70,18 @@ string Reptil::Tipo(){
 };
 
 ostream& Reptil::print(ostream& os)const{
-	os<<"Campo \tTipo de Dados \tValores"<<endl;
-	os<<"Identificador Do animal \tInteiro \t"<<m_id<<endl;
-	os<<"Classe do animal \tCadeia de caracteres \t"<<m_classe<<endl;
+	os<<"Campo \t\t\t\tTipo de Dados \t\tValores"<<endl;
+	os<<"Identificador Do animal   \tInteiro \t\t"<<m_id<<endl;
+	os<<"Classe do animal \t\tCadeia de caracteres \t"<<m_classe<<endl;
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
-	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
-	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
-	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
-	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
-	os<<"Venenoso \tbooleano \t"<<m_venenoso<<endl;
-	os<<"Tipo de veneno \tCadeia de caracteres \t"<<m_tipo_veneno<<endl;
-	
+	os<<"Sexo do animal \t\t\tCaractere \t\t"<<m_sexo<<endl;
+	os<<"Tamanho média em métros \tDecimal \t\t"<<m_tamanho<<endl;
+	os<<"Dieta predominante \t\tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \t\tInteiro \t\t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \t\tInteiro \t\t"<<m_tratador->get_id()<<endl;
+	os<<"Nome de batismo \t\tCadeia de caracteres \t"<<m_nome_batismo<<endl;
+	os<<"Venenoso \t\t\tbooleano \t\t"<<m_venenoso<<endl;
+	os<<"Tipo de veneno \t\t\tCadeia de caracteres \t"<<m_tipo_veneno<<endl;
 	return os;
 }
 
@@ -90,15 +89,22 @@ void Reptil::inicializar_reptil(int id){
 	this->inicializar("Reptilia", id);
 
 	char * valor = new char;
+	bool venenoso;
+	string tipo_veneno;
 
-	cout << "Digite se o réptil é venenoso: " << endl;
-	m_venenoso = input.inputInt();
+	cout << "O Réptil é venenoso?" << endl;
+	cout << "\t0 - Não" << endl << "\t1 - Sim" << endl;
+	venenoso = input.inputInt();
 
-	cout << "Digite o tipo de veneno do réptil: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	m_tipo_veneno = static_cast<string>(valor);
+	if(venenoso){
+		cout << "Digite o tipo de veneno do réptil: " << endl;
+		cin.clear();
+		cin.getline(valor,50);
+		tipo_veneno = static_cast<string>(valor);
+	}
+	else 
+		tipo_veneno = " - ";
 
-	this->set_venenoso(m_venenoso);
-	this->set_tipo_veneno(m_tipo_veneno);
+	this->set_venenoso(venenoso);
+	this->set_tipo_veneno(tipo_veneno);
 };

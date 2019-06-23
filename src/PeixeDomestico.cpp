@@ -4,8 +4,8 @@ PeixeDomestico::PeixeDomestico(){
 
 }
 PeixeDomestico::PeixeDomestico(int id, string nome_cientifico, char sexo, 
-			double tamanho, string dieta, Veterinario* veterinario, 
-			Tratador* tratador, string nome_batismo, string tipo_agua):
+			double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+			shared_ptr<Tratador> tratador, string nome_batismo, string tipo_agua):
 	Peixe(id, "Gnathostomata", nome_cientifico, sexo, tamanho, dieta, veterinario,
 		tratador, nome_batismo, tipo_agua){
 
@@ -44,12 +44,11 @@ ostream& PeixeDomestico::print(ostream& os)const{
 	os<<"Nome científico do animal \tCadeia de caracteres \t"<<m_nome_cientifico<<endl;
 	os<<"Sexo do animal \tCaractere \t"<<m_sexo<<endl;
 	os<<"Tamanho média em métros \tDecimal \t"<<m_tamanho<<endl;
-	os<<"Dieta Predominante \tCadeia de caracteres \t"<<m_dieta<<endl;
-	os<<"Veterinário associado \tInterio \t"<<NULL<<endl;
-	os<<"Tratador responsável \tInterio \t"<<NULL<<endl;
+	os<<"Dieta redominante \tCadeia de caracteres \t"<<m_dieta<<endl;
+	os<<"Veterinário associado \tInteiro \t"<<m_veterinario->get_id()<<endl;
+	os<<"Tratador responsável \tInteiro \t"<<m_tratador->get_id()<<endl;
 	os<<"Nome de batismo \tCadeia de caracteres \t"<<m_nome_batismo<<endl;
-	os<<"Cor do pelo \tCadeia de caracteres \t"<<m_tipo_agua<<endl;
-
+	os<<"Tipo de água \tCadeia de caracteres \t"<<m_tipo_agua<<endl;
 	return os;
 }
 

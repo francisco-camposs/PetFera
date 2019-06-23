@@ -14,8 +14,8 @@ class Inseto : public Animal {
   public:
 	Inseto();
 	Inseto(int id, string classe, string nome_cientifico, char sexo, 
-			double tamanho, string dieta, Veterinario* veterinario, 
-			Tratador* tratador, string nome_batismo, int total_de_mudas, 
+			double tamanho, string dieta, shared_ptr<Veterinario> veterinario, 
+			shared_ptr<Tratador> tratador, string nome_batismo, int total_de_mudas, 
 			string tipo_metamorfose, int day, int month, int year);
 	~Inseto();
 

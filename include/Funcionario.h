@@ -43,6 +43,7 @@ class Funcionario {
 		char get_fator_rh();
 		string get_especialidade();
 		virtual string write() = 0;
+		virtual string Tipo() = 0;
 
 		virtual void inicializar_funcionario(int id) = 0;
 		void inicializar(int id);

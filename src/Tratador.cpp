@@ -49,6 +49,10 @@ string Tratador::write(){
 	return str.str();
 };
 
+string Tratador::Tipo(){
+	return "Tratador";
+}
+
 ostream& Tratador::print(ostream& os)const{
 	os<<"Campo \t\t\t\t\tTipo de dado \tValores"<<endl;
 	os<<"Identificador do funcionário \tCadeia de caracteres \t"<<m_id << endl;
