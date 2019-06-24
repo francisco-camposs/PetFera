@@ -3,9 +3,19 @@
 using namespace std;
 
 Controle::Controle(){
-	id = 0;
-	ifstream archive;
+	ifstream arch;
 	string line;
+
+	arch.open("config/config.txt");
+	if(!(arch.is_open())){
+		cerr<<"O arquivo de configuração não foi aberto!!!"<<endl;
+	}
+
+	getline(arch, line);
+	id = stoi(line);
+	arch.close();
+
+	ifstream archive;
 
 	//Leitura dos Funcionários
 	archive.open("data/Funcionarios.csv");
@@ -41,20 +51,6 @@ Controle::Controle(){
 };
 
 int Controle::definir_id(){
-	if (id == 0){
-		ifstream archive;
-		string line;
-
-		archive.open("config/config.txt");
-		if(!(archive.is_open())){
-			cerr<<"O arquivo de configuração não foi aberto!!!"<<endl;
-			return 0;
-		}
-
-		getline(archive, line);
-		id = stoi(line);
-		archive.close();
-	}
 	id += 1;
 	return this->id;
 }
@@ -62,7 +58,6 @@ int Controle::definir_id(){
 Controle::Controle(map<int, Animal>, map<int, Funcionario>){}
 
 Controle::~Controle(){
-	cout << id << endl;
 	system("rm -rf config/config.txt");
 	system("touch config/config.txt");
 
@@ -362,11 +357,16 @@ void Controle::adicionar_animal(){
 
 void Controle::remover_animal(){
 	TratamentoInput input;
-	cout << "\nDigite o id do animal que deseja remover: ";
+	cout << "\nDigite o id do animal que deseja remover: " << endl;
 	int option;
 	option = input.inputInt();
-	animais_m.erase(option);
-	cout << "Animal Excluído." << endl;
+	if ((int)animais_m.count(option) > 0){
+		animais_m.erase(option);
+		cout << "Animal Excluído." << endl;
+	}
+	else{
+		cout << "Não existe animal com esse id." << endl;
+	}
 }
 
 void Controle::alterar_animal(){
@@ -442,7 +442,23 @@ void Controle::adicionar_funcionario(){
 }
 
 void Controle::remover_funcionario(){
-
+	TratamentoInput input;
+	cout << "\nDigite o id do funcionário que deseja remover: " << endl;
+	int option;
+	option = input.inputInt();
+	if ((int)funcionarios_m.count(option) > 0){
+		if ((int)funcionarios_m[option].use_count() > 1){
+			cout << "\t Não é possíve remover esse funcionário, existem animais ligados ele." << endl;
+			cout << "\t Para remover o funcionário altere todos os animais associados a ele." << endl;
+		}
+		else{
+			funcionarios_m.erase(option);
+			cout << "Funcionário removido com sucesso." <<  endl;
+		}
+	}
+	else{
+		cout << "Não existe funcionario com esse id." << endl;
+	}
 }
 
 void Controle::alterar_funcionario(){
@@ -450,6 +466,20 @@ void Controle::alterar_funcionario(){
 }
 
 void Controle::salvar_alteracoes(){
+	system("rm -rf config/config.txt");
+	system("touch config/config.txt");
+
+	ofstream arq_("config/config.txt", ios::app | ios::binary);
+
+	if(arq_.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+	ostringstream str;
+	str<<id;
+	arq_<<str.str();
+	arq_.close();
+
 	cout << "Salvando alterações nos animais." << endl;
 	system("rm -rf data/Animais.csv");
 	system("touch data/Animais.csv");
