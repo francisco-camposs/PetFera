@@ -13,21 +13,13 @@ class Controle{
 	private:
 		map<int, shared_ptr<Animal>> animais_m;
 		map<int, shared_ptr<Funcionario>> funcionarios_m;
-		int id;
 		Tratamento tratamento;
+		int id;
 
 		void definir_responsavel(shared_ptr<Animal> &bicho, string funcao);
 		void criar_animal(shared_ptr<Animal> &bicho, string classe);
 		void criar_animal_nativo(shared_ptr<AnimalNativo> &bicho);
 		void criar_animal_exotico(shared_ptr<AnimalExotico> &bicho);
-
-/*		void criar_anfibio(int modo_criacao);
-		void criar_ave(int modo_criacao);
-		void criar_mamifero(int modo_criacao);
-		void criar_reptil(int modo_criacao);
-		void criar_peixe(int modo_criacao);
-		void criar_inseto(int modo_criacao);
-		void criar_aracnideo(int modo_criacao); */
 
 	public:
 		Controle();
@@ -41,6 +33,7 @@ class Controle{
 		void alterar_animal();
 		void consultar_animais();
 		void consultar_animais_por_funcionario();
+		void salvar_alteracoes();
 		
 		void adicionar_funcionario();
 		void remover_funcionario();

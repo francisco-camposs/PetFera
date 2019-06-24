@@ -123,11 +123,7 @@ void Animal::inicializar(string classe, int id){
 	dieta = input.inputString();
 	this->set_m_dieta(dieta);
 
-	cout << "Por enquanto serão uns veterinários genéricos." << endl;
-	this->set_m_veterinario(NULL);
-	this->set_m_tratador(NULL);
-
-	cout << "Digite a o nome de batismo do animal: " << endl;
+	cout << "Digite o nome de batismo do animal: " << endl;
 	nome = input.inputString();
 	this->set_m_nome_batismo(nome);
 };

@@ -52,9 +52,10 @@ int Controle::definir_id(){
 		}
 
 		getline(archive, line);
-		id = stoi(line) + 1;
+		id = stoi(line);
 		archive.close();
 	}
+	id += 1;
 	return this->id;
 }
 
@@ -64,7 +65,9 @@ Controle::~Controle(){
 	cout << id << endl;
 	system("rm -rf config/config.txt");
 	system("touch config/config.txt");
+
 	ofstream arq("config/config.txt", ios::app | ios::binary);
+
 	if(arq.bad()){
 		cerr<<"Arquivo nao foi aberto"<<endl;
 		exit(1);
@@ -73,6 +76,35 @@ Controle::~Controle(){
 	str<<id;
 	arq<<str.str();
 	arq.close();
+	
+	system("rm -rf data/Animais.csv");
+	system("touch data/Animais.csv");
+
+	ofstream arq_1("data/Animais.csv", ios::app | ios::binary);
+	if(arq_1.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+
+	for(auto it = animais_m.begin(); it != animais_m.end(); it++){
+		arq_1<< it->second->write();
+	}
+
+	arq_1.close();
+
+	system("rm -rf data/Funcionarios.csv");
+	system("touch data/Funcionarios.csv");
+
+	ofstream arch("data/Funcionarios.csv", ios::app | ios::binary);
+	if(arch.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+
+	for(auto it = funcionarios_m.begin(); it != funcionarios_m.end(); it++){
+		arch<< it->second->write();
+	}
+	arch.close();
 }
 
 // Métodos privados para validar tipos
@@ -319,18 +351,24 @@ void Controle::adicionar_animal(){
 		}
 	}
 
-	ofstream arq("data/Animais.csv", ios::app | ios::binary);
-	if(arq.bad()){
-		cerr<<"Arquivo nao foi aberto"<<endl;
-		exit(1);
-	}
-	arq<<animais_m[animais_m.size()-1]->write();
-	arq.close();
+	// ofstream arq("data/Animais.csv", ios::app | ios::binary);
+	// if(arq.bad()){
+	// 	cerr<<"Arquivo nao foi aberto"<<endl;
+	// 	exit(1);
+	// }
+	// arq<<animais_m[]->write();
+	// arq.close();
 }
 
 void Controle::remover_animal(){
-
+	TratamentoInput input;
+	cout << "\nDigite o id do animal que deseja remover: ";
+	int option;
+	option = input.inputInt();
+	animais_m.erase(option);
+	cout << "Animal Excluído." << endl;
 }
+
 void Controle::alterar_animal(){
 
 }
@@ -377,16 +415,6 @@ void Controle::consultar_animais_por_funcionario(){
 }
 		
 void Controle::adicionar_funcionario(){
-	/*if( funcionarios_m.empty()){
-		ofstream arq("data/Funcionarios.csv", ios::app | ios::binary);
-		if(arq.bad()){
-			cerr<<"Arquivo nao foi aberto"<<endl;
-			exit(1);
-		}
-		arq<<"Função;Id;Nome;CPF;Idade;Tipo Sanguineo;Fator_Rh;Especialidade;Nível de Segurança;Código CRMV"<<endl;
-		arq.close();
-	}*/
-
 	int option_1;
 	TratamentoInput input;
 
@@ -411,21 +439,52 @@ void Controle::adicionar_funcionario(){
 		funcionario->inicializar_funcionario(definir_id());
 		funcionarios_m[funcionario->get_id()] = funcionario;
 	}
-
-	ofstream arq("data/Funcionarios.csv", ios::app | ios::binary);
-	if(arq.bad()){
-		cerr<<"Arquivo nao foi aberto"<<endl;
-		exit(1);
-	}
-	arq<<funcionarios_m[funcionarios_m.size()-1]->write();
-	arq.close();
 }
 
 void Controle::remover_funcionario(){
 
 }
+
 void Controle::alterar_funcionario(){
 
+}
+
+void Controle::salvar_alteracoes(){
+	cout << "Salvando alterações nos animais." << endl;
+	system("rm -rf data/Animais.csv");
+	system("touch data/Animais.csv");
+
+	ofstream arq("data/Animais.csv", ios::app | ios::binary);
+	if(arq.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+
+	for(auto it = animais_m.begin(); it != animais_m.end(); it++){
+		arq << it->second->write();
+	}
+
+	arq.close();
+
+	cout << "Alterações salvas com sucesso." << endl;
+
+	cout << "Salvando alterações nos funcionários." << endl;
+
+	system("rm -rf data/Funcionarios.csv");
+	system("touch data/Funcionarios.csv");
+
+	ofstream arch("data/Funcionarios.csv", ios::app | ios::binary);
+	if(arch.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		exit(1);
+	}
+
+	for(auto it = funcionarios_m.begin(); it != funcionarios_m.end(); it++){
+		arch << it->second->write();
+	}
+	arch.close();
+
+	cout << "Alterações salvas com sucesso." << endl;
 }
 
 void Controle::consultar_funcionario(){

@@ -21,6 +21,7 @@ int main (){
 		cout << "\t 7 - Remover funcionário; " << endl;
 		cout << "\t 8 - Alterar funcionário; " << endl;
 		cout << "\t 9 - Consultar funcionário; " << endl;
+		cout << "\t s - Salvar modificações; " << endl;
 		cout << "\t 0 - Sair do programa." << endl;
 
 		cin.clear();
@@ -53,6 +54,9 @@ int main (){
 				break;
 			case '9':
 				controle.consultar_funcionario();
+				break;
+			case 's':
+				controle.salvar_alteracoes();
 				break;
 			case '0':
 				cout << "Até Logo." << endl;

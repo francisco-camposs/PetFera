@@ -2,12 +2,14 @@
 
 double TratamentoInput::is_number(char * number){
 	int i = 0;
-	while(number[i] != '\0'){
+	string name = number;
+	while(name.size() == 0 or number[i] != '\0'){
 		if (!(number[i] == 46 or (int(number[i]) > 47 and int(number[i]) < 58))){
 			i = 0;
 			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();
 			cin.getline(number,300);
+			name = number;
 		}
 		i++;
 	}
