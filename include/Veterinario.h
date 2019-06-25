@@ -28,6 +28,7 @@ class Veterinario : public Funcionario{
 		string Tipo();
 		
 		void inicializar_funcionario(int id);
+		void alterar_funcionario();
 	private:
 		ostream& print(ostream& os)const;
 };

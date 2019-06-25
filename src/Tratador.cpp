@@ -76,3 +76,28 @@ void Tratador::inicializar_funcionario(int id){
 	nivel_de_seguranca = input.inputInt();
 	this->set_nivel_de_seguranca(nivel_de_seguranca);
 };
+
+void Tratador::alterar_funcionario(){
+	TratamentoInput input;
+	string atributo;
+
+	cout<<"Digite o atributo a ser alterado." << endl;
+	cout<< "-nome" << endl;
+	cout<< "-cpf" << endl;
+	cout<< "-idade" << endl;
+	cout<< "-tipo sanguineo" << endl;
+	cout<< "-fator rh" << endl;
+	cout<< "-especialidade" << endl;
+	cout<< "-nível de segurança (seg)" << endl;
+
+	atributo = input.inputString();
+
+	if(!atributo.compare("seg")){
+		cout<<"Digite o nível de segurança: " << endl;
+		int alt_atributo = input.inputInt();
+		this->m_nivel_de_seguranca = alt_atributo;
+	}
+	else{
+		alterar(atributo);
+	}
+};

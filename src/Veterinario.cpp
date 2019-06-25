@@ -78,3 +78,28 @@ void Veterinario::inicializar_funcionario(int id){
 	crmv = input.inputString();
 	this->m_crmv = crmv;
 };
+
+void Veterinario::alterar_funcionario(){
+	TratamentoInput input;
+	string atributo;
+
+	cout<<"Digite o atributo a ser alterado." << endl;
+	cout<< "-nome" << endl;
+	cout<< "-cpf" << endl;
+	cout<< "-idade" << endl;
+	cout<< "-tipo sanguineo" << endl;
+	cout<< "-fator rh" << endl;
+	cout<< "-especialidade" << endl;
+	cout<< "-código crmv (crmv)" << endl;
+
+	atributo = input.inputString();
+
+	if(!atributo.compare("crmv")){
+		cout<<"Digite o crmv do veterinário: " << endl;
+		atributo = input.inputString();
+		this->m_crmv = atributo;
+	}
+	else{
+		alterar(atributo);
+	}
+};

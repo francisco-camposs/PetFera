@@ -462,7 +462,20 @@ void Controle::remover_funcionario(){
 }
 
 void Controle::alterar_funcionario(){
+	TratamentoInput input;
 
+	cout<< "Digite o id do funcionário a ser alterado: ";
+	int id_f = input.inputInt();
+
+	auto it = funcionarios_m.find(id_f);
+	while(it == funcionarios_m.end()){
+		cout<< "Funcionário não encontrado!" <<endl;
+		cout<<"Digite o id novamente: ";
+		id_f = input.inputInt();
+		it = funcionarios_m.find(id_f);
+	}
+	cout<<endl;
+	it->second->alterar_funcionario();
 }
 
 void Controle::salvar_alteracoes(){

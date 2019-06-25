@@ -118,3 +118,47 @@ void Funcionario::inicializar(int id){
 
 	delete[] fator_rh;
 };
+
+void Funcionario::alterar(string atributo){
+	TratamentoInput input;
+	string alt_atributo;
+	char *fator_rh = new char;
+
+	if(!atributo.compare("nome")){
+		cout<<"Digite o nome: " << endl;
+		alt_atributo = input.inputString();
+		this->set_nome(alt_atributo);
+	}
+	else if(!atributo.compare("cpf")){
+		cout<<"Digite o cpf: " << endl;
+		alt_atributo = input.inputString();
+		this->set_cpf(alt_atributo);
+	}
+	else if(!atributo.compare("idade")){
+		cout<<"Digite a idade: " << endl;
+		int idade = input.inputInt();
+		this->set_idade(idade);
+	}
+	else if(!atributo.compare("tipo sanguineo")){
+		cout<<"Digite o tipo sanguineo: " << endl;
+		alt_atributo = input.inputString();
+		this->set_tipo_sanguineo(alt_atributo);
+	}
+	else if(!atributo.compare("fator rh")){
+		cout << "Digite o fator RH do Funcionario:" << endl;
+		fator_rh = input.inputChar();
+
+		while(*fator_rh != '+' && *fator_rh != '-'){
+			cout << "Fator RH inválido, digite novamente: " << endl;
+			fator_rh = input.inputChar();
+		}
+		this->set_fator_rh(*fator_rh);
+	}
+	else if(!atributo.compare("especialidade")){
+		cout<<"Digite a especialidade: " << endl;
+		alt_atributo = input.inputString();
+		this->set_especialidade(alt_atributo);
+	}
+
+	delete[] fator_rh;
+};

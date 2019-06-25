@@ -46,7 +46,9 @@ class Funcionario {
 		virtual string Tipo() = 0;
 
 		virtual void inicializar_funcionario(int id) = 0;
+		virtual void alterar_funcionario() = 0;
 		void inicializar(int id);
+		void alterar(string atributo);
 
 		friend ostream& operator<<(ostream& os, const Funcionario& f){
 			return f.print(os);
