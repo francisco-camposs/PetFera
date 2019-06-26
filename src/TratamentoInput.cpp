@@ -2,14 +2,18 @@
 
 double TratamentoInput::is_number(char * number){
 	int i = 0;
-	string name;
-	while(name.size() == 0 or number[i] != '\0'){
+	string name = "A";
+	while((name.size() == 0 or number[i] != '\0') and i < int(name.size())){
+		cout << "i: " << i << endl;
 		try {
-			if (!(number[i] == 46 or (int(number[i]) > 47 and int(number[i]) < 58))){
+			cout << "Validade: " << !(int(number[i]) > 47 and int(number[i]) < 58) << endl;
+			if (!(int(number[i]) > 47 and int(number[i]) < 58)){
+				cout << "Vai automatic aqui vei" << endl;
 				throw NaoENumero();
 			}
 		}
 		catch (NaoENumero &ex){
+			cout << "Veio aqui." << endl;
 			cerr << ex.what() << endl;
 			i = 0;
 			cin.clear();
@@ -17,7 +21,7 @@ double TratamentoInput::is_number(char * number){
 			name = number;
 		}
 		catch (...){
-			cerr << "Não é possível converter.Iremos retornar o valor zero." << endl;
+			cerr << "Não é possível converter. Iremos retornar o valor zero." << endl;
 			return 0;
 		}
 		i++;
