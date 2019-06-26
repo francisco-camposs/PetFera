@@ -25,6 +25,7 @@ public:
 	string Tipo();
 
 	void inicializar_ave(int id);
+	void alterar_ave(string atributo);
 private:
 	ostream& print(ostream& os)const;
 };

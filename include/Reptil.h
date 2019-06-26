@@ -25,6 +25,7 @@ public:
 	string Tipo();
 
 	void inicializar_reptil(int id);
+	void alterar_reptil(string atributo);
 private:
 	ostream& print(ostream& os)const;
 };

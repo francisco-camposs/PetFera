@@ -68,3 +68,8 @@ void AnfibioExotico::inicializar_animal(int id){
 	inicializar_anfibio(id);
 	inicializar_exotico();
 };
+
+void AnfibioExotico::alterar_animal(string atributo){
+	alterar_anfibio(atributo);
+	alterar_exotico(atributo);
+};

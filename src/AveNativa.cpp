@@ -71,3 +71,8 @@ void AveNativa::inicializar_animal(int id){
 	inicializar_ave(id);
 	inicializar_nativo();
 };
+
+void AveNativa::alterar_animal(string atributo){
+	alterar_ave(atributo);
+	alterar_nativo(atributo);
+};

@@ -77,3 +77,8 @@ void InsetoNativo::inicializar_animal(int id){
 	inicializar_inseto(id);
 	inicializar_nativo();
 };
+
+void InsetoNativo::alterar_animal(string atributo){
+	alterar_inseto(atributo);
+	alterar_nativo(atributo);
+};

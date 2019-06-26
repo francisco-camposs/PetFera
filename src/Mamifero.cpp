@@ -79,12 +79,21 @@ ostream& Mamifero::print(ostream& os)const{
 void Mamifero::inicializar_mamifero(int id){
 	this->inicializar("Mammalia", id);
 
-	char * valor = new char;
+	string cor_do_pelo;
 
 	cout << "Digite a cor do pêlo do mamífero: " << endl;
-	cin.clear();
-	cin.getline(valor,20);
-	m_cor_do_pelo = static_cast<string>(valor);
+	cor_do_pelo = input.inputString();
 
-	this->set_m_cor_do_pelo(m_cor_do_pelo);
+	this->set_m_cor_do_pelo(cor_do_pelo);
+};
+
+void Mamifero::alterar_mamifero(string atributo){
+	if(!atributo.compare("cor do pelo")){
+		cout << "Digite a cor do pêlo do mamífero: " << endl;
+		atributo = input.inputString();
+		this->set_m_cor_do_pelo(atributo);
+	}
+	else{
+		alterar(atributo);
+	}
 };

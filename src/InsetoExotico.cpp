@@ -79,3 +79,8 @@ void InsetoExotico::inicializar_animal(int id){
 	inicializar_inseto(id);
 	inicializar_exotico();
 };
+
+void InsetoExotico::alterar_animal(string atributo){
+	alterar_inseto(atributo);
+	alterar_exotico(atributo);
+};

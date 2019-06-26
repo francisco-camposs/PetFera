@@ -49,3 +49,22 @@ void AnimalExotico::inicializar_exotico(){
 	cidade_origem = input.inputString();
 	this->set_cidade_origem(cidade_origem);
 };
+
+void AnimalExotico::alterar_exotico(string atributo){
+	TratamentoInput input;
+	if (!atributo.compare("ibama")){
+		cout << "Digite a autorização do Ibama: " << endl;
+		atributo = input.inputString();
+		this->set_autorizacao_ibama(atributo);
+	}
+	else if (!atributo.compare("pais de origem")){
+		cout << "Digite o país de origem: " << endl;
+		atributo = input.inputString();
+		this->m_pais_origem = (atributo);
+	}
+	else if (!atributo.compare("cidade de origem")){
+		cout << "Digite a cidade de origem: " << endl;
+		atributo = input.inputString();
+		this->set_cidade_origem(atributo);
+	}
+};

@@ -72,3 +72,8 @@ void PeixeExotico::inicializar_animal(int id){
 	inicializar_peixe(id);
 	inicializar_exotico();
 };
+
+void PeixeExotico::alterar_animal(string atributo){
+	alterar_peixe(atributo);
+	alterar_exotico(atributo);
+};

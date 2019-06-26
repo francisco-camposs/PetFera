@@ -370,7 +370,159 @@ void Controle::remover_animal(){
 }
 
 void Controle::alterar_animal(){
+	TratamentoInput input;
+	string atributo;
 
+	cout<< "Digite o id do animal a ser alterado: ";
+	int id_a = input.inputInt();
+
+	auto it = animais_m.find(id_a);
+	while(it == animais_m.end()){
+		cout<< "Animais não encontrado!" <<endl;
+		cout<<"Digite o id novamente: ";
+		id_a = input.inputInt();
+		it = animais_m.find(id_a);
+	}
+	cout<<endl;
+	cout<<"Digite o atributo a ser alterado:"<<endl;
+	cout<<"-nome cientifico"<<endl;
+	cout<<"-sexo"<<endl;
+	cout<<"-veterinario"<<endl;
+	cout<<"-tratador"<<endl;
+	cout<<"-tamanho do animal"<<endl;
+	cout<<"-dieta"<<endl;
+	cout<<"-nome de batismo"<<endl;
+	string tipo = it->second->Tipo();
+
+	if(!tipo.compare("AnfibioDomestico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+	}
+	else if(!tipo.compare("AnfibioNativo")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("AnfibioExotico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("AveDomestica")){
+		cout<<"-tamanho do bico"<<endl;
+		cout<<"-envergadura das asas"<<endl;
+	}
+	else if(!tipo.compare("AveNativa")){
+		cout<<"-tamanho do bico"<<endl;
+		cout<<"-envergadura das asas"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("AveExotica")){
+		cout<<"-tamanho do bico"<<endl;
+		cout<<"-envergadura das asas"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("AracnideoDomestico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+	}
+	else if(!tipo.compare("AracnideoNativo")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("AracnideoExotico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("InsetoDomestico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de metamorfose"<<endl;
+	}
+	else if(!tipo.compare("InsetoNativo")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de metamorfose"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("InsetoExotico")){
+		cout<<"-total de mudas"<<endl;
+		cout<<"-data da última muda (data)"<<endl;
+		cout<<"-tipo de metamorfose"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("MamiferoDomestico")){
+		cout<<"-cor do pelo"<<endl;
+	}
+	else if(!tipo.compare("MamiferoNativo")){
+		cout<<"-cor do pelo"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("MamiferoExotico")){
+		cout<<"-cor do pelo"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("PeixeDomestico")){
+		cout<<"-tipo de agua"<<endl;
+	}
+	else if(!tipo.compare("PeixeNativo")){
+		cout<<"-tipo de agua"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("PeixeExotico")){
+		cout<<"-tipo de agua"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	else if(!tipo.compare("ReptilDomestico")){
+		cout<<"-venenoso"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+	}
+	else if(!tipo.compare("ReptilNativo")){
+		cout<<"-venenoso"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-uf de origem"<<endl;
+	}
+	else if(!tipo.compare("ReptilExotico")){
+		cout<<"-venenoso"<<endl;
+		cout<<"-tipo de veneno"<<endl;
+		cout<<"-autorização do Ibama (ibama)"<<endl;
+		cout<<"-pais de origem"<<endl;
+		cout<<"-cidade de origem"<<endl;
+	}
+	atributo = input.inputString();
+
+	if(!atributo.compare("veterinario")){
+		definir_responsavel(it->second, "Veterinario");
+	}
+	else if(!atributo.compare("tratador")){
+		definir_responsavel(it->second, "Tratador");
+	}
+	else
+		it->second->alterar_animal(atributo);
 }
 
 void Controle::consultar_animais(){

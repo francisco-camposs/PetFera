@@ -88,7 +88,6 @@ ostream& Reptil::print(ostream& os)const{
 void Reptil::inicializar_reptil(int id){
 	this->inicializar("Reptilia", id);
 
-	char * valor = new char;
 	bool venenoso;
 	string tipo_veneno;
 
@@ -98,13 +97,33 @@ void Reptil::inicializar_reptil(int id){
 
 	if(venenoso){
 		cout << "Digite o tipo de veneno do réptil: " << endl;
-		cin.clear();
-		cin.getline(valor,50);
-		tipo_veneno = static_cast<string>(valor);
+		tipo_veneno = input.inputString();
 	}
 	else 
 		tipo_veneno = " - ";
 
 	this->set_venenoso(venenoso);
 	this->set_tipo_veneno(tipo_veneno);
+};
+
+void Reptil::alterar_reptil(string atributo){
+	bool venenoso;
+
+	if(!atributo.compare("venenoso")){
+		cout << "O Réptil é venenoso?" << endl;
+		cout << "\t0 - Não" << endl << "\t1 - Sim" << endl;
+		venenoso = input.inputInt();
+
+		if(!venenoso){ 
+			this->set_tipo_veneno(" - ");
+		}
+	}
+	else if(!atributo.compare("tipo de veneno")){
+		cout << "Digite o tipo de veneno do réptil: " << endl;
+		atributo = input.inputString();
+		this->set_tipo_veneno(atributo);
+	}
+	else{
+		alterar(atributo);
+	}
 };

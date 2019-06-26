@@ -73,3 +73,8 @@ void AveExotica::inicializar_animal(int id){
 	inicializar_ave(id);
 	inicializar_exotico();
 };
+
+void AveExotica::alterar_animal(string atributo){
+	alterar_ave(atributo);
+	alterar_exotico(atributo);
+};

@@ -62,3 +62,7 @@ ostream& InsetoDomestico::print(ostream& os)const{
 void InsetoDomestico::inicializar_animal(int id){
 	inicializar_inseto(id);
 };
+
+void InsetoDomestico::alterar_animal(string atributo){
+	alterar_inseto(atributo);
+};

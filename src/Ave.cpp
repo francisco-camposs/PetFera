@@ -89,11 +89,27 @@ void Ave::inicializar_ave(int id){
 	this->inicializar("Aves", id);
 
 	cout << "Digite o tamanho do bico da ave: " << endl;
-	m_tamanho_do_bico = input.inputInt();
+	int tamanho_do_bico = input.inputInt();
 
 	cout << "Digite o tamanho da envergadura das asas: " << endl;
-	m_envergadura_das_asas = input.inputInt();
+	int envergadura_das_asas = input.inputInt();
 
-	this->set_tamanho_do_bico(m_tamanho_do_bico);
-	this->set_envergadura_das_asas(m_envergadura_das_asas);
+	this->set_tamanho_do_bico(tamanho_do_bico);
+	this->set_envergadura_das_asas(envergadura_das_asas);
+};
+
+void Ave::alterar_ave(string atributo){
+	if(!atributo.compare("tamanho do bico")){
+		cout << "Digite o tamanho do bico da ave: " << endl;
+		double tamanho_do_bico = input.inputInt();
+		this->set_tamanho_do_bico(tamanho_do_bico);
+	}
+	else if(!atributo.compare("envergadura das asas")){
+		cout << "Digite o tamanho da envergadura das asas: " << endl;
+		double envergadura_das_asas = input.inputInt();
+		this->set_envergadura_das_asas(envergadura_das_asas);
+	}
+	else{
+		alterar(atributo);
+	}
 };
