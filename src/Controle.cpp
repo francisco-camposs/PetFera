@@ -23,7 +23,6 @@ Controle::Controle(){
 		cerr<<"O arquivo de funcionários não foi aberto!!!"<<endl;
 		return;
 	}
-	//getline(archive, line);
 	shared_ptr<Funcionario> funcionario;
 
 	while(getline(archive, line)){
@@ -39,7 +38,6 @@ Controle::Controle(){
 		cerr<<"O arquivo de animais não foi aberto!!!"<<endl;
 		return;
 	}
-	//getline(archive, line);
 	shared_ptr<Animal> bicho;
 
 	while(getline(archive, line)){
@@ -104,19 +102,16 @@ Controle::~Controle(){
 
 // Métodos privados para validar tipos
 void Controle::definir_responsavel(shared_ptr<Animal> &bicho, string funcao){
+	TratamentoInput input;
+
 	cout << "Digite o id do "<<funcao<<": " << endl;
-	char *valor = new char;
-	cin.clear();
-	cin.getline(valor, 50);
-	int id = is_number(valor);
+	int id = input.inputInt();
 
 	auto it = funcionarios_m.find(id);
 	while(it == funcionarios_m.end() or it->second->Tipo().compare(funcao) ){
 		cout<< funcao <<"não encontrado!"<<endl;
 		cout<<"Digite o id novamente: ";
-		cin.clear();
-		cin.getline(valor, 50);
-		id = is_number(valor);
+		id = input.inputInt();
 		it = funcionarios_m.find(id);
 	}
 
@@ -128,7 +123,6 @@ void Controle::definir_responsavel(shared_ptr<Animal> &bicho, string funcao){
 		shared_ptr<Tratador> f = dynamic_pointer_cast<Tratador>(it->second);
 		bicho->set_m_tratador(f);
 	}
-	delete valor;
 };
 
 int Controle::is_number(char * number){
@@ -524,22 +518,18 @@ void Controle::alterar_animal(){
 }
 
 void Controle::consultar_animais(){
-	char* valor = new char;
+	TratamentoInput input;
 	int option;
 	int id;
 	cout << "Digite a opção desejada: " << endl;
 	cout << "\t 1 - Consultar todos os animais;" << endl;
 	cout << "\t 2 - Consultar animal por id;" << endl;
 
-	cin.clear();
-	cin.getline(valor,20);
-	option = is_number(valor);
+	option = input.inputInt();
 
 	while(option < 1 || option > 2){
 		cout << "Esse opção não é valida, tente novamente: " << endl;
-		cin.clear();
-		cin.getline(valor,20);
-		option = is_number(valor);
+		option = input.inputInt();
 	}
 
 	if(option == 1){
@@ -548,9 +538,7 @@ void Controle::consultar_animais(){
 	}
 	else if(option == 2){
 		cout << "Digite o id do animal: " << endl;
-		cin.clear();
-		cin.getline(valor, 50);
-		id = is_number(valor);
+		id = input.inputInt();
 
 		auto it = animais_m.find(id);
 		if(it == animais_m.end())
@@ -691,22 +679,18 @@ void Controle::salvar_alteracoes(){
 }
 
 void Controle::consultar_funcionario(){
-	char* valor = new char;
+	TratamentoInput input;
 	int option;
 	int id;
 	cout << "Digite a opção desejada: " << endl;
 	cout << "\t 1 - Consultar todos os funcionários;" << endl;
 	cout << "\t 2 - Consultar funcionário por id;" << endl;
 
-	cin.clear();
-	cin.getline(valor,20);
-	option = is_number(valor);
+	option = input.inputInt();
 
 	while(option < 1 || option > 2){
 		cout << "Esse opção não é valida, tente novamente: " << endl;
-		cin.clear();
-		cin.getline(valor,20);
-		option = is_number(valor);
+		option = input.inputInt();;
 	}
 
 	if(option == 1){
@@ -715,9 +699,7 @@ void Controle::consultar_funcionario(){
 	}
 	else if(option == 2){
 		cout << "Digite o id do funcionario: " << endl;
-		cin.clear();
-		cin.getline(valor, 50);
-		id = is_number(valor);
+		id = input.inputInt();;
 
 		auto it = funcionarios_m.find(id);
 		if(it == funcionarios_m.end())
@@ -725,8 +707,6 @@ void Controle::consultar_funcionario(){
 		else
 			cout << *it->second << endl << endl;
 	}
-
-	delete[] valor;
 }
 
 bool Controle::funcionario_valido(){

@@ -45,7 +45,7 @@ CC_LIB_FLAGS = -O0         \
          -fPIC
 
 
-text = 	"Como executar o programa: ./ex"
+text = 	"Como executar o programa: <make PetFera> ou <./bin/PetFera>"
 
 #Os objetivos all, main.o e Sapo.o são para a compilação
 all: $(project_name)
@@ -310,6 +310,9 @@ build/_Tratamento.o: src/Tratamento.cpp
 
 build/_ExcecoesInput.o: src/ExcecoesInput.cpp
 	$(cc) $(CC_LIB_FLAGS) src/ExcecoesInput.cpp && mv ExcecoesInput.o build
+
+PetFera: $(project_name)
+	./bin/PetFera
 
 #Remove os arquivos .o da pasta
 clean:

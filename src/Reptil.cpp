@@ -117,6 +117,7 @@ void Reptil::alterar_reptil(string atributo){
 		if(!venenoso){ 
 			this->set_tipo_veneno(" - ");
 		}
+		this->set_venenoso(venenoso);
 	}
 	else if(!atributo.compare("tipo de veneno")){
 		cout << "Digite o tipo de veneno do réptil: " << endl;
