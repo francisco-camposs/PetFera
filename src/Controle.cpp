@@ -146,8 +146,6 @@ int Controle::is_number(char * number){
 	return stoi(number);
 };
 
-
-
 void Controle::adicionar_animal(){
 	TratamentoInput input;
 	if (!(funcionario_valido())){

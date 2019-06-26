@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "ExcecoesInput.h"
 
 using namespace std;
 

@@ -12,7 +12,7 @@ o_archives = build/Funcionario.o build/Animal.o build/Tratador.o\
 			 build/PeixeExotico.o build/ReptilDomestico.o build/ReptilNativo.o \
 			 build/ReptilExotico.o build/AveDomestica.o build/AveNativa.o build/AveExotica.o \
 			 build/AnimalDomestico.o build/AnimalSilvestre.o build/AnimalNativo.o build/AnimalExotico.o \
-			 build/Controle.o build/Tratamento.o build/TratamentoInput.o
+			 build/Controle.o build/Tratamento.o build/TratamentoInput.o build/ExcecoesInput.o
 
 o_lib_archives = build/_Funcionario.o build/_Animal.o build/_Tratador.o\
 			 build/_Veterinario.o build/_Mamifero.o build/_Anfibio.o build/_Aracnideo.o build/_date.o\
@@ -24,7 +24,7 @@ o_lib_archives = build/_Funcionario.o build/_Animal.o build/_Tratador.o\
 			 build/_PeixeExotico.o build/_ReptilDomestico.o build/_ReptilNativo.o \
 			 build/_ReptilExotico.o build/_AveDomestica.o build/_AveNativa.o build/_AveExotica.o \
 			 build/_AnimalDomestico.o build/_AnimalSilvestre.o build/_AnimalNativo.o build/_AnimalExotico.o \
-			 build/_Controle.o build/_Tratamento.o build/_TratamentoInput.o
+			 build/_Controle.o build/_Tratamento.o build/_TratamentoInput.o build/_ExcecoesInput.o
 
 
 # Compilador
@@ -52,7 +52,7 @@ all: $(project_name)
 	@echo $(text)
 
 $(project_name): $(o_archives) build/main.o
-	$(cc) $(CC_FLAGS) $(o_archives) -o $(project_name)
+	$(cc) $(CC_FLAGS) $(o_archives) build/main.o -o $(project_name)
 
 build/main.o: src/main.cpp
 	$(cc) $(CC_FLAGS) src/main.cpp -c && mv main.o build
@@ -177,10 +177,13 @@ build/Tratamento.o: src/Tratamento.cpp
 build/TratamentoInput.o: src/TratamentoInput.cpp
 	$(cc) $(CC_FLAGS) src/TratamentoInput.cpp -c && mv TratamentoInput.o build
 
+build/ExcecoesInput.o: src/ExcecoesInput.cpp
+	$(cc) $(CC_FLAGS) src/ExcecoesInput.cpp -c && mv ExcecoesInput.o build
+
 
 # Criar extrator
 Exportar: build/Exportar.o
-	$(cc) $(CC_FLAGS) build/Exportar.o -o $(project_name)
+	$(cc) $(CC_FLAGS) -L lib/ lib/PetFera.so build/Exportar.o -o Exportar
 
 build/Exportar.o: src/Exportar.cpp
 	$(cc) $(CC_FLAGS) src/Exportar.cpp -c && mv Exportar.o build
@@ -310,6 +313,9 @@ build/_Controle.o: src/Controle.cpp
 
 build/_Tratamento.o: src/Tratamento.cpp
 	$(cc) $(CC_LIB_FLAGS) src/Tratamento.cpp && mv Tratamento.o build
+
+build/_ExcecoesInput.o: src/ExcecoesInput.cpp
+	$(cc) $(CC_LIB_FLAGS) src/ExcecoesInput.cpp && mv ExcecoesInput.o build
 
 #Remove os arquivos .o da pasta
 clean:

@@ -2,14 +2,23 @@
 
 double TratamentoInput::is_number(char * number){
 	int i = 0;
-	string name = number;
+	string name;
 	while(name.size() == 0 or number[i] != '\0'){
-		if (!(number[i] == 46 or (int(number[i]) > 47 and int(number[i]) < 58))){
+		try {
+			if (!(number[i] == 46 or (int(number[i]) > 47 and int(number[i]) < 58))){
+				throw NaoENumero();
+			}
+		}
+		catch (NaoENumero &ex){
+			cerr << ex.what() << endl;
 			i = 0;
-			cout << "Isso não é um número, tente novamente: " << endl;
 			cin.clear();
 			cin.getline(number,300);
 			name = number;
+		}
+		catch (...){
+			cerr << "Não é possível converter.Iremos retornar o valor zero." << endl;
+			return 0;
 		}
 		i++;
 	}
