@@ -561,7 +561,17 @@ void Controle::consultar_animais(){
 }
 
 void Controle::consultar_animais_por_funcionario(){
+	int option_1;
+	TratamentoInput input;
 
+	cout << "Digite o id do funcionário: " << endl;
+	option_1 = input.inputInt();
+
+	for(auto it = animais_m.begin(); it != animais_m.end(); it++){
+		if(it->second->get_m_tratador().get_id() == (funcionarios_m[option_1]->get_id()) or it->second->get_m_veterinario().get_id() == funcionarios_m[option_1]->get_id()){
+			cout << *it->second << endl;
+		}
+	}
 }
 		
 void Controle::adicionar_funcionario(){

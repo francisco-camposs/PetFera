@@ -180,15 +180,9 @@ build/TratamentoInput.o: src/TratamentoInput.cpp
 build/ExcecoesInput.o: src/ExcecoesInput.cpp
 	$(cc) $(CC_FLAGS) src/ExcecoesInput.cpp -c && mv ExcecoesInput.o build
 
-
 # Criar extrator
-Exportar: build/Exportar.o
-	$(cc) $(CC_FLAGS) -L lib/ lib/PetFera.so build/Exportar.o -o Exportar
-
-build/Exportar.o: src/Exportar.cpp
-	$(cc) $(CC_FLAGS) src/Exportar.cpp -c && mv Exportar.o build
-
-
+Exportar: $(o_archives) build/Exportar.o
+	$(cc) $(CC_FLAGS) $(o_archives) build/Exportar.o -o Exportar
 
 #Criação de biblioteca
 PetFera.so: $(o_lib_archives)
