@@ -71,3 +71,8 @@ void MamiferoExotico::inicializar_animal(int id){
 	inicializar_mamifero(id);
 	inicializar_exotico();
 };
+
+void MamiferoExotico::alterar_animal(string atributo){
+	alterar_mamifero(atributo);
+	alterar_exotico(atributo);
+};

@@ -78,3 +78,8 @@ void AracnideoExotico::inicializar_animal(int id){
 	inicializar_aracnideo(id);
 	inicializar_exotico();
 };
+
+void AracnideoExotico::alterar_animal(string atributo){
+	alterar_aracnideo(atributo);
+	alterar_exotico(atributo);
+};

@@ -17,6 +17,7 @@ public:
 	
 	void set_autorizacao_ibama(string autorizacao_ibama);
 	void inicializar_animal(int id);
+	void alterar_animal(string atributo);
 	string write();
 	string Tipo();
 private:

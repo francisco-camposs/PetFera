@@ -107,6 +107,7 @@ void Inseto::inicializar_inseto(int id){
 	int day;
 	int month;
 	int year;
+	string tipo_metamorfose;
 
 	cout << "Digite o número total de mudas do inseto: " << endl;
 	total_mudas = input.inputInt();
@@ -127,14 +128,50 @@ void Inseto::inicializar_inseto(int id){
 		ultima_muda.set_year(year);
 	}
 
-	char * valor = new char;
-
 	cout << "Digite o tipo de metamorfose do inseto: " << endl;
-	cin.clear();
-	cin.getline(valor,50);
-	m_tipo_metamorfose = static_cast<string>(valor);
+	tipo_metamorfose = input.inputString();
 
 	this->set_ultima_muda(ultima_muda);
 	this->set_total_de_mudas(total_mudas);
-	this->set_tipo_metamorfose(m_tipo_metamorfose);
+	this->set_tipo_metamorfose(tipo_metamorfose);
+};
+
+void Inseto::alterar_inseto(string atributo){
+	int total_mudas;
+	int day;
+	int month;
+	int year;
+
+	if(!atributo.compare("total de mudas")){
+		cout << "Digite o total de mudas: " << endl;
+		total_mudas = input.inputInt();
+		this->set_total_de_mudas(total_mudas);
+	}
+	else if(!atributo.compare("data")){
+		cout << "Digite a data da última muda (dd/mm/aa): " << endl;
+		day = input.inputInt();
+		month = input.inputInt();
+		year = input.inputInt();
+
+		date ultima_muda = date(day, month, year);
+
+		while(!ultima_muda.valid()){
+			cout<< "Data inválida, digite novamente: " << endl;
+			cin.clear();
+			cin >> day >> month >> year;
+			ultima_muda.set_day(day);
+			ultima_muda.set_month(month);
+			ultima_muda.set_year(year);
+		}
+
+		this->set_ultima_muda(ultima_muda);
+	}
+	else if(!atributo.compare("tipo de metamorfose")){
+		cout << "Digite o tipo de metamorfose do inseto: " << endl;
+		atributo = input.inputString();
+		this->set_tipo_metamorfose(atributo);
+	}
+	else{
+		alterar(atributo);
+	}
 };

@@ -55,3 +55,7 @@ ostream& MamiferoDomestico::print(ostream& os)const{
 void MamiferoDomestico::inicializar_animal(int id){
 	inicializar_mamifero(id);
 };
+
+void MamiferoDomestico::alterar_animal(string atributo){
+	alterar_mamifero(atributo);
+};

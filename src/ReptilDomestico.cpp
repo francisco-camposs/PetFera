@@ -59,3 +59,7 @@ ostream& ReptilDomestico::print(ostream& os)const{
 void ReptilDomestico::inicializar_animal(int id){
 	inicializar_reptil(id);
 };
+
+void ReptilDomestico::alterar_animal(string atributo){
+	alterar_reptil(atributo);
+};

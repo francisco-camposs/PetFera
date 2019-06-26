@@ -22,6 +22,7 @@ class Mamifero : public Animal {
 		string Tipo();
 
 		void inicializar_mamifero(int id);
+		void alterar_mamifero(string atributo);
 	private:
 		ostream& print(ostream& os)const;
 };

@@ -37,3 +37,16 @@ void AnimalNativo::inicializar_nativo(){
 	this->set_uf_origem(uf_origem);
 };
 
+void AnimalNativo::alterar_nativo(string atributo){
+	TratamentoInput input;
+	if (!atributo.compare("ibama")){
+		cout << "Digite a autorização do Ibama: " << endl;
+		atributo = input.inputString();
+		this->set_autorizacao_ibama(atributo);
+	}
+	else if (!atributo.compare("uf de origem")){
+		cout << "Digite a UF de origem: " << endl;
+		atributo = input.inputString();
+		this->set_uf_origem(atributo);
+	}
+};

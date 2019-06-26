@@ -55,3 +55,7 @@ ostream& AnfibioDomestico::print(ostream& os)const{
 void AnfibioDomestico::inicializar_animal(int id){
 	inicializar_anfibio(id);
 };
+
+void AnfibioDomestico::alterar_animal(string atributo){
+	alterar_anfibio(atributo);
+};

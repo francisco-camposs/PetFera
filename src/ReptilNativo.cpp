@@ -70,3 +70,8 @@ void ReptilNativo::inicializar_animal(int id){
 	inicializar_reptil(id);
 	inicializar_nativo();
 };
+
+void ReptilNativo::alterar_animal(string atributo){
+	alterar_reptil(atributo);
+	alterar_nativo(atributo);
+};

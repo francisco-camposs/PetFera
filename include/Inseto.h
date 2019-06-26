@@ -29,6 +29,7 @@ class Inseto : public Animal {
 	string Tipo();
 
 	void inicializar_inseto(int id);
+	void alterar_inseto(string atributo);
   private:
 	ostream& print(ostream& os)const;
 };

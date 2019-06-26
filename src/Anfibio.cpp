@@ -118,3 +118,38 @@ void Anfibio::inicializar_anfibio(int id){
 	this->set_ultima_muda(ultima_muda);
 	this->set_total_de_mudas(total_mudas);
 };
+
+void Anfibio::alterar_anfibio(string atributo){
+	int day;
+	int month;
+	int year;
+
+	if(!atributo.compare("total de mudas")){
+		cout << "Digite o número total de mudas do anfíbio: " << endl;
+		int total_mudas = input.inputInt();
+		this->set_total_de_mudas(total_mudas);
+	}
+	else if (!atributo.compare("data")){
+		cout<< "Digite a data da última muda (dd/mm/aa): " << endl;
+		day = input.inputInt();
+		month = input.inputInt();
+		year = input.inputInt();
+
+		date ultima_muda = date(day, month, year);
+
+		while(!ultima_muda.valid()){
+			cout<< "Data inválida, digite novamente: " << endl;
+			cin.clear();
+			cin >> day >> month >> year;
+			ultima_muda.set_day(day);
+			ultima_muda.set_month(month);
+			ultima_muda.set_year(year);
+		}
+
+		this->set_ultima_muda(ultima_muda);
+	}
+	else{
+		alterar(atributo);
+	}
+
+};

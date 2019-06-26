@@ -22,6 +22,7 @@ class Peixe : public Animal{
 	string Tipo();
 
 	void inicializar_peixe(int id);
+	void alterar_peixe(string atributo);
   private:
 	ostream& print(ostream& os)const;
 };

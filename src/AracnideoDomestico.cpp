@@ -62,3 +62,7 @@ ostream& AracnideoDomestico::print(ostream& os)const{
 void AracnideoDomestico::inicializar_animal(int id){
 	inicializar_aracnideo(id);
 };
+
+void AracnideoDomestico::alterar_animal(string atributo){
+	alterar_aracnideo(atributo);
+};

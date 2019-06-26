@@ -58,3 +58,7 @@ ostream& AveDomestica::print(ostream& os)const{
 void AveDomestica::inicializar_animal(int id){
 	inicializar_ave(id);
 };
+
+void AveDomestica::alterar_animal(string atributo){
+	alterar_ave(atributo);
+};

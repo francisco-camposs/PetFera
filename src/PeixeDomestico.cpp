@@ -55,3 +55,7 @@ ostream& PeixeDomestico::print(ostream& os)const{
 void PeixeDomestico::inicializar_animal(int id){
 	inicializar_peixe(id);
 };
+
+void PeixeDomestico::alterar_animal(string atributo){
+	alterar_peixe(atributo);
+};

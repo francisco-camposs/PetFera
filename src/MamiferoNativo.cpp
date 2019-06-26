@@ -67,3 +67,8 @@ void MamiferoNativo::inicializar_animal(int id){
 	inicializar_mamifero(id);
 	inicializar_nativo();
 };
+
+void MamiferoNativo::alterar_animal(string atributo){
+	alterar_mamifero(atributo);
+	alterar_nativo(atributo);
+};

@@ -126,4 +126,45 @@ void Animal::inicializar(string classe, int id){
 	cout << "Digite o nome de batismo do animal: " << endl;
 	nome = input.inputString();
 	this->set_m_nome_batismo(nome);
+	delete[] sexo;
+};
+
+void Animal::alterar(string atributo){
+	char* sexo = new char;
+
+	if(!atributo.compare("nome cientifico")){
+		cout << "Digite o nome cientifico: " << endl;
+		atributo = input.inputString();
+		this->set_m_nome_cientifico(atributo);
+	}
+
+	else if(!atributo.compare("sexo")){
+		cout << "Digite o sexo do animal, M para macho e F para femea: " << endl;
+		sexo = input.inputChar();
+		while(*sexo != 'F' && *sexo != 'M'){
+			cout << "Sexo inválido, digite novamente: " << endl;
+			sexo = input.inputChar();
+		}
+		cout << "Sexo: " << *sexo << endl;
+		this->set_m_sexo(*sexo);
+	}
+
+	else if(!atributo.compare("tamanho do animal")){
+		cout << "Digite o tamanho do animal: " << endl;
+		double tam = input.inputDouble();
+		this->set_m_tamanho(tam);
+	}
+
+	else if(!atributo.compare("dieta")){
+		cout << "Digite a dieta do animal: " << endl;
+		atributo = input.inputString();
+		this->set_m_dieta(atributo);
+	}
+
+	else if(!atributo.compare("nome de batismo")){
+		cout << "Digite o nome de batismo do animal: " << endl;
+		atributo = input.inputString();
+		this->set_m_nome_batismo(atributo);
+	}
+	delete[] sexo;
 };

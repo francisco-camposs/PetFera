@@ -69,3 +69,8 @@ void PeixeNativo::inicializar_animal(int id){
 	inicializar_peixe(id);
 	inicializar_nativo();
 };
+
+void PeixeNativo::alterar_animal(string atributo){
+	alterar_peixe(atributo);
+	alterar_nativo(atributo);
+};

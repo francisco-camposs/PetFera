@@ -18,6 +18,7 @@ class AracnideoDomestico : public Aracnideo, public AnimalDomestico {
 	string write();
 	string Tipo();
 	void inicializar_animal(int id);
+	void alterar_animal(string atributo);
   private:
 	ostream& print(ostream& os)const;
 };

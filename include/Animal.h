@@ -55,7 +55,9 @@ class Animal {
 		virtual string write() = 0;
 		virtual string Tipo() = 0;
 		virtual void inicializar_animal(int id) = 0;
+		virtual void alterar_animal(string atributo) = 0;
 		void inicializar(string classe, int id);
+		void alterar(string atributo);
 
 		friend ostream& operator<<(ostream& os, const Animal& a){
 			return a.print(os);

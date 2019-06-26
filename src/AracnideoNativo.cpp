@@ -75,3 +75,8 @@ void AracnideoNativo::inicializar_animal(int id){
 	inicializar_aracnideo(id);
 	inicializar_nativo();
 };
+
+void AracnideoNativo::alterar_animal(string atributo){
+	alterar_aracnideo(atributo);
+	alterar_nativo(atributo);
+};

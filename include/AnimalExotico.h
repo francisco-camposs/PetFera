@@ -21,6 +21,7 @@ class AnimalExotico : public AnimalSilvestre {
 		string get_pais_origem();
 		string get_cidade_origem();
 		void inicializar_exotico();
+		void alterar_exotico(string atributo);
 };
 
 #endif

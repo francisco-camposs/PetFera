@@ -83,12 +83,21 @@ ostream& Peixe::print(ostream& os)const{
 void Peixe::inicializar_peixe(int id){
 	this->inicializar("Gnathostomata", id);
 
-	char * valor = new char;
+	string tipo_agua;
 
 	cout << "Digite o tipo de água do peixe: " << endl;
-	cin.clear();
-	cin.getline(valor,20);
-	m_tipo_agua = static_cast<string>(valor);
+	tipo_agua = input.inputString();
 
-	this->set_tipo_agua(m_tipo_agua);
+	this->set_tipo_agua(tipo_agua);
+};
+
+void Peixe::alterar_peixe(string atributo){
+	if(!atributo.compare("tipo de agua")){
+		cout << "Digite o tipo de água do peixe: " << endl;
+		atributo = input.inputString();
+		this->set_tipo_agua(atributo);
+	}
+	else{
+		alterar(atributo);
+	}
 };

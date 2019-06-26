@@ -67,3 +67,8 @@ void AnfibioNativo::inicializar_animal(int id){
 	inicializar_anfibio(id);
 	inicializar_nativo();
 };
+
+void AnfibioNativo::alterar_animal(string atributo){
+	alterar_anfibio(atributo);
+	alterar_nativo(atributo);
+};
