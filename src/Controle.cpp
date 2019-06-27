@@ -1,4 +1,5 @@
 #include "Controle.h"
+#include <new>
 
 using namespace std;
 
@@ -23,13 +24,20 @@ Controle::Controle(){
 		cerr<<"O arquivo de funcionários não foi aberto!!!"<<endl;
 		return;
 	}
-	shared_ptr<Funcionario> funcionario;
 
-	while(getline(archive, line)){
-		funcionario = tratamento.Tratamento_Construtor_Funcionario(line);
-		if(funcionario != NULL)
-			funcionarios_m[funcionario->get_id()] = funcionario;
+	try{
+		shared_ptr<Funcionario> funcionario;
+
+		while(getline(archive, line)){
+			funcionario = tratamento.Tratamento_Construtor_Funcionario(line);
+			if(funcionario != NULL)
+				funcionarios_m[funcionario->get_id()] = funcionario;
+		}
 	}
+	catch (bad_alloc& ba){
+    	cerr << "Falha ao alocar memória: " << ba.what() << endl;
+  	}
+
 	archive.close();
 
 	//Leitura dos Animais
@@ -38,13 +46,20 @@ Controle::Controle(){
 		cerr<<"O arquivo de animais não foi aberto!!!"<<endl;
 		return;
 	}
-	shared_ptr<Animal> bicho;
 
-	while(getline(archive, line)){
-		bicho = tratamento.Tratamento_Construtor_Animal(line, funcionarios_m);
-		if(bicho != NULL)
-			animais_m[bicho->get_m_id()] = bicho;
+	try{
+		shared_ptr<Animal> bicho;
+
+		while(getline(archive, line)){
+			bicho = tratamento.Tratamento_Construtor_Animal(line, funcionarios_m);
+			if(bicho != NULL)
+				animais_m[bicho->get_m_id()] = bicho;
+		}
 	}
+	catch (bad_alloc& ba){
+    	cerr << "Falha ao alocar memória: " << ba.what() << endl;
+  	}
+
 	archive.close();
 };
 
