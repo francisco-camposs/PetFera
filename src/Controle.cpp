@@ -746,3 +746,77 @@ bool Controle::funcionario_valido(){
 
 	return (Trat and Vet);
 };
+
+void Controle::filtro(string arquivo, string classe, string id_Tratador, string id_Veterinario){
+	list<shared_ptr<Animal>> filtrado;
+	int id;
+	for(auto it = animais_m.begin(); it != animais_m.end(); it++){
+		if (classe != "A"){
+			if (it->second->Tipo() == classe){
+				filtrado.push_back(it->second);
+			}
+		}
+		else{
+			filtrado.push_back(it->second);
+		}
+	}
+
+	if (id_Tratador != "A"){
+		try {
+			id = stoi(id_Tratador);
+		}
+		catch (invalid_argument &ex){
+			cout << "Tratador inválido." << endl;
+			return;
+		}
+		for(auto it = filtrado.begin(); it != filtrado.end() and !(filtrado.empty()); it++){
+			if((*it)->get_m_tratador().get_id() != id){
+				filtrado.erase(it);
+				it--;
+			}
+		}
+	}
+
+	if (id_Veterinario != "A"){
+		try {
+			id = stoi(id_Veterinario);
+		}
+		catch (invalid_argument &ex){
+			cout << "Veterinario inválido." << endl;
+			return;
+		}
+
+	
+		for(auto it = filtrado.begin(); it != filtrado.end(); it++){
+			if((*it)->get_m_veterinario().get_id() and !(filtrado.empty()) != id){
+				filtrado.erase(it);
+				it--;
+			}
+		}
+	}
+
+
+	if(int(arquivo.find(".csv")) == -1){
+		arquivo += ".csv";
+	}
+
+	string arquivo_ = ("rm -rf " + arquivo);
+	system (arquivo_.c_str());
+	arquivo_ = ("touch " + arquivo);
+	system (arquivo_.c_str());
+
+	ofstream arq(arquivo, ios::app | ios::binary);
+	if(arq.bad()){
+		cerr<<"Arquivo nao foi aberto"<<endl;
+		return;
+	}
+
+	for(auto it = filtrado.begin(); it != filtrado.end(); it++){
+		arq << (*it)->write();
+	}
+
+	arq.close();
+
+
+	return;
+};

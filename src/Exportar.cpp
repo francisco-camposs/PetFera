@@ -4,6 +4,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+	Controle controle;
 	string * arg = new string[argc];
 	string arquivo = "A";
 	string id_Tratador = "A";
@@ -51,9 +52,8 @@ int main(int argc, char const *argv[])
 			}
 		}
 	}
-	cout << "Arquivo: " << arquivo << endl;
-	cout << "id_Tratador: " << id_Tratador<< endl;
-	cout << "id_Veterinario: " << id_Veterinario<< endl;
-	cout << "classe: " << classe<< endl;
+	controle.filtro(arquivo, classe, id_Tratador, id_Veterinario);
+
+	delete[] arg;
 	return 0;
 }

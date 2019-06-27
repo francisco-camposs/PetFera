@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <exception>
 #include <map>
+#include <list>
 
 #include "Tratamento.h"
 
@@ -41,6 +43,7 @@ using namespace std;
 			void consultar_funcionario();
 			bool funcionario_valido();
 			int definir_id();
+			void filtro(string arquivo, string classe = "A",string id_Tratador = "A", string id_Veterinario = "A");
 
 };
 #endif
