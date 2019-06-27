@@ -52,6 +52,12 @@ int main(int argc, char const *argv[])
 			}
 		}
 	}
+
+	if (arquivo == "A"){
+		cout << "Nenhum nome de arquivo inserido." << endl;
+		return;
+	}
+
 	controle.filtro(arquivo, classe, id_Tratador, id_Veterinario);
 
 	delete[] arg;
