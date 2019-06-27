@@ -184,6 +184,9 @@ build/ExcecoesInput.o: src/ExcecoesInput.cpp
 Exportar: $(o_archives) build/Exportar.o
 	$(cc) $(CC_FLAGS) $(o_archives) build/Exportar.o -o Exportar
 
+build/Exportar.o: src/Exportar.cpp
+	$(cc) $(CC_FLAGS) src/Exportar.cpp -c && mv Exportar.o build
+
 #Criação de biblioteca
 PetFera.so: $(o_lib_archives)
 	$(cc) -shared -o PetFera.so $(o_archives) && mv PetFera.so lib
