@@ -55,7 +55,7 @@ int main(int argc, char const *argv[])
 
 	if (arquivo == "A"){
 		cout << "Nenhum nome de arquivo inserido." << endl;
-		return;
+		return 1;
 	}
 
 	controle.filtro(arquivo, classe, id_Tratador, id_Veterinario);
